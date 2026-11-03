@@ -33,12 +33,13 @@ jobs:
           node -e 'const v=require("./package.json").version; const tag=process.env.GITHUB_REF_NAME; if (tag !== "v" + v) { console.error("tag " + tag + " does not match v" + v); process.exit(1) }'
 
       - name: Check version is not published
+        id: check
         run: |
           name=$(node -p "require('./package.json').name")
           version=$(node -p "require('./package.json').version")
           if npm view "$name@$version" version >/dev/null 2>&1; then
-            echo "::error::$name@$version is already published; bump the version first."
-            exit 1
+            echo "published=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::$name@$version 已存在，跳过发布，仅做校验"
           fi
 
       - run: pnpm install --frozen-lockfile
@@ -46,6 +47,7 @@ jobs:
       # 走 npm CLI：Trusted Publishing（OIDC）以 npm 为官方路径。
       # npm 同样会跑 prepublishOnly（check / test / build），产物不进 git 但进 tarball。
       - name: Publish
+        if: steps.check.outputs.published != 'true'
         run: npm publish --access public --provenance
 
       - name: Verify published
