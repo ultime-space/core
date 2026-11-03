@@ -1,6 +1,6 @@
 {
   "name": "@ultime/core",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Ultime · core：平台无关的设计系统内核（seed → 树 → 快照）；Web 的 CSS 只是它的一个出口",
   "keywords": [
     "color-system",
@@ -86,7 +86,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vp test",
     "prepublishOnly": "pnpm build",
-    "prepare": "vp hooks enable --hooks-dir .githooks"
+    "prepare": "node -e \"if (require('fs').existsSync('.git')) require('child_process').execSync('vp hooks enable --hooks-dir .githooks', { stdio: 'inherit' })\""
   },
   "dependencies": {
     "@ultime/cli": "^0.1.0",
@@ -100,5 +100,6 @@
   },
   "engines": {
     "node": ">=22.18"
-  }
+  },
+  "packageManager": "pnpm@12.6.0"
 }

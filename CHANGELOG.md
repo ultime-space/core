@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2 - 2026-11-04
+
+- 仓库自带 `pnpm-lock.yaml` 并声明 `packageManager`，CI 用 `--frozen-lockfile`。
+- `prepare` 只在 git 仓库内启用钩子；从 git 或目录安装的消费者不会因缺 devDependencies 失败。
+
 ## 0.4.1 - 2026-11-04
 
 - 依赖改为已发布版本（`@ultime/cli@^0.1.0` / `@ultime/studio@^0.1.0`），独立 clone 可直接安装。

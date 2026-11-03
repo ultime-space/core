@@ -22,12 +22,12 @@ jobs:
         with:
           version: 12.6.0
 
-      # 暂时不开 cache：本仓还没有 pnpm-lock.yaml，setup-node 无文件可哈希
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: pnpm
 
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
 
       - run: pnpm check
 

@@ -1,3 +1,6 @@
 packages: ['.']
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@ultime/cli@0.1.0'
+  - '@ultime/studio@0.1.0'
