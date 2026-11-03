@@ -43,6 +43,21 @@ jobs:
 
       - run: pnpm install
 
-      # prepublishOnly 会跑 check / test / build，产物不进 git 但进 tarball
+      # 用 npm 发布：Trusted Publishing（OIDC）是 npm CLI 的能力，pnpm publish 会静默跳过。
+      # npm 同样会跑 prepublishOnly（check / test / build），产物不进 git 但进 tarball。
       - name: Publish
-        run: pnpm publish --access public --provenance --no-git-checks
+        run: npm publish --access public --provenance
+
+      - name: Verify published
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          for i in 1 2 3 4 5; do
+            if npm view "$name@$version" version >/dev/null 2>&1; then
+              echo "$name@$version 已在 registry 上"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::$name@$version 发布后查不到，检查 Publish 步骤日志"
+          exit 1
