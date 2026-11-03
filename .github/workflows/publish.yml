@@ -1,0 +1,48 @@
+name: publish
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # Trusted Publishing（OIDC）必需
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.6.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Upgrade npm for Trusted Publishing
+        run: npm install -g npm@11
+
+      - name: Check tag matches package version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          node -e 'const v=require("./package.json").version; const tag=process.env.GITHUB_REF_NAME; if (tag !== "v" + v) { console.error("tag " + tag + " does not match v" + v); process.exit(1) }'
+
+      - name: Check version is not published
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          if npm view "$name@$version" version >/dev/null 2>&1; then
+            echo "::error::$name@$version is already published; bump the version first."
+            exit 1
+          fi
+
+      - run: pnpm install
+
+      # prepublishOnly 会跑 check / test / build，产物不进 git 但进 tarball
+      - name: Publish
+        run: pnpm publish --access public --provenance --no-git-checks
