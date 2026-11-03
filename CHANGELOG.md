@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1 - 2026-11-04
+
+- 依赖改为已发布版本（`@ultime/cli@^0.1.0` / `@ultime/studio@^0.1.0`），独立 clone 可直接安装。
+- 包内补齐格式化与 lint 配置，`pnpm check` 不再依赖元仓根配置。
+
 ## 0.4.0 - 2026-11-04
 
 - 字号 seed 化：`fontSize = { base, steps }`，默认派生仍是 9 档，产物值不变。

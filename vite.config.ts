@@ -4,6 +4,17 @@ import { resolve } from 'node:path'
 const HERE = import.meta.dirname
 const at = (p: string) => resolve(HERE, p)
 
+/** 生成物与文档不参与格式化：改源重跑，不与脚本产物产生无意义 diff。 */
+const ignore = [
+  '**/node_modules/**',
+  '**/dist/**',
+  '**/*.md',
+  '*.css',
+  'kernel.json',
+  'tokens.json',
+  'tokens.dtcg.json',
+]
+
 /**
  * core 的库出口：把 TS 源码打成无依赖 ESM，供上层包消费。
  * token / kernel 产物**不在这里**：它们由 `scripts/build.ts` 确定性生成（可逐字节比对）。
@@ -11,6 +22,21 @@ const at = (p: string) => resolve(HERE, p)
 export default defineConfig({
   root: HERE,
   staged: { '*': 'vp check --fix' },
+  fmt: {
+    ignorePatterns: ignore,
+    semi: false,
+    singleQuote: true,
+    trailingComma: 'all',
+    printWidth: 120,
+  },
+  lint: {
+    ignorePatterns: ignore,
+    plugins: ['typescript'],
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+  },
   test: {
     include: ['tests/**/*.test.ts'],
     testTimeout: 20_000,
