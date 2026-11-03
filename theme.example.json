@@ -1,0 +1,82 @@
+{
+  // 项目 seed：只写要改的项，其余沿用 core 默认。
+  // 真源是「这份 seed + 引擎」；tokens.* 是派生快照，不要手改生成物。
+
+  "color": {
+    "primaryHue": 222,
+    // 0 = 墨色主色（默认）；>0 时主色承载品牌身份
+    "chromaRatio": 0,
+    "lightness": 0.67,
+    "onSide": { "light": "light", "dark": "dark" },
+    "onColors": { "light": "#FFFFFF", "dark": "#000000" },
+    "solidTarget": 4.5,
+    "modes": ["light", "dark"],
+    "contrastAllow": [],
+
+    // 色族只给基底色相；明度由 4.5:1 反解，彩度取色域上限 × 系数
+    "semantics": {
+      "danger": 0,
+      "warning": 30,
+      "success": 150,
+      "info": 210
+    },
+
+    "neutral": {
+      "preset": "neutral",
+      "fromTheme": { "chromaShare": 0 },
+      "stepRatio": "functional"
+    },
+
+    "surface": {
+      "canvasLight": "neutral.100",
+      "canvasDark": "neutral.950",
+      // 两端画布到各自极点取同一对比度
+      "canvasSymmetry": 1.2,
+      // 面阶目标：面对画布
+      "faceContrast": { "card": 1.1, "overlay": 1.14, "sunken": 1.07 },
+      "tintLight": "#FFFFFF",
+      "tintDark": "#FFFFFF",
+      "themeMix": 0,
+      "scrimAlpha": 0.42
+    }
+  },
+
+  "skeleton": {
+    // 圆角 = (n − 1) × base；与布局间距共用几何基
+    "radius": { "base": 4, "levels": 9 },
+    // 字号 = base + steps[n]；档数固定 9，steps 只能整体替换
+    "fontSize": { "base": 10, "steps": [0, 2, 4, 6, 8, 10, 14, 22, 30] },
+    "font": {
+      "family": "system-ui, \"PingFang SC\", sans-serif",
+      "mono": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    }
+  },
+
+  "light": {
+    // 官方全局预设：0° / 45° / 315°；仰角只影响影长
+    "azimuthAngle": 0,
+    "altitudeAngle": 60,
+    "blurBase": 8,
+    "blurRatio": 2,
+    "inkUnit": 4,
+    // 环境墨 / 主光偏色：默认省略；给出时 C ≤ 0.02
+    "ambientTint": null,
+    "lightTint": null,
+    "rimAlpha": 0.058,
+    "bevel": {
+      "light": { "highlight": 0.2, "shade": 0.14 },
+      "dark": { "highlight": 0.14, "shade": 0.2 }
+    }
+  },
+
+  "motion": {
+    // 100ms 起步、100ms 步进；档数由引擎派生
+    "duration": { "unit": 100, "count": 6 },
+    // 循环不是更长的过渡：1s / 2s / 4s
+    "loop": { "base": 1000, "ratio": 2, "count": 3 },
+    // 延迟只服务编排：50 / 100 / 200
+    "delay": { "base": 50, "ratio": 2, "count": 3 },
+    // t = 0.42 同时等于 CSS ease-in-out 与 Apple easeInEaseOut
+    "easing": { "t": 0.42 }
+  }
+}

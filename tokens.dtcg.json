@@ -1,0 +1,7099 @@
+{
+  "$description": "Ultime core · DTCG 导出。颜色模式值为 { light, dark } 两个 token；CSS 的无后缀开关是适配器行为，不在 DTCG 里复制。",
+  "$extensions": {
+    "com.ultime.core": {
+      "schemaVersion": "5.0.0",
+      "engineVersion": "0.4.0",
+      "seedHash": "fnv1a-6857097b",
+      "note": "真源是 seed + 引擎；本文件只是可交换快照。"
+    }
+  },
+  "space": {
+    "1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6,
+        "unit": "px"
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      }
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "10": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "px"
+      }
+    },
+    "11": {
+      "$type": "dimension",
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "12": {
+      "$type": "dimension",
+      "$value": {
+        "value": 56,
+        "unit": "px"
+      }
+    },
+    "13": {
+      "$type": "dimension",
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      }
+    },
+    "14": {
+      "$type": "dimension",
+      "$value": {
+        "value": 72,
+        "unit": "px"
+      }
+    },
+    "15": {
+      "$type": "dimension",
+      "$value": {
+        "value": 80,
+        "unit": "px"
+      }
+    },
+    "16": {
+      "$type": "dimension",
+      "$value": {
+        "value": 96,
+        "unit": "px"
+      }
+    },
+    "17": {
+      "$type": "dimension",
+      "$value": {
+        "value": 120,
+        "unit": "px"
+      }
+    },
+    "18": {
+      "$type": "dimension",
+      "$value": {
+        "value": 160,
+        "unit": "px"
+      }
+    }
+  },
+  "size": {
+    "1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "px"
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": {
+        "value": 56,
+        "unit": "px"
+      }
+    }
+  },
+  "radius": {
+    "1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      }
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": {
+        "value": 28,
+        "unit": "px"
+      }
+    },
+    "9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    }
+  },
+  "fs": {
+    "1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 10,
+        "unit": "px"
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 14,
+        "unit": "px"
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": {
+        "value": 18,
+        "unit": "px"
+      }
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      }
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      }
+    },
+    "9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "px"
+      }
+    }
+  },
+  "lh": {
+    "1": {
+      "$type": "number",
+      "$value": 1.2
+    },
+    "2": {
+      "$type": "number",
+      "$value": 1.4
+    },
+    "3": {
+      "$type": "number",
+      "$value": 1.6
+    },
+    "4": {
+      "$type": "number",
+      "$value": 1.8
+    }
+  },
+  "ls": {
+    "1": {
+      "$type": "dimension",
+      "$value": {
+        "value": -0.02,
+        "unit": "em"
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "em"
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.02,
+        "unit": "em"
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.04,
+        "unit": "em"
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.08,
+        "unit": "em"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "$value": [
+        "system-ui",
+        "PingFang SC",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "ui-monospace",
+        "SFMono-Regular",
+        "Menlo",
+        "Consolas",
+        "monospace"
+      ]
+    }
+  },
+  "color": {
+    "surface": {
+      "canvas": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9216,
+              0.9216,
+              0.9216
+            ],
+            "alpha": 1,
+            "hex": "#EBEBEB"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.102,
+              0.102,
+              0.102
+            ],
+            "alpha": 1,
+            "hex": "#1A1A1A"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "raised": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.528,
+            "hex": "#FFFFFF"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.04,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "overlay": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.728,
+            "hex": "#FFFFFF"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.054,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "inset": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.034,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.292,
+            "hex": "#000000"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "block": {
+        "weak": {
+          "light": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.04,
+              "hex": "#000000"
+            }
+          },
+          "dark": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.22,
+              "hex": "#000000"
+            }
+          },
+          "$description": "模式值：light / dark"
+        },
+        "base": {
+          "light": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.08,
+              "hex": "#000000"
+            }
+          },
+          "dark": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.35,
+              "hex": "#000000"
+            }
+          },
+          "$description": "模式值：light / dark"
+        },
+        "strong": {
+          "light": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.12,
+              "hex": "#000000"
+            }
+          },
+          "dark": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.45,
+              "hex": "#000000"
+            }
+          },
+          "$description": "模式值：light / dark"
+        }
+      }
+    },
+    "ink": {
+      "primary": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.7,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.66,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "secondary": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.65,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.59,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "tertiary": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.59,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.52,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "disabled": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.35,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.35,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      }
+    },
+    "line": {
+      "1": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.068,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.058,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "2": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.166,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.128,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "3": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.426,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.332,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      }
+    },
+    "tone": {
+      "primary": {
+        "solid": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1647,
+                    0.1647,
+                    0.1647
+                  ],
+                  "alpha": 1,
+                  "hex": "#2A2A2A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9255,
+                    0.9255,
+                    0.9255
+                  ],
+                  "alpha": 1,
+                  "hex": "#ECECEC"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1608,
+                    0.1608,
+                    0.1608
+                  ],
+                  "alpha": 1,
+                  "hex": "#292929"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9294,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDEDED"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6314,
+                    0.6314,
+                    0.6314
+                  ],
+                  "alpha": 1,
+                  "hex": "#A1A1A1"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.5529,
+                    0.5529,
+                    0.5529
+                  ],
+                  "alpha": 1,
+                  "hex": "#8D8D8D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1608,
+                    0.1608,
+                    0.1608
+                  ],
+                  "alpha": 1,
+                  "hex": "#292929"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9294,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDEDED"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7961,
+                    0.7961,
+                    0.7961
+                  ],
+                  "alpha": 1,
+                  "hex": "#CBCBCB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2314,
+                    0.2314,
+                    0.2314
+                  ],
+                  "alpha": 1,
+                  "hex": "#3B3B3B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7961,
+                    0.7961,
+                    0.7961
+                  ],
+                  "alpha": 1,
+                  "hex": "#CBCBCB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2314,
+                    0.2314,
+                    0.2314
+                  ],
+                  "alpha": 1,
+                  "hex": "#3B3B3B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "foreground": {
+            "light": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              }
+            },
+            "dark": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 1,
+                "hex": "#000000"
+              }
+            },
+            "$description": "模式值：light / dark"
+          }
+        },
+        "soft": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9333,
+                    0.9333,
+                    0.9333
+                  ],
+                  "alpha": 1,
+                  "hex": "#EEEEEE"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2588,
+                    0.2588,
+                    0.2588
+                  ],
+                  "alpha": 1,
+                  "hex": "#424242"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9176,
+                    0.9176,
+                    0.9176
+                  ],
+                  "alpha": 1,
+                  "hex": "#EAEAEA"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3176,
+                    0.3176,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#515151"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9333,
+                    0.9333,
+                    0.9333
+                  ],
+                  "alpha": 1,
+                  "hex": "#EEEEEE"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2588,
+                    0.2588,
+                    0.2588
+                  ],
+                  "alpha": 1,
+                  "hex": "#424242"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8941,
+                    0.8941,
+                    0.8941
+                  ],
+                  "alpha": 1,
+                  "hex": "#E4E4E4"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3608,
+                    0.3608,
+                    0.3608
+                  ],
+                  "alpha": 1,
+                  "hex": "#5C5C5C"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9333,
+                    0.9333,
+                    0.9333
+                  ],
+                  "alpha": 1,
+                  "hex": "#EEEEEE"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2588,
+                    0.2588,
+                    0.2588
+                  ],
+                  "alpha": 1,
+                  "hex": "#424242"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6314,
+                    0.6314,
+                    0.6314
+                  ],
+                  "alpha": 1,
+                  "hex": "#A1A1A1"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1569,
+                    0.1569,
+                    0.1569
+                  ],
+                  "alpha": 1,
+                  "hex": "#282828"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8941,
+                    0.8941,
+                    0.8941
+                  ],
+                  "alpha": 1,
+                  "hex": "#E4E4E4"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3608,
+                    0.3608,
+                    0.3608
+                  ],
+                  "alpha": 1,
+                  "hex": "#5C5C5C"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9176,
+                    0.9176,
+                    0.9176
+                  ],
+                  "alpha": 1,
+                  "hex": "#EAEAEA"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3176,
+                    0.3176,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#515151"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3961,
+                    0.3961,
+                    0.3961
+                  ],
+                  "alpha": 1,
+                  "hex": "#656565"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7176,
+                    0.7176,
+                    0.7176
+                  ],
+                  "alpha": 1,
+                  "hex": "#B7B7B7"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8745,
+                    0.8745,
+                    0.8745
+                  ],
+                  "alpha": 1,
+                  "hex": "#DFDFDF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2157,
+                    0.2157,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#373737"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8039,
+                    0.8039,
+                    0.8039
+                  ],
+                  "alpha": 1,
+                  "hex": "#CDCDCD"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3333,
+                    0.3333,
+                    0.3333
+                  ],
+                  "alpha": 1,
+                  "hex": "#555555"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6431,
+                    0.6431,
+                    0.6431
+                  ],
+                  "alpha": 1,
+                  "hex": "#A4A4A4"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4667,
+                    0.4667,
+                    0.4667
+                  ],
+                  "alpha": 1,
+                  "hex": "#777777"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        },
+        "bare": {
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3961,
+                    0.3961,
+                    0.3961
+                  ],
+                  "alpha": 1,
+                  "hex": "#656565"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7176,
+                    0.7176,
+                    0.7176
+                  ],
+                  "alpha": 1,
+                  "hex": "#B7B7B7"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8745,
+                    0.8745,
+                    0.8745
+                  ],
+                  "alpha": 1,
+                  "hex": "#DFDFDF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2157,
+                    0.2157,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#373737"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8039,
+                    0.8039,
+                    0.8039
+                  ],
+                  "alpha": 1,
+                  "hex": "#CDCDCD"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3333,
+                    0.3333,
+                    0.3333
+                  ],
+                  "alpha": 1,
+                  "hex": "#555555"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.1765,
+                    0.1765
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D2D2D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9216,
+                    0.9216,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#EBEBEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        }
+      },
+      "danger": {
+        "solid": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.1686,
+                    0.1255
+                  ],
+                  "alpha": 1,
+                  "hex": "#E22B20"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.1725,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#E72C21"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8275,
+                    0.1529,
+                    0.1137
+                  ],
+                  "alpha": 1,
+                  "hex": "#D3271D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9608,
+                    0.1961,
+                    0.149
+                  ],
+                  "alpha": 1,
+                  "hex": "#F53226"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.1686,
+                    0.1255
+                  ],
+                  "alpha": 1,
+                  "hex": "#E22B20"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.1725,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#E72C21"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7686,
+                    0.1412,
+                    0.102
+                  ],
+                  "alpha": 1,
+                  "hex": "#C4241A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9647,
+                    0.3137,
+                    0.2549
+                  ],
+                  "alpha": 1,
+                  "hex": "#F65041"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.1686,
+                    0.1255
+                  ],
+                  "alpha": 1,
+                  "hex": "#E22B20"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.1725,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#E72C21"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.949,
+                    0.6275,
+                    0.6078
+                  ],
+                  "alpha": 1,
+                  "hex": "#F2A09B"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.5451,
+                    0.102,
+                    0.0784
+                  ],
+                  "alpha": 1,
+                  "hex": "#8B1A14"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7686,
+                    0.1412,
+                    0.102
+                  ],
+                  "alpha": 1,
+                  "hex": "#C4241A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9647,
+                    0.3137,
+                    0.2549
+                  ],
+                  "alpha": 1,
+                  "hex": "#F65041"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.1686,
+                    0.1255
+                  ],
+                  "alpha": 1,
+                  "hex": "#E22B20"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.1725,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#E72C21"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9725,
+                    0.7922,
+                    0.7804
+                  ],
+                  "alpha": 1,
+                  "hex": "#F8CAC7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2275,
+                    0.0431,
+                    0.0314
+                  ],
+                  "alpha": 1,
+                  "hex": "#3A0B08"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9725,
+                    0.7922,
+                    0.7804
+                  ],
+                  "alpha": 1,
+                  "hex": "#F8CAC7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2275,
+                    0.0431,
+                    0.0314
+                  ],
+                  "alpha": 1,
+                  "hex": "#3A0B08"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "foreground": {
+            "light": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              }
+            },
+            "dark": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 1,
+                "hex": "#000000"
+              }
+            },
+            "$description": "模式值：light / dark"
+          }
+        },
+        "soft": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9922,
+                    0.9333,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#FDEEED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2549,
+                    0.0471,
+                    0.0353
+                  ],
+                  "alpha": 1,
+                  "hex": "#410C09"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9882,
+                    0.9176,
+                    0.9137
+                  ],
+                  "alpha": 1,
+                  "hex": "#FCEAE9"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3137,
+                    0.1216,
+                    0.1137
+                  ],
+                  "alpha": 1,
+                  "hex": "#501F1D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9922,
+                    0.9333,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#FDEEED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2549,
+                    0.0471,
+                    0.0353
+                  ],
+                  "alpha": 1,
+                  "hex": "#410C09"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9843,
+                    0.8902,
+                    0.8863
+                  ],
+                  "alpha": 1,
+                  "hex": "#FBE3E2"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3608,
+                    0.1804,
+                    0.1686
+                  ],
+                  "alpha": 1,
+                  "hex": "#5C2E2B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9922,
+                    0.9333,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#FDEEED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2549,
+                    0.0471,
+                    0.0353
+                  ],
+                  "alpha": 1,
+                  "hex": "#410C09"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.949,
+                    0.6275,
+                    0.6078
+                  ],
+                  "alpha": 1,
+                  "hex": "#F2A09B"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1529,
+                    0.0275,
+                    0.0196
+                  ],
+                  "alpha": 1,
+                  "hex": "#270705"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9843,
+                    0.8902,
+                    0.8863
+                  ],
+                  "alpha": 1,
+                  "hex": "#FBE3E2"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3608,
+                    0.1804,
+                    0.1686
+                  ],
+                  "alpha": 1,
+                  "hex": "#5C2E2B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9882,
+                    0.9176,
+                    0.9137
+                  ],
+                  "alpha": 1,
+                  "hex": "#FCEAE9"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3137,
+                    0.1216,
+                    0.1137
+                  ],
+                  "alpha": 1,
+                  "hex": "#501F1D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7843,
+                    0.1412,
+                    0.102
+                  ],
+                  "alpha": 1,
+                  "hex": "#C8241A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.3765,
+                    0.3412
+                  ],
+                  "alpha": 1,
+                  "hex": "#ED6057"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6941,
+                    0.1255,
+                    0.0902
+                  ],
+                  "alpha": 1,
+                  "hex": "#B12017"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9412,
+                    0.4784,
+                    0.451
+                  ],
+                  "alpha": 1,
+                  "hex": "#F07A73"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6078,
+                    0.098,
+                    0.0902
+                  ],
+                  "alpha": 1,
+                  "hex": "#9B1917"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9412,
+                    0.5765,
+                    0.5608
+                  ],
+                  "alpha": 1,
+                  "hex": "#F0938F"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9804,
+                    0.851,
+                    0.8431
+                  ],
+                  "alpha": 1,
+                  "hex": "#FAD9D7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2235,
+                    0.1059,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#391B19"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9686,
+                    0.7686,
+                    0.7569
+                  ],
+                  "alpha": 1,
+                  "hex": "#F7C4C1"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3451,
+                    0.1608,
+                    0.1529
+                  ],
+                  "alpha": 1,
+                  "hex": "#582927"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7765,
+                    0.6157,
+                    0.6039
+                  ],
+                  "alpha": 1,
+                  "hex": "#C69D9A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4745,
+                    0.3294,
+                    0.3216
+                  ],
+                  "alpha": 1,
+                  "hex": "#795452"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        },
+        "bare": {
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7843,
+                    0.1412,
+                    0.102
+                  ],
+                  "alpha": 1,
+                  "hex": "#C8241A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.3765,
+                    0.3412
+                  ],
+                  "alpha": 1,
+                  "hex": "#ED6057"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6941,
+                    0.1255,
+                    0.0902
+                  ],
+                  "alpha": 1,
+                  "hex": "#B12017"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9412,
+                    0.4784,
+                    0.451
+                  ],
+                  "alpha": 1,
+                  "hex": "#F07A73"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6078,
+                    0.098,
+                    0.0902
+                  ],
+                  "alpha": 1,
+                  "hex": "#9B1917"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9412,
+                    0.5765,
+                    0.5608
+                  ],
+                  "alpha": 1,
+                  "hex": "#F0938F"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9804,
+                    0.851,
+                    0.8431
+                  ],
+                  "alpha": 1,
+                  "hex": "#FAD9D7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2235,
+                    0.1059,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#391B19"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9686,
+                    0.7686,
+                    0.7569
+                  ],
+                  "alpha": 1,
+                  "hex": "#F7C4C1"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3451,
+                    0.1608,
+                    0.1529
+                  ],
+                  "alpha": 1,
+                  "hex": "#582927"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.1686,
+                    0.1255
+                  ],
+                  "alpha": 1,
+                  "hex": "#E22B20"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.1725,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#E72C21"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        }
+      },
+      "warning": {
+        "solid": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.702,
+                    0.3725,
+                    0.1216
+                  ],
+                  "alpha": 1,
+                  "hex": "#B35F1F"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7451,
+                    0.3961,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#BE6521"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6549,
+                    0.3451,
+                    0.1098
+                  ],
+                  "alpha": 1,
+                  "hex": "#A7581C"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7961,
+                    0.4235,
+                    0.1412
+                  ],
+                  "alpha": 1,
+                  "hex": "#CB6C24"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.702,
+                    0.3725,
+                    0.1216
+                  ],
+                  "alpha": 1,
+                  "hex": "#B35F1F"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7451,
+                    0.3961,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#BE6521"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6078,
+                    0.3176,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#9B5119"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8471,
+                    0.4549,
+                    0.1529
+                  ],
+                  "alpha": 1,
+                  "hex": "#D87427"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.702,
+                    0.3725,
+                    0.1216
+                  ],
+                  "alpha": 1,
+                  "hex": "#B35F1F"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7451,
+                    0.3961,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#BE6521"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8667,
+                    0.7176,
+                    0.6039
+                  ],
+                  "alpha": 1,
+                  "hex": "#DDB79A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4471,
+                    0.2392,
+                    0.0784
+                  ],
+                  "alpha": 1,
+                  "hex": "#723D14"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6078,
+                    0.3176,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#9B5119"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8471,
+                    0.4549,
+                    0.1529
+                  ],
+                  "alpha": 1,
+                  "hex": "#D87427"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.702,
+                    0.3725,
+                    0.1216
+                  ],
+                  "alpha": 1,
+                  "hex": "#B35F1F"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7451,
+                    0.3961,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#BE6521"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9255,
+                    0.8431,
+                    0.7804
+                  ],
+                  "alpha": 1,
+                  "hex": "#ECD7C7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1882,
+                    0.098,
+                    0.0314
+                  ],
+                  "alpha": 1,
+                  "hex": "#301908"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9255,
+                    0.8431,
+                    0.7804
+                  ],
+                  "alpha": 1,
+                  "hex": "#ECD7C7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1882,
+                    0.098,
+                    0.0314
+                  ],
+                  "alpha": 1,
+                  "hex": "#301908"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "foreground": {
+            "light": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              }
+            },
+            "dark": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 1,
+                "hex": "#000000"
+              }
+            },
+            "$description": "模式值：light / dark"
+          }
+        },
+        "soft": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9765,
+                    0.949,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#F9F2ED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2078,
+                    0.1098,
+                    0.0353
+                  ],
+                  "alpha": 1,
+                  "hex": "#351C09"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9686,
+                    0.9373,
+                    0.9137
+                  ],
+                  "alpha": 1,
+                  "hex": "#F7EFE9"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2706,
+                    0.1804,
+                    0.1137
+                  ],
+                  "alpha": 1,
+                  "hex": "#452E1D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9765,
+                    0.949,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#F9F2ED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2078,
+                    0.1098,
+                    0.0353
+                  ],
+                  "alpha": 1,
+                  "hex": "#351C09"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9608,
+                    0.9176,
+                    0.8863
+                  ],
+                  "alpha": 1,
+                  "hex": "#F5EAE2"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3176,
+                    0.2353,
+                    0.1686
+                  ],
+                  "alpha": 1,
+                  "hex": "#513C2B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9765,
+                    0.949,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#F9F2ED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2078,
+                    0.1098,
+                    0.0353
+                  ],
+                  "alpha": 1,
+                  "hex": "#351C09"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8667,
+                    0.7176,
+                    0.6039
+                  ],
+                  "alpha": 1,
+                  "hex": "#DDB79A"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1255,
+                    0.0667,
+                    0.0196
+                  ],
+                  "alpha": 1,
+                  "hex": "#201105"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9608,
+                    0.9176,
+                    0.8863
+                  ],
+                  "alpha": 1,
+                  "hex": "#F5EAE2"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3176,
+                    0.2353,
+                    0.1686
+                  ],
+                  "alpha": 1,
+                  "hex": "#513C2B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9686,
+                    0.9373,
+                    0.9137
+                  ],
+                  "alpha": 1,
+                  "hex": "#F7EFE9"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2706,
+                    0.1804,
+                    0.1137
+                  ],
+                  "alpha": 1,
+                  "hex": "#452E1D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6235,
+                    0.3294,
+                    0.1098
+                  ],
+                  "alpha": 1,
+                  "hex": "#9F541C"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.851,
+                    0.4667,
+                    0.1647
+                  ],
+                  "alpha": 1,
+                  "hex": "#D9772A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.5529,
+                    0.2941,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#8D4B19"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8745,
+                    0.5451,
+                    0.2902
+                  ],
+                  "alpha": 1,
+                  "hex": "#DF8B4A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4667,
+                    0.2627,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#774319"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.6235,
+                    0.4157
+                  ],
+                  "alpha": 1,
+                  "hex": "#E79F6A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9373,
+                    0.8706,
+                    0.8157
+                  ],
+                  "alpha": 1,
+                  "hex": "#EFDED0"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1843,
+                    0.1294,
+                    0.0863
+                  ],
+                  "alpha": 1,
+                  "hex": "#2F2116"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.8,
+                    0.7176
+                  ],
+                  "alpha": 1,
+                  "hex": "#E7CCB7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2863,
+                    0.2,
+                    0.1333
+                  ],
+                  "alpha": 1,
+                  "hex": "#493322"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7255,
+                    0.6392,
+                    0.5725
+                  ],
+                  "alpha": 1,
+                  "hex": "#B9A392"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4275,
+                    0.3608,
+                    0.3059
+                  ],
+                  "alpha": 1,
+                  "hex": "#6D5C4E"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        },
+        "bare": {
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6235,
+                    0.3294,
+                    0.1098
+                  ],
+                  "alpha": 1,
+                  "hex": "#9F541C"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.851,
+                    0.4667,
+                    0.1647
+                  ],
+                  "alpha": 1,
+                  "hex": "#D9772A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.5529,
+                    0.2941,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#8D4B19"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8745,
+                    0.5451,
+                    0.2902
+                  ],
+                  "alpha": 1,
+                  "hex": "#DF8B4A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4667,
+                    0.2627,
+                    0.098
+                  ],
+                  "alpha": 1,
+                  "hex": "#774319"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.6235,
+                    0.4157
+                  ],
+                  "alpha": 1,
+                  "hex": "#E79F6A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9373,
+                    0.8706,
+                    0.8157
+                  ],
+                  "alpha": 1,
+                  "hex": "#EFDED0"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1843,
+                    0.1294,
+                    0.0863
+                  ],
+                  "alpha": 1,
+                  "hex": "#2F2116"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9059,
+                    0.8,
+                    0.7176
+                  ],
+                  "alpha": 1,
+                  "hex": "#E7CCB7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2863,
+                    0.2,
+                    0.1333
+                  ],
+                  "alpha": 1,
+                  "hex": "#493322"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.702,
+                    0.3725,
+                    0.1216
+                  ],
+                  "alpha": 1,
+                  "hex": "#B35F1F"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7451,
+                    0.3961,
+                    0.1294
+                  ],
+                  "alpha": 1,
+                  "hex": "#BE6521"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        }
+      },
+      "success": {
+        "solid": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.5294,
+                    0.2784
+                  ],
+                  "alpha": 1,
+                  "hex": "#228747"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1529,
+                    0.5961,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#279851"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1176,
+                    0.4902,
+                    0.2549
+                  ],
+                  "alpha": 1,
+                  "hex": "#1E7D41"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1647,
+                    0.6353,
+                    0.3412
+                  ],
+                  "alpha": 1,
+                  "hex": "#2AA257"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.5294,
+                    0.2784
+                  ],
+                  "alpha": 1,
+                  "hex": "#228747"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1529,
+                    0.5961,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#279851"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1059,
+                    0.451,
+                    0.2353
+                  ],
+                  "alpha": 1,
+                  "hex": "#1B733C"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1804,
+                    0.6784,
+                    0.3647
+                  ],
+                  "alpha": 1,
+                  "hex": "#2EAD5D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.5294,
+                    0.2784
+                  ],
+                  "alpha": 1,
+                  "hex": "#228747"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1529,
+                    0.5961,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#279851"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6118,
+                    0.7882,
+                    0.6745
+                  ],
+                  "alpha": 1,
+                  "hex": "#9CC9AC"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0902,
+                    0.3569,
+                    0.1922
+                  ],
+                  "alpha": 1,
+                  "hex": "#175B31"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1059,
+                    0.451,
+                    0.2353
+                  ],
+                  "alpha": 1,
+                  "hex": "#1B733C"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1804,
+                    0.6784,
+                    0.3647
+                  ],
+                  "alpha": 1,
+                  "hex": "#2EAD5D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.5294,
+                    0.2784
+                  ],
+                  "alpha": 1,
+                  "hex": "#228747"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1529,
+                    0.5961,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#279851"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7843,
+                    0.8824,
+                    0.8196
+                  ],
+                  "alpha": 1,
+                  "hex": "#C8E1D1"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0392,
+                    0.149,
+                    0.0784
+                  ],
+                  "alpha": 1,
+                  "hex": "#0A2614"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7843,
+                    0.8824,
+                    0.8196
+                  ],
+                  "alpha": 1,
+                  "hex": "#C8E1D1"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0392,
+                    0.149,
+                    0.0784
+                  ],
+                  "alpha": 1,
+                  "hex": "#0A2614"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "foreground": {
+            "light": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              }
+            },
+            "dark": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 1,
+                "hex": "#000000"
+              }
+            },
+            "$description": "模式值：light / dark"
+          }
+        },
+        "soft": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9608,
+                    0.9412
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDF5F0"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0431,
+                    0.1686,
+                    0.0902
+                  ],
+                  "alpha": 1,
+                  "hex": "#0B2B17"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9137,
+                    0.9529,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#E9F3ED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.2353,
+                    0.1647
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F3C2A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9608,
+                    0.9412
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDF5F0"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0431,
+                    0.1686,
+                    0.0902
+                  ],
+                  "alpha": 1,
+                  "hex": "#0B2B17"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.9373,
+                    0.9059
+                  ],
+                  "alpha": 1,
+                  "hex": "#E2EFE7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.2863,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D4937"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9608,
+                    0.9412
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDF5F0"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0431,
+                    0.1686,
+                    0.0902
+                  ],
+                  "alpha": 1,
+                  "hex": "#0B2B17"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6118,
+                    0.7882,
+                    0.6745
+                  ],
+                  "alpha": 1,
+                  "hex": "#9CC9AC"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0275,
+                    0.102,
+                    0.0549
+                  ],
+                  "alpha": 1,
+                  "hex": "#071A0E"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.9373,
+                    0.9059
+                  ],
+                  "alpha": 1,
+                  "hex": "#E2EFE7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1765,
+                    0.2863,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#2D4937"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9137,
+                    0.9529,
+                    0.9294
+                  ],
+                  "alpha": 1,
+                  "hex": "#E9F3ED"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.2353,
+                    0.1647
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F3C2A"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.4667,
+                    0.2471
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F773F"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1686,
+                    0.6627,
+                    0.349
+                  ],
+                  "alpha": 1,
+                  "hex": "#2BA959"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1059,
+                    0.4118,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#1B6937"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1843,
+                    0.7255,
+                    0.3843
+                  ],
+                  "alpha": 1,
+                  "hex": "#2FB962"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.098,
+                    0.3569,
+                    0.1882
+                  ],
+                  "alpha": 1,
+                  "hex": "#195B30"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3725,
+                    0.7765,
+                    0.5294
+                  ],
+                  "alpha": 1,
+                  "hex": "#5FC687"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8196,
+                    0.902,
+                    0.851
+                  ],
+                  "alpha": 1,
+                  "hex": "#D1E6D9"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0902,
+                    0.1647,
+                    0.1176
+                  ],
+                  "alpha": 1,
+                  "hex": "#172A1E"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7216,
+                    0.851,
+                    0.7686
+                  ],
+                  "alpha": 1,
+                  "hex": "#B8D9C4"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1373,
+                    0.251,
+                    0.1804
+                  ],
+                  "alpha": 1,
+                  "hex": "#23402E"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.5765,
+                    0.6824,
+                    0.6157
+                  ],
+                  "alpha": 1,
+                  "hex": "#93AE9D"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3098,
+                    0.4,
+                    0.3451
+                  ],
+                  "alpha": 1,
+                  "hex": "#4F6658"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        },
+        "bare": {
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.4667,
+                    0.2471
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F773F"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1686,
+                    0.6627,
+                    0.349
+                  ],
+                  "alpha": 1,
+                  "hex": "#2BA959"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1059,
+                    0.4118,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#1B6937"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1843,
+                    0.7255,
+                    0.3843
+                  ],
+                  "alpha": 1,
+                  "hex": "#2FB962"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.098,
+                    0.3569,
+                    0.1882
+                  ],
+                  "alpha": 1,
+                  "hex": "#195B30"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3725,
+                    0.7765,
+                    0.5294
+                  ],
+                  "alpha": 1,
+                  "hex": "#5FC687"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8196,
+                    0.902,
+                    0.851
+                  ],
+                  "alpha": 1,
+                  "hex": "#D1E6D9"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0902,
+                    0.1647,
+                    0.1176
+                  ],
+                  "alpha": 1,
+                  "hex": "#172A1E"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7216,
+                    0.851,
+                    0.7686
+                  ],
+                  "alpha": 1,
+                  "hex": "#B8D9C4"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1373,
+                    0.251,
+                    0.1804
+                  ],
+                  "alpha": 1,
+                  "hex": "#23402E"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.5294,
+                    0.2784
+                  ],
+                  "alpha": 1,
+                  "hex": "#228747"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1529,
+                    0.5961,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#279851"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        }
+      },
+      "info": {
+        "solid": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.4588,
+                    0.8588
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F75DB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.4941,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#227EEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1098,
+                    0.4275,
+                    0.8
+                  ],
+                  "alpha": 1,
+                  "hex": "#1C6DCC"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1882,
+                    0.5333,
+                    0.9569
+                  ],
+                  "alpha": 1,
+                  "hex": "#3088F4"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.4588,
+                    0.8588
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F75DB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.4941,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#227EEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.098,
+                    0.3922,
+                    0.7412
+                  ],
+                  "alpha": 1,
+                  "hex": "#1964BD"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2745,
+                    0.5725,
+                    0.9569
+                  ],
+                  "alpha": 1,
+                  "hex": "#4692F4"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.4588,
+                    0.8588
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F75DB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.4941,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#227EEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6039,
+                    0.7569,
+                    0.9373
+                  ],
+                  "alpha": 1,
+                  "hex": "#9AC1EF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0784,
+                    0.298,
+                    0.5529
+                  ],
+                  "alpha": 1,
+                  "hex": "#144C8D"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.098,
+                    0.3922,
+                    0.7412
+                  ],
+                  "alpha": 1,
+                  "hex": "#1964BD"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2745,
+                    0.5725,
+                    0.9569
+                  ],
+                  "alpha": 1,
+                  "hex": "#4692F4"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.4588,
+                    0.8588
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F75DB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.4941,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#227EEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7804,
+                    0.8667,
+                    0.9647
+                  ],
+                  "alpha": 1,
+                  "hex": "#C7DDF6"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0353,
+                    0.1255,
+                    0.2314
+                  ],
+                  "alpha": 1,
+                  "hex": "#09203B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7804,
+                    0.8667,
+                    0.9647
+                  ],
+                  "alpha": 1,
+                  "hex": "#C7DDF6"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0353,
+                    0.1255,
+                    0.2314
+                  ],
+                  "alpha": 1,
+                  "hex": "#09203B"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    1,
+                    1,
+                    1
+                  ],
+                  "alpha": 1,
+                  "hex": "#FFFFFF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 1,
+                  "hex": "#000000"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "foreground": {
+            "light": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  1,
+                  1,
+                  1
+                ],
+                "alpha": 1,
+                "hex": "#FFFFFF"
+              }
+            },
+            "dark": {
+              "$type": "color",
+              "$value": {
+                "colorSpace": "srgb",
+                "components": [
+                  0,
+                  0,
+                  0
+                ],
+                "alpha": 1,
+                "hex": "#000000"
+              }
+            },
+            "$description": "模式值：light / dark"
+          }
+        },
+        "soft": {
+          "fill": {
+            "rest": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9569,
+                    0.9882
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDF4FC"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0392,
+                    0.1373,
+                    0.2588
+                  ],
+                  "alpha": 1,
+                  "hex": "#0A2342"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "hover": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9137,
+                    0.9451,
+                    0.9843
+                  ],
+                  "alpha": 1,
+                  "hex": "#E9F1FB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1176,
+                    0.2078,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#1E3551"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "focus": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9569,
+                    0.9882
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDF4FC"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0392,
+                    0.1373,
+                    0.2588
+                  ],
+                  "alpha": 1,
+                  "hex": "#0A2342"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "pressed": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.9294,
+                    0.9804
+                  ],
+                  "alpha": 1,
+                  "hex": "#E2EDFA"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1725,
+                    0.2588,
+                    0.3608
+                  ],
+                  "alpha": 1,
+                  "hex": "#2C425C"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "selected": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9294,
+                    0.9569,
+                    0.9882
+                  ],
+                  "alpha": 1,
+                  "hex": "#EDF4FC"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0392,
+                    0.1373,
+                    0.2588
+                  ],
+                  "alpha": 1,
+                  "hex": "#0A2342"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "disabled": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.6039,
+                    0.7569,
+                    0.9373
+                  ],
+                  "alpha": 1,
+                  "hex": "#9AC1EF"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0235,
+                    0.0824,
+                    0.1569
+                  ],
+                  "alpha": 1,
+                  "hex": "#061528"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "dragged": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8863,
+                    0.9294,
+                    0.9804
+                  ],
+                  "alpha": 1,
+                  "hex": "#E2EDFA"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1725,
+                    0.2588,
+                    0.3608
+                  ],
+                  "alpha": 1,
+                  "hex": "#2C425C"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "drop-target": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.9137,
+                    0.9451,
+                    0.9843
+                  ],
+                  "alpha": 1,
+                  "hex": "#E9F1FB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1176,
+                    0.2078,
+                    0.3176
+                  ],
+                  "alpha": 1,
+                  "hex": "#1E3551"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1059,
+                    0.4078,
+                    0.7529
+                  ],
+                  "alpha": 1,
+                  "hex": "#1B68C0"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2706,
+                    0.5765,
+                    0.9333
+                  ],
+                  "alpha": 1,
+                  "hex": "#4593EE"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0941,
+                    0.3608,
+                    0.6706
+                  ],
+                  "alpha": 1,
+                  "hex": "#185CAB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3804,
+                    0.6392,
+                    0.9451
+                  ],
+                  "alpha": 1,
+                  "hex": "#61A3F1"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0941,
+                    0.3059,
+                    0.5882
+                  ],
+                  "alpha": 1,
+                  "hex": "#184E96"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4863,
+                    0.7098,
+                    0.9451
+                  ],
+                  "alpha": 1,
+                  "hex": "#7CB5F1"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8157,
+                    0.8863,
+                    0.9686
+                  ],
+                  "alpha": 1,
+                  "hex": "#D0E2F7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0902,
+                    0.1451,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#172537"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7176,
+                    0.8275,
+                    0.9529
+                  ],
+                  "alpha": 1,
+                  "hex": "#B7D3F3"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1373,
+                    0.2235,
+                    0.3333
+                  ],
+                  "alpha": 1,
+                  "hex": "#233955"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.5725,
+                    0.6627,
+                    0.7608
+                  ],
+                  "alpha": 1,
+                  "hex": "#92A9C2"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3098,
+                    0.3804,
+                    0.4667
+                  ],
+                  "alpha": 1,
+                  "hex": "#4F6177"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        },
+        "bare": {
+          "ink": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1059,
+                    0.4078,
+                    0.7529
+                  ],
+                  "alpha": 1,
+                  "hex": "#1B68C0"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.2706,
+                    0.5765,
+                    0.9333
+                  ],
+                  "alpha": 1,
+                  "hex": "#4593EE"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0941,
+                    0.3608,
+                    0.6706
+                  ],
+                  "alpha": 1,
+                  "hex": "#185CAB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.3804,
+                    0.6392,
+                    0.9451
+                  ],
+                  "alpha": 1,
+                  "hex": "#61A3F1"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0941,
+                    0.3059,
+                    0.5882
+                  ],
+                  "alpha": 1,
+                  "hex": "#184E96"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.4863,
+                    0.7098,
+                    0.9451
+                  ],
+                  "alpha": 1,
+                  "hex": "#7CB5F1"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          },
+          "line": {
+            "weak": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.8157,
+                    0.8863,
+                    0.9686
+                  ],
+                  "alpha": 1,
+                  "hex": "#D0E2F7"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.0902,
+                    0.1451,
+                    0.2157
+                  ],
+                  "alpha": 1,
+                  "hex": "#172537"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "base": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.7176,
+                    0.8275,
+                    0.9529
+                  ],
+                  "alpha": 1,
+                  "hex": "#B7D3F3"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1373,
+                    0.2235,
+                    0.3333
+                  ],
+                  "alpha": 1,
+                  "hex": "#233955"
+                }
+              },
+              "$description": "模式值：light / dark"
+            },
+            "strong": {
+              "light": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1216,
+                    0.4588,
+                    0.8588
+                  ],
+                  "alpha": 1,
+                  "hex": "#1F75DB"
+                }
+              },
+              "dark": {
+                "$type": "color",
+                "$value": {
+                  "colorSpace": "srgb",
+                  "components": [
+                    0.1333,
+                    0.4941,
+                    0.9216
+                  ],
+                  "alpha": 1,
+                  "hex": "#227EEB"
+                }
+              },
+              "$description": "模式值：light / dark"
+            }
+          }
+        }
+      }
+    },
+    "state": {
+      "hover": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.08,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.08,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "pressed": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.12,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.12,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "disabled": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.04,
+            "hex": "#000000"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.04,
+            "hex": "#FFFFFF"
+          }
+        },
+        "$description": "模式值：light / dark"
+      },
+      "selected": {
+        "light": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.1765,
+              0.1765,
+              0.1765
+            ],
+            "alpha": 0.08,
+            "hex": "#2D2D2D"
+          }
+        },
+        "dark": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9216,
+              0.9216,
+              0.9216
+            ],
+            "alpha": 0.08,
+            "hex": "#EBEBEB"
+          }
+        },
+        "$description": "模式值：light / dark"
+      }
+    },
+    "scrim": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 0.42,
+        "hex": "#000000"
+      }
+    }
+  },
+  "shadow": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 2,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 2,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 4,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 16,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    },
+    "3": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 2,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 4,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 16,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.08,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 32,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    },
+    "4": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 2,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 32,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.12,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 16,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 64,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    },
+    "color": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.051,
+          0.051,
+          0.051
+        ],
+        "alpha": 1,
+        "hex": "#0D0D0D"
+      }
+    }
+  },
+  "occlusion": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.04,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.08,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 16,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    },
+    "3": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.12,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 32,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    },
+    "4": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.051,
+              0.051,
+              0.051
+            ],
+            "alpha": 0.16,
+            "hex": "#0D0D0D"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 64,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    }
+  },
+  "rim": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.058,
+          "hex": "#FFFFFF"
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 1,
+          "unit": "px"
+        },
+        "inset": false
+      }
+    ]
+  },
+  "bevel": {
+    "highlight": {
+      "light": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.2,
+          "hex": "#FFFFFF"
+        }
+      },
+      "dark": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.14,
+          "hex": "#FFFFFF"
+        }
+      },
+      "$description": "受光边镜面（模式值：light / dark）"
+    },
+    "shade": {
+      "light": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.14,
+          "hex": "#000000"
+        }
+      },
+      "dark": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0.2,
+          "hex": "#000000"
+        }
+      },
+      "$description": "背光边遮光（模式值：light / dark）"
+    },
+    "raised": {
+      "light": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.2,
+              "hex": "#FFFFFF"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          },
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.14,
+              "hex": "#000000"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": -1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          }
+        ]
+      },
+      "dark": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.14,
+              "hex": "#FFFFFF"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          },
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.2,
+              "hex": "#000000"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": -1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          }
+        ]
+      },
+      "$description": "表面凸起（模式值：light / dark）"
+    },
+    "sunken": {
+      "light": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.14,
+              "hex": "#000000"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          },
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.2,
+              "hex": "#FFFFFF"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": -1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          }
+        ]
+      },
+      "dark": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0.2,
+              "hex": "#000000"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          },
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.14,
+              "hex": "#FFFFFF"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": -1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          }
+        ]
+      },
+      "$description": "表面凹陷（模式值：light / dark）"
+    }
+  },
+  "motion": {
+    "duration": {
+      "1": {
+        "$type": "duration",
+        "$value": {
+          "value": 100,
+          "unit": "ms"
+        }
+      },
+      "2": {
+        "$type": "duration",
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        }
+      },
+      "3": {
+        "$type": "duration",
+        "$value": {
+          "value": 300,
+          "unit": "ms"
+        }
+      },
+      "4": {
+        "$type": "duration",
+        "$value": {
+          "value": 400,
+          "unit": "ms"
+        }
+      },
+      "5": {
+        "$type": "duration",
+        "$value": {
+          "value": 500,
+          "unit": "ms"
+        }
+      },
+      "6": {
+        "$type": "duration",
+        "$value": {
+          "value": 600,
+          "unit": "ms"
+        }
+      }
+    },
+    "loop": {
+      "1": {
+        "$type": "duration",
+        "$value": {
+          "value": 1000,
+          "unit": "ms"
+        }
+      },
+      "2": {
+        "$type": "duration",
+        "$value": {
+          "value": 2000,
+          "unit": "ms"
+        }
+      },
+      "3": {
+        "$type": "duration",
+        "$value": {
+          "value": 4000,
+          "unit": "ms"
+        }
+      }
+    },
+    "delay": {
+      "1": {
+        "$type": "duration",
+        "$value": {
+          "value": 50,
+          "unit": "ms"
+        }
+      },
+      "2": {
+        "$type": "duration",
+        "$value": {
+          "value": 100,
+          "unit": "ms"
+        }
+      },
+      "3": {
+        "$type": "duration",
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        }
+      }
+    },
+    "easing": {
+      "standard": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.42,
+          0,
+          0.58,
+          1
+        ]
+      },
+      "decelerate": {
+        "$type": "cubicBezier",
+        "$value": [
+          0,
+          0,
+          0.58,
+          1
+        ]
+      },
+      "accelerate": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.42,
+          0,
+          1,
+          1
+        ]
+      },
+      "linear": {
+        "$type": "cubicBezier",
+        "$value": [
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    }
+  }
+}

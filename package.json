@@ -1,0 +1,104 @@
+{
+  "name": "@ultime/core",
+  "version": "0.4.0",
+  "description": "Ultime · core：平台无关的设计系统内核（seed → 树 → 快照）；Web 的 CSS 只是它的一个出口",
+  "keywords": [
+    "color-system",
+    "css-variables",
+    "design-system",
+    "design-tokens",
+    "dtcg",
+    "motion",
+    "typography"
+  ],
+  "homepage": "https://github.com/ultime-space/core#readme",
+  "bugs": {
+    "url": "https://github.com/ultime-space/core/issues"
+  },
+  "license": "MIT",
+  "author": "Ultime contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ultime-space/core.git"
+  },
+  "bin": {
+    "ultime": "./bin/ultime.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "src",
+    "tokens.css",
+    "tokens.json",
+    "tokens.dtcg.json",
+    "kernel.json",
+    "theme.example.json",
+    "tokens.config.json",
+    "README.md",
+    "DESIGN.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/index.js"
+    },
+    "./exporters": {
+      "types": "./src/exporters/index.ts",
+      "import": "./dist/exporters.js"
+    },
+    "./studio": {
+      "types": "./src/studio/index.ts",
+      "import": "./dist/studio.js"
+    },
+    "./tools": {
+      "types": "./src/tools/index.ts",
+      "import": "./dist/tools.js",
+      "require": "./dist/tools.js"
+    },
+    "./seed": {
+      "types": "./src/seed.ts",
+      "import": "./dist/seed.js"
+    },
+    "./package.json": "./package.json",
+    "./theme.example.json": "./theme.example.json",
+    "./kernel.json": "./kernel.json",
+    "./tokens.css": "./tokens.css",
+    "./tokens.json": "./tokens.json",
+    "./tokens.dtcg.json": "./tokens.dtcg.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsx scripts/build.ts && vp build",
+    "build:tokens": "tsx scripts/build.ts",
+    "build:tokens:check": "tsx scripts/build.ts --check",
+    "build:lib": "vp build",
+    "ultime": "tsx src/cli/index.ts",
+    "check": "vp check && tsx scripts/check-model.ts && tsx scripts/build.ts --check",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vp test",
+    "prepublishOnly": "pnpm build",
+    "prepare": "vp hooks enable --hooks-dir .githooks"
+  },
+  "dependencies": {
+    "@ultime/cli": "workspace:^",
+    "@ultime/studio": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite-plus": "1.4.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

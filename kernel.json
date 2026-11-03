@@ -1,0 +1,1552 @@
+{
+  "name": "@ultime/core",
+  "schemaVersion": "5.0.0",
+  "engineVersion": "0.4.0",
+  "unit": {
+    "scale": "logical",
+    "definition": "1 逻辑像素 = 1 iOS pt = 1 Android dp = 1 CSS px@1x",
+    "stored": "dimension / duration / number；CSS 出口把可缩放长度转 rem"
+  },
+  "themeModes": [
+    "light",
+    "dark"
+  ],
+  "seed": {
+    "color": {
+      "primaryHue": 222,
+      "lightness": 0.67,
+      "chromaRatio": 0,
+      "onSide": {
+        "light": "light",
+        "dark": "dark"
+      },
+      "onColors": {
+        "light": "#FFFFFF",
+        "dark": "#000000"
+      },
+      "solidTarget": 4.5,
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "contrastAllow": [],
+      "accent": {
+        "pull": 1,
+        "identityBudget": 2,
+        "stateSteps": [
+          3,
+          6
+        ],
+        "chromaFloor": 0.05,
+        "hueSeparation": 25
+      },
+      "semantics": {
+        "danger": {
+          "hue": 0
+        },
+        "warning": {
+          "hue": 30
+        },
+        "success": {
+          "hue": 150
+        },
+        "info": {
+          "hue": 210
+        }
+      },
+      "neutral": {
+        "preset": "neutral",
+        "fromTheme": {
+          "chromaShare": 0
+        },
+        "stepRatio": "functional"
+      },
+      "surface": {
+        "canvasLight": "neutral.100",
+        "canvasDark": "neutral.950",
+        "canvasSymmetry": 1.2,
+        "faceContrast": {
+          "card": 1.1,
+          "overlay": 1.14,
+          "sunken": 1.07
+        },
+        "tintLight": "#FFFFFF",
+        "tintDark": "#FFFFFF",
+        "themeMix": 0,
+        "alpha": {
+          "light": {
+            "card": 0.62,
+            "overlay": 0.84,
+            "sunken": 0.06,
+            "block": 0.08,
+            "blockLight": 0.04,
+            "blockStrong": 0.12
+          },
+          "dark": {
+            "card": 0.06,
+            "overlay": 0.1,
+            "sunken": 0.55,
+            "block": 0.35,
+            "blockLight": 0.22,
+            "blockStrong": 0.45
+          }
+        },
+        "scrimAlpha": 0.42
+      }
+    },
+    "skeleton": {
+      "radius": {
+        "base": 4,
+        "levels": 9
+      },
+      "fontSize": {
+        "base": 10,
+        "steps": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          14,
+          22,
+          30
+        ]
+      },
+      "font": {
+        "family": "system-ui, \"PingFang SC\", sans-serif",
+        "mono": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+      }
+    },
+    "light": {
+      "azimuthAngle": 0,
+      "altitudeAngle": 60,
+      "blurBase": 8,
+      "blurRatio": 2,
+      "inkUnit": 4,
+      "ambientTint": null,
+      "lightTint": null,
+      "rimAlpha": 0.058,
+      "bevel": {
+        "light": {
+          "highlight": 0.2,
+          "shade": 0.14
+        },
+        "dark": {
+          "highlight": 0.14,
+          "shade": 0.2
+        }
+      }
+    },
+    "motion": {
+      "duration": {
+        "unit": 100,
+        "count": 6
+      },
+      "loop": {
+        "base": 1000,
+        "ratio": 2,
+        "count": 3
+      },
+      "delay": {
+        "base": 50,
+        "ratio": 2,
+        "count": 3
+      },
+      "easing": {
+        "t": 0.42
+      }
+    }
+  },
+  "seedHash": "fnv1a-6857097b",
+  "motion": {
+    "easingSource": "family",
+    "easing": {
+      "standard": [
+        0.42,
+        0,
+        0.58,
+        1
+      ],
+      "decelerate": [
+        0,
+        0,
+        0.58,
+        1
+      ],
+      "accelerate": [
+        0.42,
+        0,
+        1,
+        1
+      ],
+      "linear": [
+        0,
+        0,
+        1,
+        1
+      ]
+    }
+  },
+  "counts": {
+    "total": 276,
+    "byCategory": {
+      "space": 18,
+      "size": 5,
+      "radius": 9,
+      "fs": 9,
+      "lh": 4,
+      "ls": 5,
+      "font": 2,
+      "color": 194,
+      "shadow": 5,
+      "occlusion": 4,
+      "rim": 1,
+      "bevel": 4,
+      "motion": 16
+    }
+  },
+  "contracts": {
+    "total": 126,
+    "failed": 0,
+    "ids": [
+      "space-monotonic",
+      "size-monotonic",
+      "radius-derive",
+      "type-steps",
+      "type-line-height",
+      "type-letter-spacing",
+      "duration-derive",
+      "duration-floor",
+      "loop-derive",
+      "delay-derive",
+      "easing-family",
+      "easing-mirror",
+      "easing-t",
+      "shadow-levels",
+      "occlusion-levels",
+      "no-semantic-nodes",
+      "mode-complete",
+      "no-carrier-syntax",
+      "surface-canvas-opaque",
+      "scrim-single",
+      "color/surface-target",
+      "color/line-target",
+      "color/ink-contrast",
+      "color/tone-text",
+      "color/tone-text-weak",
+      "color/tone-text-strong",
+      "color/tone-foreground",
+      "color/tone-border",
+      "color/tone-strong",
+      "color/foreground-endpoint"
+    ]
+  },
+  "color": {
+    "levels": {
+      "pass": 106
+    },
+    "report": [
+      {
+        "id": "surface-target",
+        "token": "surface.raised",
+        "against": "surface.canvas",
+        "ratio": 1.1,
+        "target": 1.1,
+        "floor": 1.07,
+        "tolerance": 0.03,
+        "mode": "light",
+        "need": 1.07,
+        "pair": "surface.raised @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "surface-target",
+        "token": "surface.overlay",
+        "against": "surface.canvas",
+        "ratio": 1.14,
+        "target": 1.14,
+        "floor": 1.1099999999999999,
+        "tolerance": 0.03,
+        "mode": "light",
+        "need": 1.1099999999999999,
+        "pair": "surface.overlay @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "surface-target",
+        "token": "surface.inset",
+        "against": "surface.canvas",
+        "ratio": 1.08,
+        "target": 1.07,
+        "floor": 1.04,
+        "tolerance": 0.03,
+        "mode": "light",
+        "need": 1.04,
+        "pair": "surface.inset @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "line-target",
+        "token": "line.1",
+        "against": "surface.canvas",
+        "ratio": 1.16,
+        "target": 1.16,
+        "floor": 1.04,
+        "tolerance": 0.12,
+        "mode": "light",
+        "need": 1.04,
+        "pair": "line.1 @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "line-target",
+        "token": "line.2",
+        "against": "surface.canvas",
+        "ratio": 1.46,
+        "target": 1.45,
+        "floor": 1.33,
+        "tolerance": 0.12,
+        "mode": "light",
+        "need": 1.33,
+        "pair": "line.2 @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "line-target",
+        "token": "line.3",
+        "against": "surface.canvas",
+        "ratio": 3.01,
+        "target": 3,
+        "floor": 2.88,
+        "tolerance": 0.12,
+        "mode": "light",
+        "need": 2.88,
+        "pair": "line.3 @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.canvas",
+        "ratio": 7.79,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.raised",
+        "ratio": 8.2,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.overlay",
+        "ratio": 8.36,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.inset",
+        "ratio": 7.59,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.canvas",
+        "ratio": 6.55,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.raised",
+        "ratio": 6.79,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.overlay",
+        "ratio": 6.82,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.inset",
+        "ratio": 6.38,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.canvas",
+        "ratio": 5.27,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.raised",
+        "ratio": 5.39,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.overlay",
+        "ratio": 5.42,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.inset",
+        "ratio": 5.13,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.canvas",
+        "ratio": 2.39,
+        "target": 2,
+        "floor": 2,
+        "mode": "light",
+        "need": 2,
+        "pair": "ink.disabled @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.raised",
+        "ratio": 2.42,
+        "target": 2,
+        "floor": 2,
+        "mode": "light",
+        "need": 2,
+        "pair": "ink.disabled @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.overlay",
+        "ratio": 2.42,
+        "target": 2,
+        "floor": 2,
+        "mode": "light",
+        "need": 2,
+        "pair": "ink.disabled @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.inset",
+        "ratio": 2.36,
+        "target": 2,
+        "floor": 2,
+        "mode": "light",
+        "need": 2,
+        "pair": "ink.disabled @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "surface-target",
+        "token": "surface.raised",
+        "against": "surface.canvas",
+        "ratio": 1.11,
+        "target": 1.1,
+        "floor": 1.07,
+        "tolerance": 0.03,
+        "mode": "dark",
+        "need": 1.07,
+        "pair": "surface.raised @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "surface-target",
+        "token": "surface.overlay",
+        "against": "surface.canvas",
+        "ratio": 1.15,
+        "target": 1.14,
+        "floor": 1.1099999999999999,
+        "tolerance": 0.03,
+        "mode": "dark",
+        "need": 1.1099999999999999,
+        "pair": "surface.overlay @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "surface-target",
+        "token": "surface.inset",
+        "against": "surface.canvas",
+        "ratio": 1.08,
+        "target": 1.07,
+        "floor": 1.04,
+        "tolerance": 0.03,
+        "mode": "dark",
+        "need": 1.04,
+        "pair": "surface.inset @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "line-target",
+        "token": "line.1",
+        "against": "surface.canvas",
+        "ratio": 1.17,
+        "target": 1.16,
+        "floor": 1.04,
+        "tolerance": 0.12,
+        "mode": "dark",
+        "need": 1.04,
+        "pair": "line.1 @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "line-target",
+        "token": "line.2",
+        "against": "surface.canvas",
+        "ratio": 1.46,
+        "target": 1.45,
+        "floor": 1.33,
+        "tolerance": 0.12,
+        "mode": "dark",
+        "need": 1.33,
+        "pair": "line.2 @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "line-target",
+        "token": "line.3",
+        "against": "surface.canvas",
+        "ratio": 3.03,
+        "target": 3,
+        "floor": 2.88,
+        "tolerance": 0.12,
+        "mode": "dark",
+        "need": 2.88,
+        "pair": "line.3 @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.canvas",
+        "ratio": 8.12,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.raised",
+        "ratio": 7.58,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.overlay",
+        "ratio": 7.38,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.primary",
+        "against": "surface.inset",
+        "ratio": 8.44,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.primary @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.canvas",
+        "ratio": 6.74,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.raised",
+        "ratio": 6.38,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.overlay",
+        "ratio": 6.22,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.secondary",
+        "against": "surface.inset",
+        "ratio": 6.99,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.secondary @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.canvas",
+        "ratio": 5.52,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.raised",
+        "ratio": 5.25,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.overlay",
+        "ratio": 5.18,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.tertiary",
+        "against": "surface.inset",
+        "ratio": 5.64,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "ink.tertiary @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.canvas",
+        "ratio": 3.22,
+        "target": 2,
+        "floor": 2,
+        "mode": "dark",
+        "need": 2,
+        "pair": "ink.disabled @ surface.canvas",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.raised",
+        "ratio": 3.17,
+        "target": 2,
+        "floor": 2,
+        "mode": "dark",
+        "need": 2,
+        "pair": "ink.disabled @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.overlay",
+        "ratio": 3.15,
+        "target": 2,
+        "floor": 2,
+        "mode": "dark",
+        "need": 2,
+        "pair": "ink.disabled @ surface.overlay",
+        "level": "pass"
+      },
+      {
+        "id": "ink-contrast",
+        "token": "ink.disabled",
+        "against": "surface.inset",
+        "ratio": 3.21,
+        "target": 2,
+        "floor": 2,
+        "mode": "dark",
+        "need": 2,
+        "pair": "ink.disabled @ surface.inset",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.primary.soft.ink.base",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 11.87,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.primary.soft.ink.base @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.primary.soft.ink.weak",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 5.02,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.primary.soft.ink.weak @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.primary.soft.ink.strong",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 11.87,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.primary.soft.ink.strong @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.primary.solid.foreground",
+        "against": "tone.primary.solid.fill.rest",
+        "ratio": 13.77,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.primary.solid.foreground @ tone.primary.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.primary.soft.line.base",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 1.37,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "light",
+        "need": 1.2999999999999998,
+        "pair": "tone.primary.soft.line.base @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.primary.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 12.74,
+        "target": 3,
+        "floor": 3,
+        "mode": "light",
+        "need": 3,
+        "pair": "tone.primary.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.primary.soft.ink.base",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 8.43,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.primary.soft.ink.base @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.primary.soft.ink.weak",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 5.01,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.primary.soft.ink.weak @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.primary.soft.ink.strong",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 8.43,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.primary.soft.ink.strong @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.primary.solid.foreground",
+        "against": "tone.primary.solid.fill.rest",
+        "ratio": 17.62,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.primary.solid.foreground @ tone.primary.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.primary.soft.line.base",
+        "against": "tone.primary.soft.fill.rest",
+        "ratio": 1.35,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "dark",
+        "need": 1.2999999999999998,
+        "pair": "tone.primary.soft.line.base @ tone.primary.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.primary.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 13.18,
+        "target": 3,
+        "floor": 3,
+        "mode": "dark",
+        "need": 3,
+        "pair": "tone.primary.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.danger.soft.ink.base",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 6.03,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.danger.soft.ink.base @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.danger.soft.ink.weak",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 5,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.danger.soft.ink.weak @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.danger.soft.ink.strong",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 7.32,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.danger.soft.ink.strong @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.danger.solid.foreground",
+        "against": "tone.danger.solid.fill.rest",
+        "ratio": 4.57,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.danger.solid.foreground @ tone.danger.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.danger.soft.line.base",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 1.37,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "light",
+        "need": 1.2999999999999998,
+        "pair": "tone.danger.soft.line.base @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.danger.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 4.22,
+        "target": 3,
+        "floor": 3,
+        "mode": "light",
+        "need": 3,
+        "pair": "tone.danger.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.danger.soft.ink.base",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 6.04,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.danger.soft.ink.base @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.danger.soft.ink.weak",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 5,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.danger.soft.ink.weak @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.danger.soft.ink.strong",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 7.24,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.danger.soft.ink.strong @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.danger.solid.foreground",
+        "against": "tone.danger.solid.fill.rest",
+        "ratio": 4.78,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.danger.solid.foreground @ tone.danger.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.danger.soft.line.base",
+        "against": "tone.danger.soft.fill.rest",
+        "ratio": 1.37,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "dark",
+        "need": 1.2999999999999998,
+        "pair": "tone.danger.soft.line.base @ tone.danger.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.danger.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 3.58,
+        "target": 3,
+        "floor": 3,
+        "mode": "dark",
+        "need": 3,
+        "pair": "tone.danger.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.warning.soft.ink.base",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 6.01,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.warning.soft.ink.base @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.warning.soft.ink.weak",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 5.04,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.warning.soft.ink.weak @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.warning.soft.ink.strong",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 7.29,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.warning.soft.ink.strong @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.warning.solid.foreground",
+        "against": "tone.warning.solid.fill.rest",
+        "ratio": 4.59,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.warning.solid.foreground @ tone.warning.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.warning.soft.line.base",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 1.38,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "light",
+        "need": 1.2999999999999998,
+        "pair": "tone.warning.soft.line.base @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.warning.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 4.25,
+        "target": 3,
+        "floor": 3,
+        "mode": "light",
+        "need": 3,
+        "pair": "tone.warning.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.warning.soft.ink.base",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 6,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.warning.soft.ink.base @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.warning.soft.ink.weak",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 5.01,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.warning.soft.ink.weak @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.warning.soft.ink.strong",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 7.24,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.warning.soft.ink.strong @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.warning.solid.foreground",
+        "against": "tone.warning.solid.fill.rest",
+        "ratio": 5.07,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.warning.solid.foreground @ tone.warning.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.warning.soft.line.base",
+        "against": "tone.warning.soft.fill.rest",
+        "ratio": 1.35,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "dark",
+        "need": 1.2999999999999998,
+        "pair": "tone.warning.soft.line.base @ tone.warning.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.warning.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 3.8,
+        "target": 3,
+        "floor": 3,
+        "mode": "dark",
+        "need": 3,
+        "pair": "tone.warning.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.success.soft.ink.base",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 6.06,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.success.soft.ink.base @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.success.soft.ink.weak",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 5.02,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.success.soft.ink.weak @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.success.soft.ink.strong",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 7.33,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.success.soft.ink.strong @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.success.solid.foreground",
+        "against": "tone.success.solid.fill.rest",
+        "ratio": 4.54,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.success.solid.foreground @ tone.success.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.success.soft.line.base",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 1.37,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "light",
+        "need": 1.2999999999999998,
+        "pair": "tone.success.soft.line.base @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.success.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 4.2,
+        "target": 3,
+        "floor": 3,
+        "mode": "light",
+        "need": 3,
+        "pair": "tone.success.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.success.soft.ink.base",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 6,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.success.soft.ink.base @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.success.soft.ink.weak",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 5.04,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.success.soft.ink.weak @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.success.soft.ink.strong",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 7.23,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.success.soft.ink.strong @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.success.solid.foreground",
+        "against": "tone.success.solid.fill.rest",
+        "ratio": 5.7,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.success.solid.foreground @ tone.success.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.success.soft.line.base",
+        "against": "tone.success.soft.fill.rest",
+        "ratio": 1.34,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "dark",
+        "need": 1.2999999999999998,
+        "pair": "tone.success.soft.line.base @ tone.success.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.success.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 4.26,
+        "target": 3,
+        "floor": 3,
+        "mode": "dark",
+        "need": 3,
+        "pair": "tone.success.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.info.soft.ink.base",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 6,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.info.soft.ink.base @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.info.soft.ink.weak",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 5,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.info.soft.ink.weak @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.info.soft.ink.strong",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 7.38,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.info.soft.ink.strong @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.info.solid.foreground",
+        "against": "tone.info.solid.fill.rest",
+        "ratio": 4.54,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "light",
+        "need": 4.5,
+        "pair": "tone.info.solid.foreground @ tone.info.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.info.soft.line.base",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 1.39,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "light",
+        "need": 1.2999999999999998,
+        "pair": "tone.info.soft.line.base @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.info.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 4.2,
+        "target": 3,
+        "floor": 3,
+        "mode": "light",
+        "need": 3,
+        "pair": "tone.info.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text",
+        "token": "tone.info.soft.ink.base",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 6.02,
+        "target": 6,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.info.soft.ink.base @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-weak",
+        "token": "tone.info.soft.ink.weak",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 5,
+        "target": 5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.info.soft.ink.weak @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-text-strong",
+        "token": "tone.info.soft.ink.strong",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 7.31,
+        "target": 7.2,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.info.soft.ink.strong @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-foreground",
+        "token": "tone.info.solid.foreground",
+        "against": "tone.info.solid.fill.rest",
+        "ratio": 5.25,
+        "target": 4.5,
+        "floor": 4.5,
+        "mode": "dark",
+        "need": 4.5,
+        "pair": "tone.info.solid.foreground @ tone.info.solid.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-border",
+        "token": "tone.info.soft.line.base",
+        "against": "tone.info.soft.fill.rest",
+        "ratio": 1.34,
+        "target": 1.38,
+        "floor": 1.2999999999999998,
+        "tolerance": 0.08,
+        "mode": "dark",
+        "need": 1.2999999999999998,
+        "pair": "tone.info.soft.line.base @ tone.info.soft.fill.rest",
+        "level": "pass"
+      },
+      {
+        "id": "tone-strong",
+        "token": "tone.info.bare.line.strong",
+        "against": "surface.raised",
+        "ratio": 3.93,
+        "target": 3,
+        "floor": 3,
+        "mode": "dark",
+        "need": 3,
+        "pair": "tone.info.bare.line.strong @ surface.raised",
+        "level": "pass"
+      },
+      {
+        "id": "foreground-endpoint",
+        "pair": "foreground.endpoint(light) @ pole",
+        "token": "foreground.endpoint",
+        "against": "pole",
+        "ratio": 0,
+        "need": 3,
+        "target": 3,
+        "floor": 0,
+        "level": "pass",
+        "mode": "light"
+      },
+      {
+        "id": "foreground-endpoint",
+        "pair": "foreground.endpoint(dark) @ pole",
+        "token": "foreground.endpoint",
+        "against": "pole",
+        "ratio": 0,
+        "need": 3,
+        "target": 3,
+        "floor": 0,
+        "level": "pass",
+        "mode": "dark"
+      }
+    ]
+  },
+  "artifacts": [
+    "tokens.css",
+    "tokens.json",
+    "tokens.dtcg.json",
+    "kernel.json"
+  ]
+}
