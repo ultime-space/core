@@ -1,4 +1,4 @@
-# @ultime/core
+# core
 
 > 平台无关的设计系统内核：**seed → 一棵树 → 快照**。Web 的 CSS 只是它的一个出口。
 
