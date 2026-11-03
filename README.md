@@ -28,7 +28,7 @@ pnpm add @ultime/core
 Node.js >= 22.18。内核的 `.` / `./exporters` / `./tools` / `./seed` 出口是编译后的 JS，零第三方依赖；
 `./studio` 出口（配置器）依赖 `@ultime/studio`，`ultime` bin 依赖 `@ultime/cli`；不用配置器 / CLI 时不会进入你的产物。
 
-## 30 秒
+## 快速开始
 
 ```js
 import { buildCore } from '@ultime/core'
