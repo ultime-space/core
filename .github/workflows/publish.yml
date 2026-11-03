@@ -52,12 +52,13 @@ jobs:
         run: |
           name=$(node -p "require('./package.json').name")
           version=$(node -p "require('./package.json').version")
-          for i in 1 2 3 4 5; do
+          # npm CDN 的元数据传播实测 2–4 分钟：轮询 5 分钟再判失败，避免把延迟当成没发
+          for i in $(seq 1 20); do
             if npm view "$name@$version" version >/dev/null 2>&1; then
               echo "$name@$version 已在 registry 上"
               exit 0
             fi
-            sleep 5
+            sleep 15
           done
-          echo "::error::$name@$version 发布后查不到，检查 Publish 步骤日志"
+          echo "::error::$name@$version 发布后 5 分钟仍查不到，检查 Publish 步骤日志"
           exit 1
