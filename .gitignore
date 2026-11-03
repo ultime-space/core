@@ -7,10 +7,3 @@ coverage/
 
 # Vite+ 生成的 Git hook dispatcher（项目自己的 hook 在 .githooks/pre-commit）
 .githooks/_/
-
-# 历史产物：core 已不产出，仅供 viewer 的 sync-tokens 同步（本地 workspace 开发用）
-# 它们不在 kernel.json 的 artifacts 里，不进包、不进 git
-tokens.roles.css
-tokens.theme.css
-motion.css
-motion.roles.css
