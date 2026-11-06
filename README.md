@@ -45,6 +45,16 @@ const css = treeToCss(result)
 
 换品牌 / 调档只改 seed，然后重跑构建；不要手改快照。
 
+光影用同一份引擎求解；静态快照只表达默认形态 `convex`：
+
+```js
+import { solveLight } from '@ultime/core'
+
+solveLight({ form: 'concave', depth: 3, mode: 'dark' })
+```
+
+`solveLight` 只收形态 / 深度 / 模式，不收尺寸、圆角或组件名；`flat` / `concave` 在构建期取，不写入静态快照。
+
 ---
 
 ## 模型
@@ -65,9 +75,10 @@ buildCore：schema + derive + check
       └── DTCG 交换格式 + manifest
 ```
 
-- **seed 是唯一输入**：色相 / 彩度 / 中性配方 / 画布对称 / 面目标 / 前景端点 / 启用模式 / 圆角基座 / 字号基准 / 字体栈 / 光源参数 / 动效步长。
+- **seed 是唯一输入**：色相 / 彩度 / 中性配方 / 画布对称 / 面目标 / 前景端点 / 启用模式 / 圆角基座 / 字号基准 / 字体栈 / 光源方向与光色 / 受光边 alpha / 动效步长。
 - **树只有两种节点**：`token`（`$type` / `$value`）与 `group`；组只做分隔，不承载语义。
 - **类别不是包**：`skeleton` / `color` / `light` / `motion` 是同一棵树里的类别，可按类别整块裁剪。
+- **光影五槽**：`highlight.key` / `highlight.ambient` / `shade.key` / `shadow` / `occlusion`；静态 tokens 只表达 `convex`，`flat` / `concave` 走 `solveLight`。
 - **模式是作用域**：颜色与 `highlight.key` / `shade.key` 的值是 `{ light, dark }`；写进 CSS 时变成值位 + 无后缀开关。
 - **语义不在树里**：`gap.*` / `type.*` / `border.*` 只写路径，归可选的语义表。
 - **实心面前景独立**：每个色族有 `tone.{族}.solid.foreground`；`ink` 只用于中性面，彩色实心面必须用 `foreground`。
