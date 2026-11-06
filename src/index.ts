@@ -9,6 +9,7 @@
 export * from './seed'
 export * from './tree'
 export * from './build'
+export type { LightColors, LightDepth, LightForm, LightSolveInput, LightSolveResult } from './model/light'
 export * from './contracts'
 export * from './exporters'
 export * from './version'

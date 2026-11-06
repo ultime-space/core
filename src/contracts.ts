@@ -12,10 +12,21 @@
 
 import type { CoreSeed } from './seed'
 import type { ColorResult, ColorReportRow, ReportLevel } from './model/color/derive'
+import { composite, contrast } from './model/color/math'
+import { STATE_TARGETS } from './model/color/targets'
 import type { LightResult } from './model/light'
 import type { MotionResult } from './model/motion'
 import type { SkeletonResult } from './model/skeleton'
-import { isModeValue, isToken, walk, type Group, type Node } from './tree'
+import {
+  isModeValue,
+  isToken,
+  walk,
+  type Group,
+  type ModeValue,
+  type Node,
+  type ShadowLayerValue,
+  type Token,
+} from './tree'
 
 export interface ContractRow {
   id: string
@@ -322,6 +333,42 @@ export function auditContracts({ seed, tree, skeleton, color, light, motion }: C
     ),
   )
   rows.push(row('scrim-single', 'scrim 单值、不随模式', color.tree.scrim.hex, '单值', !isModeValue(color.tree.scrim)))
+
+  /* 单墨：阴影 / 遮蔽 / 遮罩 / 暗侧共用同一枚 shadowInk。 */
+  const shadeKey = light.tree.shade.key as Token<ModeValue<ShadowLayerValue[]>>
+  const shadeValue = shadeKey.$value
+  const shadeInk = (layers: ShadowLayerValue[]): boolean =>
+    layers.length > 0 && layers.every((item) => item.color.hex === color.shadowInk.hex)
+  const shadeInkOk = isModeValue(shadeValue) && shadeInk(shadeValue.light) && shadeInk(shadeValue.dark)
+  rows.push(
+    row(
+      'single-ink',
+      'shadow / scrim / shade.key 共用一枚墨',
+      `${color.shadowInk.hex} / ${color.tree.scrim.hex} / ${shadeValue.light[0]?.color.hex ?? '空'}`,
+      color.shadowInk.hex,
+      shadeInkOk && color.tree.scrim.hex === color.shadowInk.hex,
+    ),
+  )
+
+  /* 状态叠墨：在声明的画布底上命中目标。 */
+  for (const mode of ['light', 'dark'] as const) {
+    const canvas = color.tree.surface.canvas[mode]
+    const inkHex = mode === 'light' ? '#000000' : '#FFFFFF'
+    for (const key of ['hover', 'pressed', 'disabled'] as const) {
+      const value = color.tree.state[key][mode]
+      const ratio = contrast(composite(inkHex, value.alpha, canvas.hex), canvas.hex)
+      rows.push(
+        row(
+          `state-target/${key}`,
+          `state.${key}（${mode}）在 surface.canvas 上`,
+          +ratio.toFixed(3),
+          STATE_TARGETS[key],
+          Math.abs(ratio - STATE_TARGETS[key]) <= 0.01,
+        ),
+      )
+    }
+  }
+
   rows.push(...colorRows(color.report))
 
   const failed = rows.filter((r) => r.blocking && !r.pass).length

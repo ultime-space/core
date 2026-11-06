@@ -99,12 +99,14 @@ export interface LightSeed {
   blurRatio: number
   /** 墨量单位（百分比） */
   inkUnit: number
-  /** 环境墨偏色；null = 继承中性墨 */
-  ambientTint: { hue: number; chroma: number } | null
-  /** 主光偏色；null = 纯白 */
-  lightTint: { hue: number; chroma: number } | null
-  rimAlpha: number
-  bevel: {
+  /** 环境色（hex）；null = 继承中性墨 */
+  ambientColor: string | null
+  /** 主光色（hex）；null = 纯白 */
+  lightColor: string | null
+  /** 环境高光环 alpha；方向边线必须有环境底 */
+  ambientAlpha: number
+  /** 受光 / 背光边 alpha，按模式分别给 */
+  key: {
     light: { highlight: number; shade: number }
     dark: { highlight: number; shade: number }
   }
@@ -179,10 +181,10 @@ export const DEFAULT_SEED: CoreSeed = {
     blurBase: 8,
     blurRatio: 2,
     inkUnit: 4,
-    ambientTint: null,
-    lightTint: null,
-    rimAlpha: 0.058,
-    bevel: {
+    ambientColor: null,
+    lightColor: null,
+    ambientAlpha: 0.058,
+    key: {
       light: { highlight: 0.2, shade: 0.14 },
       dark: { highlight: 0.14, shade: 0.2 },
     },

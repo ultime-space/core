@@ -8,7 +8,7 @@
    定位：平台无关的原料快照；语义名（gap.* / type.* / border.*）属于语义表，
         不在本文件。角色与编排归上层，core 不定义用途。
    单位：space / size / radius / fs → rem；ls → em；lh → 无单位；光影 → px。
-   模式：颜色与 bevel 使用 -light / -dark 值位；无后缀变量是跨模式开关。
+   模式：颜色与 highlight.key / shade.key 使用 -light / -dark 值位；无后缀变量是跨模式开关。
    reduce：duration → 0.01ms、delay → 0s；loop 不归零，由组件显式停。
    ============================================================================ */
 
@@ -649,19 +649,19 @@
   --color-tone-info-bare-line-strong-light: #1F75DB;
   --color-tone-info-bare-line-strong-dark: #227EEB;
   --color-tone-info-bare-line-strong: var(--color-tone-info-bare-line-strong-light);
-  --color-state-hover-light: rgb(0 0 0 / 0.08);
-  --color-state-hover-dark: rgb(255 255 255 / 0.08);
+  --color-state-hover-light: rgb(0 0 0 / 0.04);
+  --color-state-hover-dark: rgb(255 255 255 / 0.032);
   --color-state-hover: var(--color-state-hover-light);
-  --color-state-pressed-light: rgb(0 0 0 / 0.12);
-  --color-state-pressed-dark: rgb(255 255 255 / 0.12);
+  --color-state-pressed-light: rgb(0 0 0 / 0.056);
+  --color-state-pressed-dark: rgb(255 255 255 / 0.044);
   --color-state-pressed: var(--color-state-pressed-light);
-  --color-state-disabled-light: rgb(0 0 0 / 0.04);
-  --color-state-disabled-dark: rgb(255 255 255 / 0.04);
+  --color-state-disabled-light: rgb(0 0 0 / 0.016);
+  --color-state-disabled-dark: rgb(255 255 255 / 0.012);
   --color-state-disabled: var(--color-state-disabled-light);
   --color-state-selected-light: rgb(45 45 45 / 0.08);
   --color-state-selected-dark: rgb(235 235 235 / 0.08);
   --color-state-selected: var(--color-state-selected-light);
-  --color-scrim: rgb(0 0 0 / 0.42);
+  --color-scrim: rgb(13 13 13 / 0.42);
 
   /* ───── Scene 阴影（4 档 · 三槽位） ───── */
   --shadow-color-rgb: 13 13 13;
@@ -677,22 +677,16 @@
   --occlusion-3: 0px 0px 32px 0px rgb(var(--shadow-color-rgb) / 0.12);
   --occlusion-4: 0px 0px 64px 0px rgb(var(--shadow-color-rgb) / 0.16);
 
-  /* ───── 高光环 ───── */
-  --rim: 0px 0px 0px 1px rgb(255 255 255 / 0.058);
+  /* ───── 高光（key / ambient） ───── */
+  --highlight-key-light: inset 0px 1px 0px 0px rgb(255 255 255 / 0.2);
+  --highlight-key-dark: inset 0px 1px 0px 0px rgb(255 255 255 / 0.14);
+  --highlight-key: var(--highlight-key-light);
+  --highlight-ambient: 0px 0px 0px 1px rgb(255 255 255 / 0.058);
 
-  /* ───── 表面形态 ───── */
-  --bevel-highlight-light: rgb(255 255 255 / 0.2);
-  --bevel-highlight-dark: rgb(255 255 255 / 0.14);
-  --bevel-highlight: var(--bevel-highlight-light);
-  --bevel-shade-light: rgb(0 0 0 / 0.14);
-  --bevel-shade-dark: rgb(0 0 0 / 0.2);
-  --bevel-shade: var(--bevel-shade-light);
-  --bevel-raised-light: inset 0px 1px 0px 0px rgb(255 255 255 / 0.2), inset 0px -1px 0px 0px rgb(0 0 0 / 0.14);
-  --bevel-raised-dark: inset 0px 1px 0px 0px rgb(255 255 255 / 0.14), inset 0px -1px 0px 0px rgb(0 0 0 / 0.2);
-  --bevel-raised: var(--bevel-raised-light);
-  --bevel-sunken-light: inset 0px 1px 0px 0px rgb(0 0 0 / 0.14), inset 0px -1px 0px 0px rgb(255 255 255 / 0.2);
-  --bevel-sunken-dark: inset 0px 1px 0px 0px rgb(0 0 0 / 0.2), inset 0px -1px 0px 0px rgb(255 255 255 / 0.14);
-  --bevel-sunken: var(--bevel-sunken-light);
+  /* ───── 暗边（key） ───── */
+  --shade-key-light: inset 0px -1px 0px 0px rgb(var(--shadow-color-rgb) / 0.14);
+  --shade-key-dark: inset 0px -1px 0px 0px rgb(var(--shadow-color-rgb) / 0.2);
+  --shade-key: var(--shade-key-light);
 
   /* ───── 动效（四轴） ───── */
   --motion-duration-1: 100ms;
@@ -909,10 +903,8 @@
   --color-state-pressed: var(--color-state-pressed-dark);
   --color-state-disabled: var(--color-state-disabled-dark);
   --color-state-selected: var(--color-state-selected-dark);
-  --bevel-highlight: var(--bevel-highlight-dark);
-  --bevel-shade: var(--bevel-shade-dark);
-  --bevel-raised: var(--bevel-raised-dark);
-  --bevel-sunken: var(--bevel-sunken-dark);
+  --highlight-key: var(--highlight-key-dark);
+  --shade-key: var(--shade-key-dark);
 }
 
 /* 减少动效：时长与延迟瞬时切换；loop 不归零，循环由组件显式停。 */

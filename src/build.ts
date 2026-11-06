@@ -6,7 +6,7 @@
  */
 
 import { deriveColor, type ColorResult } from './model/color/derive'
-import { deriveLight, type LightResult } from './model/light'
+import { deriveLight, type LightResult, type LightSolveInput, type LightSolveResult } from './model/light'
 import { deriveMotion, type MotionResult } from './model/motion'
 import { deriveSkeleton, type SkeletonResult } from './model/skeleton'
 import { resolveSeed, seedHash, type CoreSeed, type SeedInput } from './seed'
@@ -25,6 +25,9 @@ export interface CoreResult {
   counts: { total: number; byCategory: Record<string, number> }
 }
 
+/** 光色是 hex；省略光色 = 白光。阴影墨的彩度封顶在颜色模型里处理。 */
+const resolveLightColor = (value: string | null): string => value ?? '#FFFFFF'
+
 /** 把「颜色值 / 模式值 / 嵌套对象」转成 token 树。 */
 function colorNodes(value: unknown): Node {
   if (!value || typeof value !== 'object') throw new Error(`颜色树节点不是对象：${JSON.stringify(value)}`)
@@ -35,11 +38,26 @@ function colorNodes(value: unknown): Node {
   )
 }
 
+/** 光影求解所需的上下文：颜色只提供一枚阴影墨，光色在装配点解析。 */
+function prepareLight(seed: CoreSeed): { color: ColorResult; light: LightResult } {
+  const color = deriveColor(seed.color, seed.light.ambientColor)
+  const light = deriveLight(seed.light, color.shadowInk, {
+    key: resolveLightColor(seed.light.lightColor),
+    ambient: resolveLightColor(seed.light.ambientColor),
+  })
+  return { color, light }
+}
+
+/** 独立求解入口：给上层在构建期按形态 / 深度 / 模式取五槽值。 */
+export function solveLight(input: LightSolveInput = {}, seedInput: SeedInput = {}): LightSolveResult {
+  const seed = resolveSeed(seedInput)
+  return prepareLight(seed).light.solve(input)
+}
+
 export function buildCore(input: SeedInput = {}): CoreResult {
   const seed = resolveSeed(input)
   const skeleton = deriveSkeleton(seed.skeleton)
-  const color = deriveColor(seed.color)
-  const light = deriveLight(seed.light, color.shadowInk)
+  const { color, light } = prepareLight(seed)
   const motion = deriveMotion(seed.motion)
 
   const tree: Group = {
@@ -54,8 +72,8 @@ export function buildCore(input: SeedInput = {}): CoreResult {
     },
     shadow: light.tree.shadow,
     occlusion: light.tree.occlusion,
-    rim: light.tree.rim,
-    bevel: light.tree.bevel,
+    highlight: light.tree.highlight,
+    shade: light.tree.shade,
     motion: motion.tree,
   }
 

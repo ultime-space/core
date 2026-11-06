@@ -1,7 +1,7 @@
 {
   "name": "@ultime/core",
-  "schemaVersion": "5.0.0",
-  "engineVersion": "0.4.0",
+  "schemaVersion": "6.0.0",
+  "engineVersion": "0.5.0",
   "unit": {
     "scale": "logical",
     "definition": "1 逻辑像素 = 1 iOS pt = 1 Android dp = 1 CSS px@1x",
@@ -124,10 +124,10 @@
       "blurBase": 8,
       "blurRatio": 2,
       "inkUnit": 4,
-      "ambientTint": null,
-      "lightTint": null,
-      "rimAlpha": 0.058,
-      "bevel": {
+      "ambientColor": null,
+      "lightColor": null,
+      "ambientAlpha": 0.058,
+      "key": {
         "light": {
           "highlight": 0.2,
           "shade": 0.14
@@ -158,7 +158,7 @@
       }
     }
   },
-  "seedHash": "fnv1a-6857097b",
+  "seedHash": "fnv1a-a85ae522",
   "motion": {
     "easingSource": "family",
     "easing": {
@@ -189,7 +189,7 @@
     }
   },
   "counts": {
-    "total": 276,
+    "total": 274,
     "byCategory": {
       "space": 18,
       "size": 5,
@@ -201,13 +201,13 @@
       "color": 194,
       "shadow": 5,
       "occlusion": 4,
-      "rim": 1,
-      "bevel": 4,
+      "highlight": 2,
+      "shade": 1,
       "motion": 16
     }
   },
   "contracts": {
-    "total": 126,
+    "total": 133,
     "failed": 0,
     "ids": [
       "space-monotonic",
@@ -230,6 +230,10 @@
       "no-carrier-syntax",
       "surface-canvas-opaque",
       "scrim-single",
+      "single-ink",
+      "state-target/hover",
+      "state-target/pressed",
+      "state-target/disabled",
       "color/surface-target",
       "color/line-target",
       "color/ink-contrast",

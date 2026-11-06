@@ -1,8 +1,8 @@
 # @ultime/core · 可调用能力
 
 > 定位：AI 可调用的入口、产物与错误语义。字段清单以 `ultime schema --json` 为准，本文件不手抄。
-> 适用版本：0.4.x
-> 同步基线：0.4.x（手写；导出面或 schema 变化时同批更新）
+> 适用版本：0.5.x
+> 同步基线：0.5.x（手写；导出面或 schema 变化时同批更新）
 
 ---
 
@@ -10,7 +10,7 @@
 
 | 入口 | 提供 | 形态 |
 |---|---|---|
-| `@ultime/core` | `buildCore` / `buildManifest` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
+| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg` | 只读树 |
 | `@ultime/core/tools` | `exportTokens` / `exportArtifacts` / 子集与配置校验 / 语义表模板 | 无文件 IO |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出 | 依赖 `@ultime/studio` |

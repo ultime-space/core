@@ -2,9 +2,9 @@
   "$description": "Ultime core · DTCG 导出。颜色模式值为 { light, dark } 两个 token；CSS 的无后缀开关是适配器行为，不在 DTCG 里复制。",
   "$extensions": {
     "com.ultime.core": {
-      "schemaVersion": "5.0.0",
-      "engineVersion": "0.4.0",
-      "seedHash": "fnv1a-6857097b",
+      "schemaVersion": "6.0.0",
+      "engineVersion": "0.5.0",
+      "seedHash": "fnv1a-a85ae522",
       "note": "真源是 seed + 引擎；本文件只是可交换快照。"
     }
   },
@@ -6001,7 +6001,7 @@
               0,
               0
             ],
-            "alpha": 0.08,
+            "alpha": 0.04,
             "hex": "#000000"
           }
         },
@@ -6014,7 +6014,7 @@
               1,
               1
             ],
-            "alpha": 0.08,
+            "alpha": 0.032,
             "hex": "#FFFFFF"
           }
         },
@@ -6030,7 +6030,7 @@
               0,
               0
             ],
-            "alpha": 0.12,
+            "alpha": 0.056,
             "hex": "#000000"
           }
         },
@@ -6043,7 +6043,7 @@
               1,
               1
             ],
-            "alpha": 0.12,
+            "alpha": 0.044,
             "hex": "#FFFFFF"
           }
         },
@@ -6059,7 +6059,7 @@
               0,
               0
             ],
-            "alpha": 0.04,
+            "alpha": 0.016,
             "hex": "#000000"
           }
         },
@@ -6072,7 +6072,7 @@
               1,
               1
             ],
-            "alpha": 0.04,
+            "alpha": 0.012,
             "hex": "#FFFFFF"
           }
         },
@@ -6113,12 +6113,12 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0,
-          0
+          0.051,
+          0.051,
+          0.051
         ],
         "alpha": 0.42,
-        "hex": "#000000"
+        "hex": "#0D0D0D"
       }
     }
   },
@@ -6614,100 +6614,115 @@
       ]
     }
   },
-  "rim": {
-    "$type": "shadow",
-    "$value": [
-      {
-        "color": {
-          "colorSpace": "srgb",
-          "components": [
-            1,
-            1,
-            1
-          ],
-          "alpha": 0.058,
-          "hex": "#FFFFFF"
-        },
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": {
-          "value": 0,
-          "unit": "px"
-        },
-        "blur": {
-          "value": 0,
-          "unit": "px"
-        },
-        "spread": {
-          "value": 1,
-          "unit": "px"
-        },
-        "inset": false
-      }
-    ]
+  "highlight": {
+    "key": {
+      "light": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.2,
+              "hex": "#FFFFFF"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          }
+        ]
+      },
+      "dark": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "color": {
+              "colorSpace": "srgb",
+              "components": [
+                1,
+                1,
+                1
+              ],
+              "alpha": 0.14,
+              "hex": "#FFFFFF"
+            },
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 1,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "px"
+            },
+            "inset": true
+          }
+        ]
+      },
+      "$description": "受光边：按方位角投影，静态导出为 convex（模式值：light / dark）"
+    },
+    "ambient": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.058,
+            "hex": "#FFFFFF"
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 1,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ]
+    }
   },
-  "bevel": {
-    "highlight": {
-      "light": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            1,
-            1,
-            1
-          ],
-          "alpha": 0.2,
-          "hex": "#FFFFFF"
-        }
-      },
-      "dark": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            1,
-            1,
-            1
-          ],
-          "alpha": 0.14,
-          "hex": "#FFFFFF"
-        }
-      },
-      "$description": "受光边镜面（模式值：light / dark）"
-    },
-    "shade": {
-      "light": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            0,
-            0,
-            0
-          ],
-          "alpha": 0.14,
-          "hex": "#000000"
-        }
-      },
-      "dark": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            0,
-            0,
-            0
-          ],
-          "alpha": 0.2,
-          "hex": "#000000"
-        }
-      },
-      "$description": "背光边遮光（模式值：light / dark）"
-    },
-    "raised": {
+  "shade": {
+    "key": {
       "light": {
         "$type": "shadow",
         "$value": [
@@ -6715,41 +6730,12 @@
             "color": {
               "colorSpace": "srgb",
               "components": [
-                1,
-                1,
-                1
-              ],
-              "alpha": 0.2,
-              "hex": "#FFFFFF"
-            },
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 1,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 0,
-              "unit": "px"
-            },
-            "inset": true
-          },
-          {
-            "color": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
+                0.051,
+                0.051,
+                0.051
               ],
               "alpha": 0.14,
-              "hex": "#000000"
+              "hex": "#0D0D0D"
             },
             "offsetX": {
               "value": 0,
@@ -6778,41 +6764,12 @@
             "color": {
               "colorSpace": "srgb",
               "components": [
-                1,
-                1,
-                1
-              ],
-              "alpha": 0.14,
-              "hex": "#FFFFFF"
-            },
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 1,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 0,
-              "unit": "px"
-            },
-            "inset": true
-          },
-          {
-            "color": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
+                0.051,
+                0.051,
+                0.051
               ],
               "alpha": 0.2,
-              "hex": "#000000"
+              "hex": "#0D0D0D"
             },
             "offsetX": {
               "value": 0,
@@ -6834,136 +6791,7 @@
           }
         ]
       },
-      "$description": "表面凸起（模式值：light / dark）"
-    },
-    "sunken": {
-      "light": {
-        "$type": "shadow",
-        "$value": [
-          {
-            "color": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0.14,
-              "hex": "#000000"
-            },
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 1,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 0,
-              "unit": "px"
-            },
-            "inset": true
-          },
-          {
-            "color": {
-              "colorSpace": "srgb",
-              "components": [
-                1,
-                1,
-                1
-              ],
-              "alpha": 0.2,
-              "hex": "#FFFFFF"
-            },
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": -1,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 0,
-              "unit": "px"
-            },
-            "inset": true
-          }
-        ]
-      },
-      "dark": {
-        "$type": "shadow",
-        "$value": [
-          {
-            "color": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0.2,
-              "hex": "#000000"
-            },
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": 1,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 0,
-              "unit": "px"
-            },
-            "inset": true
-          },
-          {
-            "color": {
-              "colorSpace": "srgb",
-              "components": [
-                1,
-                1,
-                1
-              ],
-              "alpha": 0.14,
-              "hex": "#FFFFFF"
-            },
-            "offsetX": {
-              "value": 0,
-              "unit": "px"
-            },
-            "offsetY": {
-              "value": -1,
-              "unit": "px"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "px"
-            },
-            "spread": {
-              "value": 0,
-              "unit": "px"
-            },
-            "inset": true
-          }
-        ]
-      },
-      "$description": "表面凹陷（模式值：light / dark）"
+      "$description": "背光边：按方位角投影，静态导出为 convex（模式值：light / dark）"
     }
   },
   "motion": {

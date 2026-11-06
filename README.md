@@ -68,7 +68,7 @@ buildCore：schema + derive + check
 - **seed 是唯一输入**：色相 / 彩度 / 中性配方 / 画布对称 / 面目标 / 前景端点 / 启用模式 / 圆角基座 / 字号基准 / 字体栈 / 光源参数 / 动效步长。
 - **树只有两种节点**：`token`（`$type` / `$value`）与 `group`；组只做分隔，不承载语义。
 - **类别不是包**：`skeleton` / `color` / `light` / `motion` 是同一棵树里的类别，可按类别整块裁剪。
-- **模式是作用域**：颜色与 `bevel` 的值是 `{ light, dark }`；写进 CSS 时变成值位 + 无后缀开关。
+- **模式是作用域**：颜色与 `highlight.key` / `shade.key` 的值是 `{ light, dark }`；写进 CSS 时变成值位 + 无后缀开关。
 - **语义不在树里**：`gap.*` / `type.*` / `border.*` 只写路径，归可选的语义表。
 - **实心面前景独立**：每个色族有 `tone.{族}.solid.foreground`；`ink` 只用于中性面，彩色实心面必须用 `foreground`。
 
@@ -114,7 +114,7 @@ color: var(--color-tone-primary-solid-foreground);
 
 | 入口 | 提供 |
 |---|---|
-| `@ultime/core` | `buildCore` / `buildManifest` / 树工具 / 合同 / 版本 |
+| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / 树工具 / 合同 / 版本 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg`；只读树 |
 | `@ultime/core/tools` | `exportTokens` / `exportArtifacts` / 子集与配置校验 / 语义表模板 |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出 |
@@ -188,7 +188,7 @@ packages/core/
 │   ├── model/
 │   │   ├── skeleton.ts        space / size / radius / fs / lh / ls / font
 │   │   ├── color/             颜色数学 + 中性灰 + 画布 / 面阶 / 墨 / 线 / 色族矩阵
-│   │   ├── light.ts           shadow / occlusion / rim / bevel
+│   │   ├── light.ts           shadow / occlusion / highlight / shade
 │   │   └── motion.ts          duration / loop / delay / easing
 │   ├── exporters/             CSS / JSON / DTCG（只读树）
 │   ├── studio/                配置器定义：字段 / 默认值 / 预设 / 校验 / 预览 / 导出
@@ -221,6 +221,7 @@ packages/core/
 ## 版本与兼容
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
+- 0.5.0 是契约刷新：`rim` → `highlight.ambient`，`bevel.highlight/shade` → `highlight.key` / `shade.key`；seed 的 `lightTint` / `ambientTint` / `rimAlpha` / `bevel` 改为 `lightColor` / `ambientColor` / `ambientAlpha` / `key`。不提供迁移器。
 - 下游优先读 `kernel.json` 与公开出口，不依赖 `src/` 内部结构。
 - 0.x 阶段导出面仍可能调整；升级前对比两份 `kernel.json`（版本 / 计数 / 合同摘要）即可看出差异。
 

@@ -32,7 +32,7 @@ import {
 } from './math'
 import { chromaMax, fromOklch, toOklch } from './oklch'
 import { CANVAS_STEPS, ladderCurve, neutralRamps, symmetricCanvasCurve, type NeutralRamp } from './ramp'
-import { FOREGROUND_TARGET, INK_TARGETS, LINE_TARGETS, TONE_TARGETS, type LineStep } from './targets'
+import { FOREGROUND_TARGET, INK_TARGETS, LINE_TARGETS, STATE_TARGETS, TONE_TARGETS, type LineStep } from './targets'
 
 /* ==========================================================================
    1. 基础工具
@@ -471,7 +471,7 @@ function toneMatrix(family: Family) {
 }
 
 /** 主入口。 */
-export function deriveColor(seed: ColorSeed): ColorResult {
+export function deriveColor(seed: ColorSeed, ambientColor: string | null = null): ColorResult {
   const surfaceSeed = seed.surface
   if (typeof seed.onSide !== 'object' || !seed.onSide.light || !seed.onSide.dark) {
     throw new Error('color.onSide 必须是 { light, dark }；0.4.0 起不再接受字符串 / auto')
@@ -682,25 +682,43 @@ export function deriveColor(seed: ColorSeed): ColorResult {
     3: mode(rgbaValue('#000000', lineAlpha.light[3]), rgbaValue('#FFFFFF', lineAlpha.dark[3])),
   } as Record<LineStep, ModeValue<ColorValue>>
 
-  /* 状态：中性叠墨随模式翻转；selected 混主色。 */
+  /* 状态：中性叠墨随模式翻转；alpha 由声明底（canvas）按目标反解。 */
+  const stateAlpha = {
+    light: {
+      hover: solveCoverage(inkHex.light, canvasLight, STATE_TARGETS.hover),
+      pressed: solveCoverage(inkHex.light, canvasLight, STATE_TARGETS.pressed),
+      disabled: solveCoverage(inkHex.light, canvasLight, STATE_TARGETS.disabled),
+    },
+    dark: {
+      hover: solveCoverage(inkHex.dark, canvasDark, STATE_TARGETS.hover),
+      pressed: solveCoverage(inkHex.dark, canvasDark, STATE_TARGETS.pressed),
+      disabled: solveCoverage(inkHex.dark, canvasDark, STATE_TARGETS.disabled),
+    },
+  }
   const state = {
-    hover: mode(rgbaValue(inkHex.light, 0.08), rgbaValue(inkHex.dark, 0.08)),
-    pressed: mode(rgbaValue(inkHex.light, 0.12), rgbaValue(inkHex.dark, 0.12)),
-    disabled: mode(rgbaValue(inkHex.light, 0.04), rgbaValue(inkHex.dark, 0.04)),
+    hover: mode(rgbaValue(inkHex.light, stateAlpha.light.hover), rgbaValue(inkHex.dark, stateAlpha.dark.hover)),
+    pressed: mode(rgbaValue(inkHex.light, stateAlpha.light.pressed), rgbaValue(inkHex.dark, stateAlpha.dark.pressed)),
+    disabled: mode(
+      rgbaValue(inkHex.light, stateAlpha.light.disabled),
+      rgbaValue(inkHex.dark, stateAlpha.dark.disabled),
+    ),
     selected: mode(color(primaryBase, 0.08), color(primaryDarkBase, 0.08)),
   }
 
-  /* 阴影墨：暗于两端画布；带中性色温，彩度上限 0.02。 */
+  /* 阴影墨：暗于两端画布；带环境色温，彩度上限 0.02。 */
   const mid = ramps.light[500]
   const midOklch = toOklch(mid)
   const lightTone = toOklch(canvasLight).tone
   const darkTone = toOklch(canvasDark).tone
   const shadowTone = Math.max(0, Math.min(22, lightTone - 12, darkTone - 6))
+  const ambientOklch = ambientColor ? toOklch(ambientColor) : null
+  const shadowChroma = ambientOklch ? clamp(ambientOklch.chroma, 0, 0.02) : Math.min(midOklch.chroma, 0.02)
+  const shadowHue = ambientOklch ? ambientOklch.hue : midOklch.hue
   const shadowInk = {
     tone: +shadowTone.toFixed(1),
-    chroma: +Math.min(midOklch.chroma, 0.02).toFixed(4),
-    hue: +midOklch.hue.toFixed(1),
-    hex: fromOklch(shadowTone, Math.min(midOklch.chroma, 0.02), midOklch.hue),
+    chroma: +shadowChroma.toFixed(4),
+    hue: +shadowHue.toFixed(1),
+    hex: fromOklch(shadowTone, shadowChroma, shadowHue),
   }
 
   /* 报告：只证明被登记的配对；颜色项不阻断。 */
@@ -933,7 +951,7 @@ export function deriveColor(seed: ColorSeed): ColorResult {
       line,
       tone: Object.fromEntries(Object.entries(families).map(([name, family]) => [name, toneMatrix(family)])),
       state,
-      scrim: rgbaValue('#000000', surfaceSeed.scrimAlpha),
+      scrim: rgbaValue(shadowInk.hex, surfaceSeed.scrimAlpha),
       brand: {},
     },
     families,

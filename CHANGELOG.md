@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 - 2026-11-07
+
+- 光影契约刷新：五槽 `highlight.key` / `highlight.ambient` / `shade.key` / `shadow` / `occlusion`；`rim` → `highlight.ambient`，`bevel.highlight/shade` → `highlight.key` / `shade.key`，删除 `bevel.raised/sunken`。
+- seed：`lightTint` / `ambientTint` → `lightColor` / `ambientColor`（hex），`rimAlpha` → `ambientAlpha`，`bevel` → `key`。
+- 新增 `solveLight({ form, depth, mode })`；静态 tokens 只表达 `convex`，`flat` / `concave` 在构建期求解。
+- 单墨：`shadow` / `occlusion` / `scrim` / `shade.key` 共用 `shadowInk`；状态叠墨 alpha 由目标反解。
+- `schemaVersion` 升到 6.0.0，`engineVersion` 升到 0.5.0。
+
 ## 0.4.2 - 2026-11-04
 
 - 仓库自带 `pnpm-lock.yaml` 并声明 `packageManager`，CI 用 `--frozen-lockfile`。

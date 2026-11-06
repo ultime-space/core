@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vite-plus/test'
 
-import { buildCore, buildManifest } from '../src/build'
+import { buildCore, buildManifest, solveLight } from '../src/build'
 import { classifyContrast } from '../src/model/color/derive'
 import { treeToCss, treeToDtcg, treeToJson } from '../src/exporters'
 import { DEFAULT_SEED, resolveSeed, seedHash } from '../src/seed'
@@ -144,11 +144,75 @@ describe('core · 颜色与光影', () => {
     expect(shadow.color.$value.hex).toMatch(/^#[0-9A-F]{6}$/)
   })
 
-  it('rim 是独立高光环，occlusion 4 档', () => {
-    const rim = result.tree.rim as any
-    expect(rim.$type).toBe('shadow')
-    expect(rim.$value[0].spread.value).toBe(1)
+  it('highlight.ambient 是独立高光环，occlusion 4 档', () => {
+    const highlight = result.tree.highlight as any
+    expect(highlight.ambient.$type).toBe('shadow')
+    expect(highlight.ambient.$value[0].spread.value).toBe(1)
     expect(Object.keys(result.tree.occlusion as object)).toHaveLength(4)
+  })
+
+  it('0.5.0 产物不再出现旧光影名', () => {
+    const paths = flatten(result.tree).map(({ path }) => path.join('.'))
+    expect(paths).not.toContain('rim')
+    expect(paths.some((path) => path.startsWith('bevel.'))).toBe(false)
+    expect(JSON.stringify(result.seed.light)).not.toMatch(/rimAlpha|lightTint|ambientTint|bevel/)
+  })
+
+  it('方向边线按方位角投影：0° / 45° / 315°', () => {
+    const at = (azimuthAngle: number) => buildCore({ light: { azimuthAngle } }).tree.highlight as any
+    const offsets = (token: any) => token.$value.light.map((layer: any) => [layer.offsetX.value, layer.offsetY.value])
+    expect(offsets(at(0).key)).toEqual([[0, 1]])
+    expect(offsets(at(45).key)).toEqual([
+      [0, 1],
+      [-1, 0],
+    ])
+    expect(offsets(at(315).key)).toEqual([
+      [0, 1],
+      [1, 0],
+    ])
+  })
+
+  it('solveLight：flat 为空，concave 亮暗反转', () => {
+    const convex = solveLight()
+    expect(convex.highlight.key).toHaveLength(1)
+    expect(convex.shade.key).toHaveLength(1)
+    expect(solveLight({ form: 'flat' }).highlight.key).toEqual([])
+    expect(solveLight({ form: 'flat' }).shade.key).toEqual([])
+    expect(solveLight({ form: 'flat' }).highlight.ambient).toEqual([])
+
+    const concave = solveLight({ form: 'concave' })
+    expect(concave.highlight.key[0].offsetY.value).toBe(-1)
+    expect(concave.shade.key[0].offsetY.value).toBe(1)
+  })
+
+  it('solveLight 无参与静态 tokens 一致，并覆盖 4 深度 × 2 模式', () => {
+    const solved = solveLight()
+    expect(solved.highlight.key).toEqual((result.tree.highlight as any).key.$value.light)
+    expect(solved.shade.key).toEqual((result.tree.shade as any).key.$value.light)
+    expect(solveLight({ mode: 'dark' }).highlight.key).toEqual((result.tree.highlight as any).key.$value.dark)
+    expect(solveLight({ mode: 'dark' }).shade.key).toEqual((result.tree.shade as any).key.$value.dark)
+    expect(solved.shadow).toEqual((result.tree.shadow as any)['2'].$value)
+    expect(solved.occlusion).toEqual((result.tree.occlusion as any)['2'].$value)
+
+    for (const depth of [1, 2, 3, 4] as const) {
+      for (const mode of ['light', 'dark'] as const) {
+        const value = solveLight({ depth, mode })
+        expect(value.shadow).toHaveLength(depth === 1 ? 2 : 3)
+        expect(value.occlusion).toHaveLength(1)
+      }
+    }
+  })
+
+  it('光色进入高光与阴影墨', () => {
+    const base = buildCore()
+    const tinted = buildCore({
+      light: { ambientColor: '#F0E6D8', lightColor: '#F0E6D8' },
+    })
+    expect((tinted.tree.shadow as any).color.$value.hex).not.toBe((base.tree.shadow as any).color.$value.hex)
+    expect((tinted.tree.highlight as any).ambient.$value[0].color.hex).not.toBe(
+      (base.tree.highlight as any).ambient.$value[0].color.hex,
+    )
+    expect((tinted.tree.shade as any).key.$value.light[0].color.hex).toBe((tinted.tree.shadow as any).color.$value.hex)
   })
 })
 

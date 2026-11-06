@@ -4,7 +4,7 @@
  * 树 → CSS 变量。单位口径固定：
  *   · space / size / radius / fs → rem（随根字号缩放）；
  *   · ls → em；lh → 无单位；
- *   · shadow / occlusion / rim / bevel / 描边 → px（不 rem 化）。
+ *   · shadow / occlusion / highlight / shade / 描边 → px（不 rem 化）。
  *
  * 模式值写成「两个值位 + 一个开关」：
  *   --color-surface-canvas-light / -dark / --color-surface-canvas
@@ -68,7 +68,7 @@ function cssColor(value: ColorValue): string {
   return `rgb(${r} ${g} ${b} / ${alpha})`
 }
 
-/** 阴影墨走一枚 CSS 变量；其它颜色（rim / bevel）直接烘焙。 */
+/** 阴影墨走一枚 CSS 变量；其它颜色（highlight / shade）直接烘焙。 */
 function shadowColor(value: ColorValue, inkHex?: string): string {
   if (inkHex && value.hex === inkHex && value.alpha < 0.999) {
     return `rgb(var(--shadow-color-rgb) / ${+value.alpha.toFixed(4)})`
@@ -129,8 +129,8 @@ const SECTION_TITLES: Record<string, string> = {
   color: '颜色（模式值：两个值位 + 一个开关）',
   shadow: 'Scene 阴影（4 档 · 三槽位）',
   occlusion: '环境光遮蔽（4 档 · 单层）',
-  rim: '高光环',
-  bevel: '表面形态',
+  highlight: '高光（key / ambient）',
+  shade: '暗边（key）',
   motion: '动效（四轴）',
 }
 
@@ -145,7 +145,7 @@ function header(): string {
    定位：平台无关的原料快照；语义名（gap.* / type.* / border.*）属于语义表，
         不在本文件。角色与编排归上层，core 不定义用途。
    单位：space / size / radius / fs → rem；ls → em；lh → 无单位；光影 → px。
-   模式：颜色与 bevel 使用 -light / -dark 值位；无后缀变量是跨模式开关。
+   模式：颜色与 highlight.key / shade.key 使用 -light / -dark 值位；无后缀变量是跨模式开关。
    reduce：duration → 0.01ms、delay → 0s；loop 不归零，由组件显式停。
    ============================================================================ */`
 }

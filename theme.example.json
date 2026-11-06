@@ -59,11 +59,11 @@
     "blurBase": 8,
     "blurRatio": 2,
     "inkUnit": 4,
-    // 环境墨 / 主光偏色：默认省略；给出时 C ≤ 0.02
-    "ambientTint": null,
-    "lightTint": null,
-    "rimAlpha": 0.058,
-    "bevel": {
+    // 环境色 / 主光色（hex）：默认省略；环境墨彩度封顶 0.02
+    "ambientColor": null,
+    "lightColor": null,
+    "ambientAlpha": 0.058,
+    "key": {
       "light": { "highlight": 0.2, "shade": 0.14 },
       "dark": { "highlight": 0.14, "shade": 0.2 }
     }
