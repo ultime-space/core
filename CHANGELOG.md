@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 - 2026-11-07
+
+- README 补 `solveLight` 示例、光影五槽与 seed 光色说明；无派生 / 契约变化，`engineVersion` 保持 0.5.0。
+
 ## 0.5.0 - 2026-11-07
 
 - 光影契约刷新：五槽 `highlight.key` / `highlight.ambient` / `shade.key` / `shadow` / `occlusion`；`rim` → `highlight.ambient`，`bevel.highlight/shade` → `highlight.key` / `shade.key`，删除 `bevel.raised/sunken`。
