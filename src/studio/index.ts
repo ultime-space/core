@@ -1,7 +1,7 @@
 /**
  * index.ts — core 级配置器定义（`@ultime/core/studio`）
  * ---------------------------------------------------------------------------
- * 无头：字段 / 默认值 / 预设 / 校验 / 预览 / 导出 / 选择。
+ * 无头：字段 / 默认值 / 预设 / 校验 / 预览 / 导出 / 选择 / 派生。
  * 同一配置版本的 validate / inspect / preview / export 共享一份 ProjectBuild；
  * 改 seed 产生新配置版本，重新派生 —— 这是配置器的职责，不是重复计算。
  */
@@ -11,6 +11,7 @@ import { planProject, type ProjectBuild } from '../tools'
 import { ENGINE_VERSION } from '../version'
 import { THEME_DEFAULTS } from './defaults'
 import { THEME_FIELDS, THEME_GROUPS } from './fields'
+import { selectBuild } from './selection'
 import type { ThemeStudioConfig } from './types'
 
 export type { ThemeStudioConfig } from './types'
@@ -24,12 +25,13 @@ export {
   type SelectionConfig,
   type SelectionStep,
 } from './selection'
+export { deriveTree, type DerivationConfig, type DerivedTree } from './derivation'
 
 let cached: { key: string; build: ProjectBuild } | undefined
 
-/** 每个配置版本只构建一次；配置变化（含 seed）即重新派生。 */
+/** seed / 出口变化才重新派生；selection / derivation 只消费已有构建。 */
 function buildFor(config: ThemeStudioConfig): ProjectBuild {
-  const key = JSON.stringify(config)
+  const key = JSON.stringify(config.tokens)
   if (cached?.key === key) return cached.build
   const build = planProject({
     tokens: {
@@ -43,9 +45,22 @@ function buildFor(config: ThemeStudioConfig): ProjectBuild {
   return build
 }
 
-/** 产物清单：与 CLI 共用 `ProjectBuild.artifacts`。 */
+interface ThemeResult {
+  build: ProjectBuild
+  /** 配置了 selection / derivation 时走定制导出；否则保持全量产物（含 kernel）。 */
+  selected?: ReturnType<typeof selectBuild>
+}
+
+function resultFor(config: ThemeStudioConfig): ThemeResult {
+  const build = buildFor(config)
+  if (config.selection === undefined && config.derivation === undefined) return { build }
+  return { build, selected: selectBuild(build, config.selection ?? {}, config.derivation ?? {}) }
+}
+
+/** 产物清单：与 CLI 共用 `ProjectBuild.artifacts`；定制导出不含 `kernel.json`。 */
 export function exportThemeArtifacts(config: ThemeStudioConfig) {
-  return buildFor(config).artifacts.map(({ path, content }) => ({ path, content }))
+  const { build, selected } = resultFor(config)
+  return (selected?.artifacts ?? build.artifacts).map(({ path, content }) => ({ path, content }))
 }
 
 function variant(mutate: (draft: ThemeStudioConfig) => void): ThemeStudioConfig {
@@ -132,9 +147,10 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
     if (diagnostics.length) return diagnostics
 
     try {
-      const build = buildFor(config)
-      const contract = build.diagnostics.filter((item) => item.code.startsWith('contract.'))
-      const other = build.diagnostics.filter((item) => !item.code.startsWith('contract.'))
+      const { build, selected } = resultFor(config)
+      const source = selected?.diagnostics ?? build.diagnostics
+      const contract = source.filter((item) => item.code.startsWith('contract.'))
+      const other = source.filter((item) => !item.code.startsWith('contract.'))
       diagnostics.push(...other.map(toStudioDiagnostic))
       diagnostics.push(...contract.slice(0, 12).map(toStudioDiagnostic))
     } catch (error) {
@@ -152,13 +168,14 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
     if (!config.tokens.platforms.length || !config.tokens.output.trim()) {
       return { artifacts: [], diagnostics: [] }
     }
-    const build = buildFor(config)
+    const { build, selected } = resultFor(config)
     return {
-      counts: build.core.counts,
+      counts: selected?.counts ?? build.core.counts,
       contracts: { total: build.core.contracts.total, failed: build.core.contracts.failed },
       manifest: build.manifest,
-      artifacts: build.artifacts.map(({ path, bytes }) => ({ path, bytes })),
-      diagnostics: build.diagnostics,
+      artifacts: (selected?.artifacts ?? build.artifacts).map(({ path, bytes }) => ({ path, bytes })),
+      diagnostics: selected?.diagnostics ?? build.diagnostics,
+      ...(selected ? { custom: true, selection: config.selection ?? {}, derivation: config.derivation ?? {} } : {}),
     }
   },
   preview(config) {

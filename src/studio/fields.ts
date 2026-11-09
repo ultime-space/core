@@ -1,8 +1,8 @@
 /**
  * fields.ts — 配置字段（手写少量旋钮，不从派生结果反推清单）
  * ---------------------------------------------------------------------------
- * 只暴露 seed 的稳定参数；颜色族、阴影档位、字阶不在这里逐项列出 ——
- * 它们是派生结果，改 seed 后自动联动。
+ * 只暴露 seed 的稳定参数与配置器自己的选择 / 派生参数；颜色族、阴影档位、
+ * 字阶不在这里逐项列出 —— 它们是派生结果，改 seed 后自动联动。
  */
 
 import type { FieldSpec, GroupSpec } from '@ultime/studio'
@@ -14,6 +14,7 @@ export const THEME_GROUPS: GroupSpec[] = [
   { key: 'light', label: '光影 · 方向与光色', description: '全局光源方向、仰角与光色', order: 30 },
   { key: 'motion', label: '动效 · 步长', description: '时长 / 循环 / 延迟 / 曲线参数', order: 40 },
   { key: 'output', label: '出口', description: '产哪些格式、写到哪个目录', order: 50 },
+  { key: 'custom', label: '选择 · 定制', description: '选择类别 / 档位与参数化派生', order: 60 },
 ]
 
 const seedPaths = {
@@ -232,4 +233,29 @@ const outputFields: FieldSpec[] = [
   { path: '/tokens/output', label: '输出目录', type: 'text', group: 'output', hint: '相对项目根；缺省 ultime-tokens' },
 ]
 
-export const THEME_FIELDS: FieldSpec[] = [...seedFields, ...outputFields]
+const customFields: FieldSpec[] = [
+  {
+    path: '/selection',
+    label: '选择',
+    type: 'custom',
+    group: 'custom',
+    optional: true,
+    advanced: true,
+    hint: '类别 / 档位；省略 = 全量。结构见 SelectionConfig',
+  },
+  {
+    path: '/derivation/light/form',
+    label: '光影形态',
+    type: 'select',
+    group: 'custom',
+    optional: true,
+    options: [
+      { value: 'convex', label: '凸起（静态默认）' },
+      { value: 'flat', label: '平面' },
+      { value: 'concave', label: '凹陷' },
+    ],
+    hint: '按 solveLight 重算 highlight / shade；不写回 seed',
+  },
+]
+
+export const THEME_FIELDS: FieldSpec[] = [...seedFields, ...outputFields, ...customFields]

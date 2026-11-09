@@ -25,6 +25,7 @@ pnpm typecheck   # tsc --noEmit
 | `tests/tools-config.test.ts` | 项目配置校验与错误语义 |
 | `tests/studio.test.ts` | 配置器定义：字段 / 默认值 / 校验 / 导出 |
 | `tests/selection.test.ts` | 选择模型：类别 / 档位 / 诊断 / 空选择 / 确定性 |
+| `tests/derivation.test.ts` | 自定义派生：形态 / 非法输入 / 确定性 / 与选择组合 |
 | `tests/cli.test.ts` | CLI 冒烟：init / build / build --check / schema |
 
 - 新增 token 或派生规则，必须同时补：合同（能机检的部分）+ 回归断言。

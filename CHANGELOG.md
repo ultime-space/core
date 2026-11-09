@@ -3,8 +3,10 @@
 ## 0.7.0 - 2026-11-09
 
 - 新增 `@ultime/core/studio` 无头选择 API：`selectBuild` / `selectTree`，按类别与档位从完整树导出定制 tokens。
+- 新增 `deriveTree`：参数化引擎函数（目前支持 `light.form`），按 `solveLight` 重算 `highlight` / `shade`；不支持用户 recipe。
+- `ThemeStudioConfig` 增加可选 `selection` / `derivation`；`validate` / `inspect` / `preview` / `export` 接入，定制导出不含 `kernel.json`，改选择不重新派生 core。
 - 选择导出不生成 `kernel.json`；`emitTokens` 新增 `includeManifest` 选项（默认 `true`）。
-- 选择只过滤 `ProjectBuild` 的结果，不重新派生；未知类别 / 档位、缺失档位与空选择给 `error` 诊断，`semantics` 不参与选择导出并给 `warn`。
+- 选择 / 派生只过滤或重算 `ProjectBuild` 的结果，不重新派生；未知类别 / 档位、缺失档位、空选择给 `error` 诊断，`semantics` 不参与选择导出并给 `warn`。
 - `engineVersion` 升到 0.7.0；`schemaVersion` 保持 6.0.0（树与合同未变）。
 
 ## 0.6.0 - 2026-11-09

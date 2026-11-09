@@ -11,6 +11,7 @@ import { countByCategory } from '../contracts'
 import { getNode, isToken, type Group } from '../tree'
 import type { BuildDiagnostic, PlannedArtifact, ProjectBuild } from '../tools/project'
 import { emitTokens } from '../tools/tokens'
+import { deriveTree, type DerivationConfig } from './derivation'
 
 export type SelectionCategory = 'skeleton' | 'color' | 'light' | 'motion'
 
@@ -36,6 +37,7 @@ export interface SelectionConfig {
 
 export interface SelectedBuild {
   selection: SelectionConfig
+  derivation: DerivationConfig
   /** 完整派生结果；过滤后的树看 `tree`，`core.tree` 保持全量。 */
   core: CoreResult
   tree: Group
@@ -103,6 +105,38 @@ function stepRule(path: readonly string[], levels: number[]): StepRule {
 
 function normalizeSelection(selection: SelectionConfig): NormalizedSelection {
   const diagnostics: BuildDiagnostic[] = []
+  const empty = {
+    categories: [] as SelectionCategory[],
+    rules: new Map<string, StepRule>(),
+    levels: new Map<SelectionStep, number[]>(),
+    diagnostics,
+  }
+
+  if (selection === null || typeof selection !== 'object' || Array.isArray(selection)) {
+    diagnostics.push({ level: 'error', code: 'selection.invalid', message: 'selection 必须是对象', path: '/selection' })
+    return empty
+  }
+  if (selection.categories !== undefined && !Array.isArray(selection.categories)) {
+    diagnostics.push({
+      level: 'error',
+      code: 'selection.invalid',
+      message: 'selection.categories 必须是数组',
+      path: '/selection/categories',
+    })
+    return empty
+  }
+  if (
+    selection.steps !== undefined &&
+    (selection.steps === null || typeof selection.steps !== 'object' || Array.isArray(selection.steps))
+  ) {
+    diagnostics.push({
+      level: 'error',
+      code: 'selection.invalid',
+      message: 'selection.steps 必须是对象',
+      path: '/selection/steps',
+    })
+    return empty
+  }
 
   const requested = selection.categories ?? CATEGORY_ORDER
   const categories = [
@@ -181,10 +215,15 @@ export function selectTree(tree: Group, selection: SelectionConfig = {}): Group 
   return selectFrom(tree, normalized.categories, normalized.rules)
 }
 
-/** 基于一次 `ProjectBuild` 的选择导出；不重新派生 core，产物不含 `kernel.json`。 */
-export function selectBuild(build: ProjectBuild, selection: SelectionConfig = {}): SelectedBuild {
+/** 基于一次 `ProjectBuild` 的选择 / 派生导出；不重新派生 core，产物不含 `kernel.json`。 */
+export function selectBuild(
+  build: ProjectBuild,
+  selection: SelectionConfig = {},
+  derivation: DerivationConfig = {},
+): SelectedBuild {
   const normalized = normalizeSelection(selection)
-  const tree = selectFrom(build.core.tree, normalized.categories, normalized.rules)
+  const derived = deriveTree(build, derivation)
+  const tree = selectFrom(derived.tree, normalized.categories, normalized.rules)
   const byCategory = countByCategory(tree)
   const total = Object.values(byCategory).reduce((sum, count) => sum + count, 0)
   const counts = { total, byCategory }
@@ -192,6 +231,7 @@ export function selectBuild(build: ProjectBuild, selection: SelectionConfig = {}
   const diagnostics: BuildDiagnostic[] = build.diagnostics.filter(
     (diagnostic) => !diagnostic.code.startsWith('semantics.'),
   )
+  diagnostics.push(...derived.diagnostics)
   diagnostics.push(...normalized.diagnostics)
 
   if (build.config.semantics) {
@@ -240,5 +280,5 @@ export function selectBuild(build: ProjectBuild, selection: SelectionConfig = {}
           includeManifest: false,
         }).map((file) => ({ ...file, bytes: byteLength(file.content) }))
 
-  return { selection, core: build.core, tree, counts, artifacts, diagnostics }
+  return { selection, derivation, core: build.core, tree, counts, artifacts, diagnostics }
 }

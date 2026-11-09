@@ -73,31 +73,35 @@ build.diagnostics  // error / warn / info
 
 ### 选择与定制产物
 
-选择是配置器的配置，不是 core 的构建输入。`@ultime/core/studio` 提供无头选择 API：
-从 `ProjectBuild.core.tree` 里按类别与档位过滤，导出定制 tokens；`buildCore` 的完整树不变。
+选择是配置器的配置，不是 core 的构建输入。`@ultime/core/studio` 提供无头选择 / 派生 API：
+从 `ProjectBuild.core.tree` 里按类别与档位过滤、按参数化引擎函数派生，导出定制 tokens；`buildCore` 的完整树不变。
 
 ```js
 import { planProject } from '@ultime/core/tools'
-import { selectBuild, selectTree } from '@ultime/core/studio'
+import { selectBuild, selectTree, deriveTree } from '@ultime/core/studio'
 
 const build = planProject({ tokens: { output: 'styles' } })
-const selected = selectBuild(build, {
-  categories: ['skeleton', 'color'],
-  steps: { space: [1, 2, 4, 6], radius: [1, 3, 5] },
-})
+const selected = selectBuild(
+  build,
+  { categories: ['skeleton', 'color'], steps: { space: [1, 2, 4, 6], radius: [1, 3, 5] } },
+  { light: { form: 'flat' } },
+)
 
-selected.tree         // 过滤后的树
+selected.tree         // 过滤 / 派生后的树
 selected.counts       // 按类别重算
 selected.artifacts    // tokens.css / tokens.json / tokens.dtcg.json（不含 kernel.json）
 selected.diagnostics  // 未知类别 / 档位、缺失档位、空选择、semantics 提示
 
 selectTree(build.core.tree, { categories: ['motion'], steps: { motionDuration: [1, 3] } })
+deriveTree(build, { light: { form: 'concave' } })
 ```
 
 - 类别：`skeleton` / `color` / `light` / `motion`；省略 = 全部，空数组 = 不启用。
 - 档位：`space` / `size` / `radius` / `fontSize` / `lineHeight` / `letterSpacing` / `shadow` / `occlusion` / `motionDuration` / `motionDelay` / `motionLoop`；省略 = 该组全量，空数组 = 去掉该组数字档位。
 - 非档位 token（`shadow.color` / `font` / `motion.easing` 等）跟随所属类别保留。
+- 自定义派生只调用 core 引擎函数：目前支持 `light.form` 的 `flat` / `concave`，按 `solveLight` 重算 `highlight` / `shade`，不写回 seed，也不支持用户 recipe。
 - `kernel.json` 描述完整内核，不属于选择产物；`semantics.json` 也不在选择里生成。
+- 配置器把 `selection` / `derivation` 放在 `ThemeStudioConfig` 根上，可序列化保存；CLI 只读 `tokens` 区，选择 / 派生另存 studio 配置，不写进 `ultime.config.json`。
 
 ---
 
@@ -172,7 +176,7 @@ color: var(--color-tone-primary-solid-foreground);
 | `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / 树工具 / 合同 / 版本 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg`；只读树 |
 | `@ultime/core/tools` | `planProject` / `exportTokens` / `exportArtifacts` / 配置校验 / 语义表模板 |
-| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择模型：`selectBuild` / `selectTree` |
+| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 |
 
 产物编排（选出口、定目录、排序）走工具层，不写盘：
