@@ -214,7 +214,7 @@ ultime schema --json    # seed 字段 / 出口 / 语义表
 配置模型为 `tokens.seed / platforms / output / semantics`。
 `semantics` 是可选产物：只有配置了才生成 `semantics.json`，它不进树，也不进 `kernel.json`。
 
-core 只产完整 token 集；选择、裁剪与自定义派生归配置器，不在 core 配置里。
+core 只产完整 token 集；选择、裁剪与自定义派生归配置器，不写进 `ultime.config.json`。
 
 仓库内开发也可用 `pnpm ultime`（等价于 `tsx src/cli/index.ts`）。
 
