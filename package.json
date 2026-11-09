@@ -84,7 +84,7 @@
     "check": "vp check && tsx scripts/check-model.ts && tsx scripts/build.ts --check",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vp test",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "pnpm check && pnpm test && pnpm build",
     "prepare": "node -e \"if (require('fs').existsSync('.git')) require('child_process').execSync('vp hooks enable --hooks-dir .githooks', { stdio: 'inherit' })\""
   },
   "dependencies": {
