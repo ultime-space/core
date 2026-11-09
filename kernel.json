@@ -1,7 +1,7 @@
 {
   "name": "@ultime/core",
   "schemaVersion": "6.0.0",
-  "engineVersion": "0.6.0",
+  "engineVersion": "0.7.0",
   "unit": {
     "scale": "logical",
     "definition": "1 逻辑像素 = 1 iOS pt = 1 Android dp = 1 CSS px@1x",

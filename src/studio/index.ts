@@ -1,7 +1,7 @@
 /**
  * index.ts — core 级配置器定义（`@ultime/core/studio`）
  * ---------------------------------------------------------------------------
- * 无头：字段 / 默认值 / 预设 / 校验 / 预览 / 导出。
+ * 无头：字段 / 默认值 / 预设 / 校验 / 预览 / 导出 / 选择。
  * 同一配置版本的 validate / inspect / preview / export 共享一份 ProjectBuild；
  * 改 seed 产生新配置版本，重新派生 —— 这是配置器的职责，不是重复计算。
  */
@@ -16,6 +16,14 @@ import type { ThemeStudioConfig } from './types'
 export type { ThemeStudioConfig } from './types'
 export { DEFAULT_OUTPUT, DEFAULT_PLATFORMS, EXAMPLE_SEED, THEME_DEFAULTS } from './defaults'
 export { THEME_FIELDS, THEME_GROUPS } from './fields'
+export {
+  selectBuild,
+  selectTree,
+  type SelectedBuild,
+  type SelectionCategory,
+  type SelectionConfig,
+  type SelectionStep,
+} from './selection'
 
 let cached: { key: string; build: ProjectBuild } | undefined
 

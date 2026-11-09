@@ -16,6 +16,8 @@ export interface ExportTokensOptions {
   seed?: SeedInput
   platforms?: TokenPlatform[]
   output?: string
+  /** 默认 true；配置器的选择导出不写 `kernel.json`。 */
+  includeManifest?: boolean
 }
 
 export const DEFAULT_DIR = 'ultime-tokens'
@@ -34,8 +36,10 @@ export function emitTokens(result: CoreResult, options: ExportTokensOptions = {}
     ['tokens.css', treeToCss(result)],
     ['tokens.json', `${JSON.stringify(treeToJson(result), null, 2)}\n`],
     ['tokens.dtcg.json', `${JSON.stringify(treeToDtcg(result), null, 2)}\n`],
-    ['kernel.json', `${JSON.stringify(buildManifest(result), null, 2)}\n`],
   ]
+  if (options.includeManifest !== false) {
+    all.push(['kernel.json', `${JSON.stringify(buildManifest(result), null, 2)}\n`])
+  }
 
   const platforms = options.platforms ?? DEFAULT_PLATFORMS
   const dir = (options.output ?? DEFAULT_DIR).replace(/\/+$/, '')

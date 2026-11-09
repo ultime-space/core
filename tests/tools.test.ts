@@ -22,4 +22,9 @@ describe('tools · token 产物编排', () => {
     const files = exportTokens()
     expect(files.some((file) => file.path.endsWith('tokens.config.json'))).toBe(false)
   })
+
+  it('includeManifest: false 时不写 kernel.json', () => {
+    const files = exportTokens({ platforms: ['css'], includeManifest: false })
+    expect(files.map((file) => file.path)).toEqual(['ultime-tokens/tokens.css'])
+  })
 })

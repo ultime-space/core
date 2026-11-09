@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0 - 2026-11-09
+
+- 新增 `@ultime/core/studio` 无头选择 API：`selectBuild` / `selectTree`，按类别与档位从完整树导出定制 tokens。
+- 选择导出不生成 `kernel.json`；`emitTokens` 新增 `includeManifest` 选项（默认 `true`）。
+- 选择只过滤 `ProjectBuild` 的结果，不重新派生；未知类别 / 档位、缺失档位与空选择给 `error` 诊断，`semantics` 不参与选择导出并给 `warn`。
+- `engineVersion` 升到 0.7.0；`schemaVersion` 保持 6.0.0（树与合同未变）。
+
 ## 0.6.0 - 2026-11-09
 
 - **Breaking**：core 只产完整 token 集，删除 `tokens.subset`、`SUBSET_DIMENSIONS` / `SUBSET_DEFAULTS` / `validateSubset`、`tokens.config.json`；选择与裁剪归配置器。
@@ -8,7 +15,7 @@
 - 新增 `ultime inspect`：只读渲染 `ProjectBuild` 的产物、平台、类别、合同、颜色与诊断。
 - `exportArtifacts` / `exportTokens` 保留为兼容入口，内部走同一次构建；`tokenPaths` / `validateSemantics` 不再隐式构建默认 seed。
 - `engineVersion` 升到 0.6.0；`schemaVersion` 保持 6.0.0（树与合同未变）。
-- 玻璃填充计划顺延到 0.7.0。
+- 玻璃填充计划顺延到下一轮 core 迭代。
 
 ## 0.5.1 - 2026-11-07
 

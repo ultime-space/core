@@ -71,6 +71,34 @@ build.diagnostics  // error / warn / info
 
 `exportArtifacts` 是兼容入口，内部同样走 `planProject`；不要再自己拼产物清单。
 
+### 选择与定制产物
+
+选择是配置器的配置，不是 core 的构建输入。`@ultime/core/studio` 提供无头选择 API：
+从 `ProjectBuild.core.tree` 里按类别与档位过滤，导出定制 tokens；`buildCore` 的完整树不变。
+
+```js
+import { planProject } from '@ultime/core/tools'
+import { selectBuild, selectTree } from '@ultime/core/studio'
+
+const build = planProject({ tokens: { output: 'styles' } })
+const selected = selectBuild(build, {
+  categories: ['skeleton', 'color'],
+  steps: { space: [1, 2, 4, 6], radius: [1, 3, 5] },
+})
+
+selected.tree         // 过滤后的树
+selected.counts       // 按类别重算
+selected.artifacts    // tokens.css / tokens.json / tokens.dtcg.json（不含 kernel.json）
+selected.diagnostics  // 未知类别 / 档位、缺失档位、空选择、semantics 提示
+
+selectTree(build.core.tree, { categories: ['motion'], steps: { motionDuration: [1, 3] } })
+```
+
+- 类别：`skeleton` / `color` / `light` / `motion`；省略 = 全部，空数组 = 不启用。
+- 档位：`space` / `size` / `radius` / `fontSize` / `lineHeight` / `letterSpacing` / `shadow` / `occlusion` / `motionDuration` / `motionDelay` / `motionLoop`；省略 = 该组全量，空数组 = 去掉该组数字档位。
+- 非档位 token（`shadow.color` / `font` / `motion.easing` 等）跟随所属类别保留。
+- `kernel.json` 描述完整内核，不属于选择产物；`semantics.json` 也不在选择里生成。
+
 ---
 
 ## 模型
@@ -143,8 +171,8 @@ color: var(--color-tone-primary-solid-foreground);
 |---|---|
 | `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / 树工具 / 合同 / 版本 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg`；只读树 |
-| `@ultime/core/tools` | `exportTokens` / `exportArtifacts` / 子集与配置校验 / 语义表模板 |
-| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出 |
+| `@ultime/core/tools` | `planProject` / `exportTokens` / `exportArtifacts` / 配置校验 / 语义表模板 |
+| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择模型：`selectBuild` / `selectTree` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 |
 
 产物编排（选出口、定目录、排序）走工具层，不写盘：
@@ -221,7 +249,7 @@ packages/core/
 │   │   ├── light.ts           shadow / occlusion / highlight / shade
 │   │   └── motion.ts          duration / loop / delay / easing
 │   ├── exporters/             CSS / JSON / DTCG（只读树）
-│   ├── studio/                配置器定义：字段 / 默认值 / 预设 / 校验 / 预览 / 导出
+│   ├── studio/                配置器定义：字段 / 默认值 / 预设 / 校验 / 预览 / 导出 / 选择模型
 │   └── tools/                 构建计划 / 产物编排 / 项目配置 / 语义表模板
 ├── scripts/
 │   ├── build.ts               唯一构建入口（`--check` 只校验）
@@ -250,6 +278,7 @@ packages/core/
 ## 版本与兼容
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
+- 0.7.0 新增 `@ultime/core/studio` 选择 API；树、合同与派生值不变，快照只有 `engineVersion` 变化。
 - 0.5.0 是契约刷新：`rim` → `highlight.ambient`，`bevel.highlight/shade` → `highlight.key` / `shade.key`；seed 的 `lightTint` / `ambientTint` / `rimAlpha` / `bevel` 改为 `lightColor` / `ambientColor` / `ambientAlpha` / `key`。不提供迁移器。
 - 下游优先读 `kernel.json` 与公开出口，不依赖 `src/` 内部结构。
 - 0.x 阶段导出面仍可能调整；升级前对比两份 `kernel.json`（版本 / 计数 / 合同摘要）即可看出差异。

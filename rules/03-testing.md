@@ -1,7 +1,7 @@
 # 03 · 测试与验收
 
 > 定位：改 core 时跑什么、看什么、什么算通过。
-> 适用版本：0.6.x
+> 适用版本：0.7.x
 > 关系：管线见 [`02-tokens`](./02-tokens.md)；发布检查见 [`04-release`](./04-release.md)。
 
 ---
@@ -21,9 +21,10 @@ pnpm typecheck   # tsc --noEmit
 | 测试 | 保护什么 |
 |---|---|
 | `tests/core.test.ts` | seed → 树 → 合同 → 产物；同输入同输出 |
-| `tests/tools.test.ts` | 工具层：子集 / 配置 / 语义表 / 导出编排 |
+| `tests/tools.test.ts` | 工具层：配置 / 语义表 / 导出编排 / 产物同源 |
 | `tests/tools-config.test.ts` | 项目配置校验与错误语义 |
 | `tests/studio.test.ts` | 配置器定义：字段 / 默认值 / 校验 / 导出 |
+| `tests/selection.test.ts` | 选择模型：类别 / 档位 / 诊断 / 空选择 / 确定性 |
 | `tests/cli.test.ts` | CLI 冒烟：init / build / build --check / schema |
 
 - 新增 token 或派生规则，必须同时补：合同（能机检的部分）+ 回归断言。

@@ -1,7 +1,7 @@
 # core · 开发规则
 
 > 定位：本包开发规范的索引。只写判断、边界与反例；事实以源码、`README.md` 与 `ultime schema --json` 为准。
-> 适用版本：0.6.x
+> 适用版本：0.7.x
 > 关系：入口见 [`AGENTS.md`](../AGENTS.md)；设计取舍见 [`DESIGN.md`](../DESIGN.md)；怎么用见 [`README.md`](../README.md)。
 
 ---

@@ -1,7 +1,7 @@
 # 01 · 架构与边界
 
 > 定位：core 的职责、依赖方向与目录分工。
-> 适用版本：0.6.x
+> 适用版本：0.7.x
 > 关系：规则索引见 [`README`](./README.md)；为什么这样分层见 [`DESIGN.md`](../DESIGN.md)。
 
 ---
@@ -39,9 +39,9 @@ seed / model → build → exporters
 | `src/contracts.ts` | 几何 / 动效 / 树结构 / 颜色报告 |
 | `src/model/**` | 四个类别的派生纯函数 |
 | `src/exporters/**` | 只读树，翻译成 CSS / JSON / DTCG |
-| `src/tools/**` | 产物编排、子集、项目配置、语义表模板 |
+| `src/tools/**` | 构建计划、产物编排、项目配置、语义表模板 |
 | `src/cli/**` | `ultime` 命令与配置读写；通用设施来自 `@ultime/cli` |
-| `src/studio/**` | 配置器字段 / 预设 / 校验 / 预览 / 导出定义 |
+| `src/studio/**` | 配置器字段 / 预设 / 校验 / 预览 / 导出定义；选择模型（类别 / 档位过滤） |
 
 ## 新增内容五问
 
@@ -55,5 +55,5 @@ seed / model → build → exporters
 
 - 语义角色（`enter` / `exit` / `press`）、质量带、编排；
 - 布局、栅格、断点、目标尺寸；
-- 材质轴、渗色、spring、手势；玻璃作为唯一填充角色例外（0.6.0）；
+- 材质轴、渗色、spring、手势；玻璃作为唯一填充角色例外（待实现）；
 - 手写阴影名单与运行时角度。

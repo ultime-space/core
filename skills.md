@@ -1,8 +1,8 @@
 # @ultime/core · 可调用能力
 
 > 定位：AI 可调用的入口、产物与错误语义。字段清单以 `ultime schema --json` 为准，本文件不手抄。
-> 适用版本：0.6.x
-> 同步基线：0.6.x（手写；导出面或 schema 变化时同批更新）
+> 适用版本：0.7.x
+> 同步基线：0.7.x（手写；导出面或 schema 变化时同批更新）
 
 ---
 
@@ -13,13 +13,21 @@
 | `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg` | 只读树 |
 | `@ultime/core/tools` | `planProject` / `exportTokens` / `exportArtifacts` / 配置校验 / 语义表模板 | 无文件 IO |
-| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出 | 依赖 `@ultime/studio` |
+| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择模型：`selectBuild` / `selectTree` | 依赖 `@ultime/studio` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 | 纯函数 |
 
 ## 构建计划
 
 `planProject(config, seed)` 是唯一构建事实：一次派生，返回 `core` / `manifest` / `artifacts` / `diagnostics`。
 CLI、studio、`scripts/build.ts` 与 `inspect` 都消费它；不要再自己拼产物清单或重复 `buildCore`。
+
+## 选择（配置器）
+
+`selectBuild(build, selection)` 在已有 `ProjectBuild` 上过滤类别与档位，产出定制 tokens；不重新派生，产物不含 `kernel.json`。
+`selectTree(tree, selection)` 是同一套规则的纯过滤入口。
+
+- 类别：`skeleton` / `color` / `light` / `motion`；档位枚举与用法见 [`README`](./README.md) §选择与定制产物。
+- 未知类别 / 档位、缺失档位、空选择 → `error` 诊断；配置了 `semantics` → `warn`，选择导出不生成 `semantics.json`。
 
 ## CLI
 

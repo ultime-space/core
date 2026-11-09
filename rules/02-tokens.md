@@ -1,7 +1,7 @@
 # 02 · Token 与生成物
 
 > 定位：seed、树、快照与合同的变更流程。
-> 适用版本：0.6.x
+> 适用版本：0.7.x
 > 关系：目录与边界见 [`01-architecture`](./01-architecture.md)；数值出处见 [`DESIGN.md`](../DESIGN.md)。
 
 ---
@@ -17,7 +17,7 @@ seed（唯一可编辑输入）
 
 - **seed 是唯一输入**：色相、彩度、中性配方、画布对称、面目标、前景端点、模式、圆角基座、字号基准、字体栈、光源方向 / 光色、动效步长。
 - **树只有两种节点**：`token`（`$type` / `$value`）与 `group`；组只做分隔。
-- **类别不是包**：`skeleton` / `color` / `light` / `motion` 可按类别整块裁剪。
+- **类别不是包**：`skeleton` / `color` / `light` / `motion` 可按类别整块裁剪；选择 / 裁剪在 `src/studio/**`，`buildCore` 仍产完整树。
 - **模式是作用域**：颜色与 `highlight.key` / `shade.key` 的值是 `{ light, dark }`；CSS 出口是值位 + 无后缀开关。
 
 ## 生成物
