@@ -6,7 +6,6 @@
  */
 
 import type { FieldSpec, GroupSpec } from '@ultime/studio'
-import { SUBSET_DIMENSIONS } from '../tools'
 import { NEUTRAL_RECIPE_NAMES } from '../model/color/ramp'
 
 export const THEME_GROUPS: GroupSpec[] = [
@@ -14,8 +13,7 @@ export const THEME_GROUPS: GroupSpec[] = [
   { key: 'skeleton', label: '骨架 · 参数', description: '圆角基座、档数与字号基准', order: 20 },
   { key: 'light', label: '光影 · 方向与光色', description: '全局光源方向、仰角与光色', order: 30 },
   { key: 'motion', label: '动效 · 步长', description: '时长 / 循环 / 延迟 / 曲线参数', order: 40 },
-  { key: 'subset', label: '项目子集', description: '只列允许出现的档位', order: 50 },
-  { key: 'output', label: '出口', description: '产哪些格式、写到哪个目录', order: 60 },
+  { key: 'output', label: '出口', description: '产哪些格式、写到哪个目录', order: 50 },
 ]
 
 const seedPaths = {
@@ -219,15 +217,6 @@ const seedFields: FieldSpec[] = [
   },
 ]
 
-const subsetFields: FieldSpec[] = SUBSET_DIMENSIONS.map((dimension) => ({
-  path: `/tokens/subset/${dimension.key}`,
-  label: dimension.label,
-  type: 'multi-select' as const,
-  group: 'subset',
-  hint: dimension.hint,
-  options: dimension.values.map((value) => ({ value, label: String(value) })),
-}))
-
 const outputFields: FieldSpec[] = [
   {
     path: '/tokens/platforms',
@@ -243,4 +232,4 @@ const outputFields: FieldSpec[] = [
   { path: '/tokens/output', label: '输出目录', type: 'text', group: 'output', hint: '相对项目根；缺省 ultime-tokens' },
 ]
 
-export const THEME_FIELDS: FieldSpec[] = [...seedFields, ...subsetFields, ...outputFields]
+export const THEME_FIELDS: FieldSpec[] = [...seedFields, ...outputFields]

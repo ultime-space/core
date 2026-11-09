@@ -104,7 +104,6 @@ export function buildManifest(result: CoreResult) {
       definition: '1 逻辑像素 = 1 iOS pt = 1 Android dp = 1 CSS px@1x',
       stored: 'dimension / duration / number；CSS 出口把可缩放长度转 rem',
     },
-    themeModes: ['light', 'dark'],
     seed: result.seed,
     seedHash: seedHash(result.seed),
     motion: {
@@ -124,6 +123,5 @@ export function buildManifest(result: CoreResult) {
       }, {}),
       report: result.color.report,
     },
-    artifacts: ['tokens.css', 'tokens.json', 'tokens.dtcg.json', 'kernel.json'],
   }
 }

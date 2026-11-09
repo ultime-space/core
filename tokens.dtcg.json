@@ -3,7 +3,7 @@
   "$extensions": {
     "com.ultime.core": {
       "schemaVersion": "6.0.0",
-      "engineVersion": "0.5.0",
+      "engineVersion": "0.6.0",
       "seedHash": "fnv1a-a85ae522",
       "note": "真源是 seed + 引擎；本文件只是可交换快照。"
     }

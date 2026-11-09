@@ -1,7 +1,7 @@
 # AGENTS.md — @ultime/core
 
 > 给在本仓库工作的 AI 与协作者：只放入口与红线，不复述 README。
-> 适用版本：0.5.x
+> 适用版本：0.6.x
 
 ## 先读
 
@@ -10,10 +10,12 @@
 3. [`rules/README.md`](./rules/README.md) — 本包开发规范。
 4. [`llms.txt`](./llms.txt) — AI 索引；能力表见 [`skills.md`](./skills.md)，操作约束见 [`agent.md`](./agent.md)。
 5. [`src/build.ts`](./src/build.ts) — seed → 树 → 合同 → manifest 的唯一装配点。
-6. [`scripts/check-model.ts`](./scripts/check-model.ts) — 结构与依赖方向守卫。
+6. [`src/tools/project.ts`](./src/tools/project.ts) — `planProject`：一次派生 → artifacts / manifest / diagnostics。
+7. [`scripts/check-model.ts`](./scripts/check-model.ts) — 结构与依赖方向守卫。
 
 ## 红线
 
+- **功能变更同批更新**：测试、README、`CHANGELOG.md` 与 AI 文档；没有功能性更新时只改文档并写明。
 - **生成物不手改**：`tokens.css` / `tokens.json` / `tokens.dtcg.json` / `kernel.json` 由 `pnpm build:tokens` 生成；
   改 seed 或 `src/model/**` 后重跑，不直接编辑文件。
 - **方向单向**：`src/model/**` 不得 import `build` / `exporters` / `tools` / `studio`；四个类别之间也不得互相 import。

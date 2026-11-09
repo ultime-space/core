@@ -9,7 +9,6 @@
  * 官方只给模板与默认表，项目可整表替换或局部覆盖。
  */
 
-import { buildCore } from '../build'
 import { isToken, walk, type Group } from '../tree'
 import type { OutputFile } from './types'
 
@@ -94,8 +93,8 @@ export function resolveSemantics(config: SemanticsConfig = {}): SemanticsTable {
   return table
 }
 
-/** 收集树里所有 token 路径（点号形式）。 */
-export function tokenPaths(tree: Group = buildCore().tree): Set<string> {
+/** 收集树里所有 token 路径（点号形式）；树必须来自同一次构建。 */
+export function tokenPaths(tree: Group): Set<string> {
   const paths = new Set<string>()
   walk(tree, (path, node) => {
     if (path.length && isToken(node)) paths.add(path.join('.'))
@@ -107,7 +106,7 @@ export function tokenPaths(tree: Group = buildCore().tree): Set<string> {
  * 校验语义表：值必须是「树里存在的路径」或「表内存在的 @role.slot 引用」，
  * 且引用之间不能成环。
  */
-export function validateSemantics(table: SemanticsTable, tree?: Group): string[] {
+export function validateSemantics(table: SemanticsTable, tree: Group): string[] {
   const issues: string[] = []
   const paths = tokenPaths(tree)
   const slots = new Map<string, SemanticsValue>()

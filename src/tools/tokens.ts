@@ -2,30 +2,34 @@
  * tokens.ts — token 产物编排（纯函数）
  * ---------------------------------------------------------------------------
  * 选出口 + 定目录 + 排序；值全部来自 `buildCore`，不在出口里二次派生。
+ * core 只产完整 token 集；裁剪与按需启用归配置器，不在这里做 subset。
  */
 
-import { buildCore, buildManifest } from '../build'
+import { buildCore, buildManifest, type CoreResult } from '../build'
 import { treeToCss, treeToDtcg, treeToJson } from '../exporters'
 import type { SeedInput } from '../seed'
-import { tokensConfigJson, type SubsetConfig } from './tokens-config'
 import type { OutputFile } from './types'
 
 export type TokenPlatform = 'css' | 'json' | 'dtcg'
 
 export interface ExportTokensOptions {
   seed?: SeedInput
-  /** 项目子集：给了就额外写出 `tokens.config.json` */
-  subset?: SubsetConfig
   platforms?: TokenPlatform[]
   output?: string
 }
 
-const DEFAULT_DIR = 'ultime-tokens'
-const DEFAULT_PLATFORMS: TokenPlatform[] = ['css', 'json', 'dtcg']
+export const DEFAULT_DIR = 'ultime-tokens'
+export const DEFAULT_PLATFORMS: TokenPlatform[] = ['css', 'json', 'dtcg']
 
-export function exportTokens(options: ExportTokensOptions = {}): OutputFile[] {
-  const result = buildCore(options.seed ?? {})
+const want = (file: string, platforms: TokenPlatform[]): boolean => {
+  if (file === 'kernel.json') return true
+  if (file.endsWith('.dtcg.json')) return platforms.includes('dtcg')
+  if (file.endsWith('.json')) return platforms.includes('json')
+  return platforms.includes('css')
+}
 
+/** 从已构建的 CoreResult 发射产物；同一构建只调用一次。 */
+export function emitTokens(result: CoreResult, options: ExportTokensOptions = {}): OutputFile[] {
   const all: Array<[string, string]> = [
     ['tokens.css', treeToCss(result)],
     ['tokens.json', `${JSON.stringify(treeToJson(result), null, 2)}\n`],
@@ -34,17 +38,11 @@ export function exportTokens(options: ExportTokensOptions = {}): OutputFile[] {
   ]
 
   const platforms = options.platforms ?? DEFAULT_PLATFORMS
-  const want = (file: string): boolean => {
-    if (file === 'kernel.json') return true
-    if (file.endsWith('.dtcg.json')) return platforms.includes('dtcg')
-    if (file.endsWith('.json')) return platforms.includes('json')
-    return platforms.includes('css')
-  }
-
   const dir = (options.output ?? DEFAULT_DIR).replace(/\/+$/, '')
-  const files = all.filter(([file]) => want(file)).map(([file, content]) => ({ path: `${dir}/${file}`, content }))
+  return all.filter(([file]) => want(file, platforms)).map(([file, content]) => ({ path: `${dir}/${file}`, content }))
+}
 
-  if (options.subset) files.push({ path: 'tokens.config.json', content: tokensConfigJson(options.subset) })
-
-  return files
+/** 便捷入口：直接给 seed，内部构建一次。构建计划应使用 `planProject`。 */
+export function exportTokens(options: ExportTokensOptions = {}): OutputFile[] {
+  return emitTokens(buildCore(options.seed ?? {}), options)
 }

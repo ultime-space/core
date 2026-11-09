@@ -1,6 +1,6 @@
 {
   "name": "@ultime/core",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Ultime · core：平台无关的设计系统内核（seed → 树 → 快照）；Web 的 CSS 只是它的一个出口",
   "keywords": [
     "color-system",
@@ -33,7 +33,6 @@
     "tokens.dtcg.json",
     "kernel.json",
     "theme.example.json",
-    "tokens.config.json",
     "README.md",
     "DESIGN.md",
     "CHANGELOG.md",

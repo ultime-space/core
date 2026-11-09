@@ -5,21 +5,17 @@
  */
 
 import { DEFAULT_SEED, type SeedInput } from '../seed'
-import { SUBSET_DEFAULTS } from '../tools'
-import type { TokenPlatform } from '../tools'
+import { DEFAULT_DIR, DEFAULT_PLATFORMS as CORE_DEFAULT_PLATFORMS, type TokenPlatform } from '../tools'
 import type { ThemeStudioConfig } from './types'
 
 export const EXAMPLE_SEED: SeedInput = JSON.parse(JSON.stringify(DEFAULT_SEED)) as SeedInput
 
-export const DEFAULT_SUBSET = JSON.parse(JSON.stringify(SUBSET_DEFAULTS)) as typeof SUBSET_DEFAULTS
-
-export const DEFAULT_PLATFORMS: TokenPlatform[] = ['css', 'json', 'dtcg']
-export const DEFAULT_OUTPUT = 'ultime-tokens'
+export const DEFAULT_PLATFORMS: TokenPlatform[] = [...CORE_DEFAULT_PLATFORMS]
+export const DEFAULT_OUTPUT = DEFAULT_DIR
 
 export const THEME_DEFAULTS: ThemeStudioConfig = {
   tokens: {
     seed: EXAMPLE_SEED,
-    subset: DEFAULT_SUBSET,
     platforms: DEFAULT_PLATFORMS,
     output: DEFAULT_OUTPUT,
   },

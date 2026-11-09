@@ -1,13 +1,21 @@
-export { exportTokens, type ExportTokensOptions, type TokenPlatform } from './tokens'
 export {
-  SUBSET_DEFAULTS,
-  SUBSET_DIMENSIONS,
-  tokensConfigJson,
-  validateSubset,
-  type SubsetConfig,
-  type SubsetDimension,
-} from './tokens-config'
-export { exportArtifacts, validateConfig, type TokensConfig, type UltimeConfig } from './config'
+  exportTokens,
+  emitTokens,
+  DEFAULT_DIR,
+  DEFAULT_PLATFORMS,
+  type ExportTokensOptions,
+  type TokenPlatform,
+} from './tokens'
+export { validateConfig, type TokensConfig, type UltimeConfig } from './config'
+export {
+  planProject,
+  exportArtifacts,
+  type BuildDiagnostic,
+  type BuildDiagnosticLevel,
+  type PlannedArtifact,
+  type ProjectBuild,
+  type ProjectConfig,
+} from './project'
 export {
   DEFAULT_SEMANTICS,
   SEMANTICS_TEMPLATES,

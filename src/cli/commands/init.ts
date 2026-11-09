@@ -3,7 +3,7 @@ import type { CliContext } from '@ultime/cli'
 import type { UltimeConfig } from '../../tools/index.ts'
 import { writeConfig } from '../config-file.ts'
 
-/** 起步配置：只开 tokens 区；kit / viewer 的配置区随各自重写再加。 */
+/** 起步配置：只开 tokens 区；上层配置随各自重写再加。 */
 export const STARTER: UltimeConfig = {
   $schema: 'https://ultime.dev/schema/ultime.config.json',
   tokens: {

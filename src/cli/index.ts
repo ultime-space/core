@@ -12,6 +12,7 @@ import { createRequire } from 'node:module'
 import { processContext, runCli } from '@ultime/cli'
 import { readJsonc, type SeedInput } from '../seed.ts'
 import { runBuild } from './commands/build.ts'
+import { runInspect } from './commands/inspect.ts'
 import { runInit } from './commands/init.ts'
 import { runSchema } from './commands/schema.ts'
 
@@ -24,7 +25,8 @@ const USAGE = `ultime <command> [options]
   init                    写一份最小 ultime.config.json（--force 覆盖）
   build                   按配置生成 token 产物
   build --check           只比对不写盘：按当前配置重新生成会不会变
-  schema                  列出 seed 字段 / 子集维度 / 语义表（--json 机器可读）
+  inspect                 只读检查：产物 / 平台 / 类别 / 合同 / 颜色 / 诊断
+  schema                  列出 seed 字段 / 出口 / 语义表（--json 机器可读）
 
 选项：
   --config <path>         配置文件（默认 ./ultime.config.json）
@@ -38,6 +40,7 @@ const USAGE = `ultime <command> [options]
 const COMMAND_HELP: Record<string, string> = {
   init: 'ultime init [--force] [--config <path>]',
   build: 'ultime build [--check] [--config <path>] [--cwd <dir>]',
+  inspect: 'ultime inspect [--json] [--config <path>] [--cwd <dir>]',
   schema: 'ultime schema [--json]',
 }
 
@@ -73,6 +76,17 @@ process.exitCode = runCli(
             typeof args.flags.config === 'string' ? args.flags.config : 'ultime.config.json',
           )
           return runBuild(ctx, { defaultSeed }, { configPath, check: Boolean(args.flags.check) })
+        },
+      },
+      inspect: {
+        help: COMMAND_HELP.inspect,
+        run: (args, ctx) => {
+          const cwd = typeof args.flags.cwd === 'string' ? path.resolve(args.flags.cwd) : ctx.cwd
+          const configPath = path.resolve(
+            cwd,
+            typeof args.flags.config === 'string' ? args.flags.config : 'ultime.config.json',
+          )
+          return runInspect(ctx, { defaultSeed }, { configPath, json: Boolean(args.flags.json) })
         },
       },
       schema: {

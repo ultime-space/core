@@ -2,17 +2,16 @@
  * build.ts — `ultime build` / `build --check`
  * ---------------------------------------------------------------------------
  * 两种模式只差「写不写盘」：
- *   · build        → 生成产物并写入；
+ *   · build        → 按 ProjectBuild 产物写入；
  *   · build --check → 在内存重算，逐字节比对磁盘，不写盘。
- * 产物内容由 tools 的 `exportArtifacts` 决定，这里只做 IO。
- * 路径统一相对「配置文件所在目录」。
+ * 读盘、写盘归 CLI；派生、产物与诊断来自 `planProject`。
  */
 
 import fs from 'node:fs'
 import path from 'node:path'
 import type { CliContext } from '@ultime/cli'
 import type { SeedInput } from '../../seed.ts'
-import { exportArtifacts, validateConfig } from '../../tools/index.ts'
+import { planProject, validateConfig } from '../../tools/index.ts'
 import { readConfig, readSeedFile, resolveFromConfig } from '../config-file.ts'
 
 export interface BuildDeps {
@@ -48,16 +47,25 @@ export function runBuild(ctx: CliContext, deps: BuildDeps, options: BuildOptions
         ? readSeedFile(resolveFromConfig(options.configPath, raw))
         : raw
 
-  let files
+  let build
   try {
-    files = exportArtifacts(config, seed)
+    build = planProject(config, seed)
   } catch (error) {
     ctx.err(`✗ ${(error as Error).message}`)
     return 1
   }
 
+  for (const diagnostic of build.diagnostics) {
+    if (diagnostic.level === 'warn') ctx.err(`△ ${diagnostic.message}`)
+  }
+  const errors = build.diagnostics.filter((diagnostic) => diagnostic.level === 'error')
+  if (errors.length) {
+    for (const error of errors) ctx.err(`✗ ${error.message}`)
+    return 1
+  }
+
   const changed: { path: string; bytes: number }[] = []
-  for (const file of files) {
+  for (const file of build.artifacts) {
     const abs = path.resolve(path.dirname(options.configPath), file.path)
     if (options.check) {
       if (!fs.existsSync(abs) || fs.readFileSync(abs, 'utf8') !== file.content) {
@@ -68,11 +76,11 @@ export function runBuild(ctx: CliContext, deps: BuildDeps, options: BuildOptions
     }
     fs.mkdirSync(path.dirname(abs), { recursive: true })
     fs.writeFileSync(abs, file.content)
-    changed.push({ path: file.path, bytes: Buffer.byteLength(file.content) })
+    changed.push({ path: file.path, bytes: file.bytes })
   }
 
   if (options.check) {
-    ctx.out(`✓ 产物与配置一致（${files.length} 个）`)
+    ctx.out(`✓ 产物与配置一致（${build.artifacts.length} 个）`)
     return 0
   }
 

@@ -55,6 +55,22 @@ solveLight({ form: 'concave', depth: 3, mode: 'dark' })
 
 `solveLight` 只收形态 / 深度 / 模式，不收尺寸、圆角或组件名；`flat` / `concave` 在构建期取，不写入静态快照。
 
+## 构建计划
+
+同一次构建只派生一次。CLI、studio 与脚本都消费 `planProject` 返回的同一份事实：
+
+```js
+import { planProject } from '@ultime/core/tools'
+
+const build = planProject({ tokens: { output: 'styles' } }, seed)
+build.core         // CoreResult
+build.manifest     // kernel.json 的内容
+build.artifacts    // 产物清单（path / content / bytes）
+build.diagnostics  // error / warn / info
+```
+
+`exportArtifacts` 是兼容入口，内部同样走 `planProject`；不要再自己拼产物清单。
+
 ---
 
 ## 模型
@@ -159,11 +175,14 @@ treeToCss(result, { include: ['color', 'motion'] })
 ultime init             # 写一份 ultime.config.json
 ultime build            # 读配置 + seed → tokens.* / kernel.json
 ultime build --check    # 只比对，不写盘
-ultime schema --json    # seed 字段 / 子集维度 / 语义表
+ultime inspect          # 只读检查：产物 / 平台 / 类别 / 合同 / 颜色 / 诊断
+ultime schema --json    # seed 字段 / 出口 / 语义表
 ```
 
-配置模型为 `tokens.seed / subset / platforms / output / semantics`。
+配置模型为 `tokens.seed / platforms / output / semantics`。
 `semantics` 是可选产物：只有配置了才生成 `semantics.json`，它不进树，也不进 `kernel.json`。
+
+core 只产完整 token 集；选择、裁剪与自定义派生归配置器，不在 core 配置里。
 
 仓库内开发也可用 `pnpm ultime`（等价于 `tsx src/cli/index.ts`）。
 
@@ -176,7 +195,7 @@ ultime schema --json    # seed 字段 / 子集维度 / 语义表
 | `tokens.css` | 生成物 | 全量原料：几何 / 排版 / 颜色 / 光影 / 动效；含 reduce 覆盖 |
 | `tokens.json` | 生成物 | 树形快照，值与 CSS 同源；模式值输出 `{ light, dark }` |
 | `tokens.dtcg.json` | 生成物 | DTCG 2025.10 交换格式；真正嵌套 group，模式值是 `light` / `dark` 两个 token |
-| `kernel.json` | 生成物 | manifest：schema / engine 版本、seed 与指纹、计数、合同摘要、产物清单 |
+| `kernel.json` | 生成物 | manifest：schema / engine 版本、seed 与指纹、计数、合同摘要、颜色报告 |
 | `dist/*.js` | 构建物 | 库出口：`.` / `./exporters` / `./tools` / `./studio` / `./seed` |
 
 > 产物随仓库入库，用于 diff 与离线消费；**禁止手改**，改 seed 后重跑构建。
@@ -190,7 +209,7 @@ ultime schema --json    # seed 字段 / 子集维度 / 语义表
 packages/core/
 ├── bin/ultime.js               CLI 薄入口（指向 dist/cli.js）
 ├── src/
-│   ├── cli/                    命令：init / build / schema + 配置读写
+│   ├── cli/                    命令：init / build / inspect / schema + 配置读写
 │   ├── seed.ts                seed 类型 / 默认值 / 深合并 / JSONC / 指纹
 │   ├── tree.ts                token / group / 模式值 / 遍历 / 合成
 │   ├── build.ts               seed → 派生 → 一棵树 → 合同 → manifest
@@ -203,13 +222,12 @@ packages/core/
 │   │   └── motion.ts          duration / loop / delay / easing
 │   ├── exporters/             CSS / JSON / DTCG（只读树）
 │   ├── studio/                配置器定义：字段 / 默认值 / 预设 / 校验 / 预览 / 导出
-│   └── tools/                 产物编排 / 子集 / 项目配置 / 语义表模板
+│   └── tools/                 构建计划 / 产物编排 / 项目配置 / 语义表模板
 ├── scripts/
 │   ├── build.ts               唯一构建入口（`--check` 只校验）
 │   └── check-model.ts         内核守卫（零依赖 / 方向 / 类别隔离 / 无载体语法）
 ├── tests/                     回归基线
 ├── theme.example.json         示例 seed（可改输入）
-├── tokens.config.json         项目子集声明
 └── tokens.* / kernel.json     ⚠️ 生成物
 ```
 

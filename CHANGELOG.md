@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0 - 2026-11-09
+
+- **Breaking**：core 只产完整 token 集，删除 `tokens.subset`、`SUBSET_DIMENSIONS` / `SUBSET_DEFAULTS` / `validateSubset`、`tokens.config.json`；选择与裁剪归配置器。
+- **Breaking**：`kernel.json` 删除 `themeModes`（读 `seed.color.modes`）与 `artifacts`（产物清单由 `ProjectBuild.artifacts` 提供）。
+- 新增 `planProject` / `ProjectBuild`：一次派生返回 `core` / `manifest` / `artifacts` / `diagnostics`；CLI、studio、`scripts/build.ts` 共用。
+- 新增 `ultime inspect`：只读渲染 `ProjectBuild` 的产物、平台、类别、合同、颜色与诊断。
+- `exportArtifacts` / `exportTokens` 保留为兼容入口，内部走同一次构建；`tokenPaths` / `validateSemantics` 不再隐式构建默认 seed。
+- `engineVersion` 升到 0.6.0；`schemaVersion` 保持 6.0.0（树与合同未变）。
+- 玻璃填充计划顺延到 0.7.0。
+
 ## 0.5.1 - 2026-11-07
 
 - README 补 `solveLight` 示例、光影五槽与 seed 光色说明；无派生 / 契约变化，`engineVersion` 保持 0.5.0。

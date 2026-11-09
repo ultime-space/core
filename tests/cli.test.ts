@@ -85,10 +85,10 @@ describe('core cli · build', () => {
 })
 
 describe('core cli · schema', () => {
-  it('输出种子字段、子集与语义表', () => {
+  it('输出种子字段、出口与语义表', () => {
     const { ctx, out } = collector(process.cwd())
     expect(runSchema(ctx, false)).toBe(0)
     expect(out.join('\n')).toContain('seed ·')
-    expect(out.join('\n')).toContain('子集 ·')
+    expect(out.join('\n')).toContain('出口 ·')
   })
 })
