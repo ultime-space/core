@@ -69,6 +69,19 @@ describe('studio · core 配置器', () => {
     expect(inspected?.counts?.total).toBeGreaterThan(0)
   })
 
+  it('改选择复用同一份 ProjectBuild', () => {
+    const color: ThemeStudioConfig = { ...THEME_DEFAULTS, selection: { categories: ['color'] } }
+    const motion: ThemeStudioConfig = {
+      ...THEME_DEFAULTS,
+      selection: { categories: ['motion'] },
+      derivation: { light: { form: 'flat' } },
+    }
+    const first = themeStudio.inspect?.(color) as { manifest?: unknown } | undefined
+    const second = themeStudio.inspect?.(motion) as { manifest?: unknown } | undefined
+
+    expect(first?.manifest).toBe(second?.manifest)
+  })
+
   it('非法选择配置在校验时报 error', async () => {
     const config: ThemeStudioConfig = {
       ...THEME_DEFAULTS,
