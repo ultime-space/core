@@ -37,7 +37,12 @@
     "DESIGN.md",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
-    "SECURITY.md"
+    "SECURITY.md",
+    "AGENTS.md",
+    "rules",
+    "llms.txt",
+    "skills.md",
+    "agent.md"
   ],
   "type": "module",
   "sideEffects": [
