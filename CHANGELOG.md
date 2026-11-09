@@ -15,7 +15,6 @@
 - 新增 `ultime inspect`：只读渲染 `ProjectBuild` 的产物、平台、类别、合同、颜色与诊断。
 - `exportArtifacts` / `exportTokens` 保留为兼容入口，内部走同一次构建；`tokenPaths` / `validateSemantics` 不再隐式构建默认 seed。
 - `engineVersion` 升到 0.6.0；`schemaVersion` 保持 6.0.0（树与合同未变）。
-- 玻璃填充计划顺延到下一轮 core 迭代。
 
 ## 0.5.1 - 2026-11-07
 
