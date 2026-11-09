@@ -24,7 +24,7 @@ const argOf = (name: string): string | undefined => {
   return i >= 0 ? args[i + 1] : undefined
 }
 const OUT = path.resolve(process.cwd(), argOf('--out-dir') ?? PKG)
-const output = path.relative(process.cwd(), OUT) || '.'
+const output = '.'
 
 const seedPath = argOf('--seed') ?? path.join(PKG, 'theme.example.json')
 const seedInput: SeedInput = fs.existsSync(seedPath) ? (readJsonc(fs.readFileSync(seedPath, 'utf8')) as SeedInput) : {}
