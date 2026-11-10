@@ -4,7 +4,7 @@
 
 ## Git 流程
 
-1. 从 `main` 切 `feat/<主题>` / `fix/<主题>` / `docs/<主题>`。
+1. 从 `main` 切 `feat/<主题>` / `fix/<主题>` / `docs-<主题>`。
 2. 开发完成后 `git rebase main`；一次提交一件事，提交信息用 `type(scope): subject`，正文写「为什么」。
 3. push 分支并开 PR；CI 必须通过，评论必须解决。
 4. 用 rebase / squash 合并，删除分支；`main` 不保留中间提交。
