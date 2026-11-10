@@ -2,11 +2,14 @@
 
 > 给贡献者与 AI 的最短协作规则。用法见 [README](./README.md)，设计取舍见 [DESIGN](./DESIGN.md)。
 
-## 工作流
+## Git 流程
 
-1. 从 `main` 切 `feat/<主题>` / `fix/<主题>`。
-2. 完成后 `git rebase main` 再合并；主分支不保留中间提交。
-3. 一次提交一件事，提交信息用 `type(scope): subject`，正文写「为什么」。
+1. 从 `main` 切 `feat/<主题>` / `fix/<主题>` / `docs/<主题>`。
+2. 开发完成后 `git rebase main`；一次提交一件事，提交信息用 `type(scope): subject`，正文写「为什么」。
+3. push 分支并开 PR；CI 必须通过，评论必须解决。
+4. 用 rebase / squash 合并，删除分支；`main` 不保留中间提交。
+5. 不直接 push `main`，不 force push、不删除 `main`；`main` 受保护，管理员也一样。
+6. 发布按包版本打 tag，由 CI 执行；tag 规则见仓库保护设置。
 
 ## 改动规则
 
