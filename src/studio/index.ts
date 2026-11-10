@@ -178,15 +178,25 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
     }
   },
   preview(config) {
-    if (!config.tokens.platforms.length || !config.tokens.output.trim()) return { css: '', scenarios: SCENARIOS }
     try {
+      if (!config.tokens.platforms.length || !config.tokens.output.trim()) return { css: '', scenarios: SCENARIOS }
       const css = exportThemeArtifacts(config)
         .filter((file) => file.path.endsWith('.css'))
         .map((file) => file.content)
         .join('\n')
       return { css, scenarios: SCENARIOS }
-    } catch {
-      return { css: '', scenarios: SCENARIOS }
+    } catch (error) {
+      return {
+        css: '',
+        scenarios: SCENARIOS,
+        diagnostics: [
+          {
+            level: 'warn',
+            code: 'core/preview',
+            message: `预览生成失败：${error instanceof Error ? error.message : String(error)}`,
+          },
+        ],
+      }
     }
   },
   export(config) {

@@ -167,11 +167,11 @@ importers:
   .:
     dependencies:
       '@ultime/cli':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.1.4
+        version: 0.1.4
       '@ultime/studio':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.2.1
+        version: 0.2.1
     devDependencies:
       '@arethetypeswrong/core':
         specifier: ^0.18.5
@@ -182,6 +182,9 @@ importers:
       '@types/node':
         specifier: ^22.20.5
         version: 22.20.5
+      '@ultime/checks':
+        specifier: ^0.2.0
+        version: 0.2.0
       publint:
         specifier: ^0.3.25
         version: 0.3.25
@@ -857,12 +860,17 @@ packages:
   '@types/node@22.20.5':
     resolution: {integrity: sha512-U2+DNr+wSjpsTS/wZGYHq7GcwfuSmKiKvoPvK22zwTlRhU91yOniN4qRR5KhIjvif7ysw/dz/hKmfDH0Ris4aA==}
 
-  '@ultime/cli@0.1.0':
-    resolution: {integrity: sha512-NQ6T6KOKBnTmVvGzZQKz9ka4ilS3dKk7Nuc+B5pgDdrCnvmjjsMqd8f1oEE0uANGLB/xm8QUzabBL0KRr3wyrA==}
+  '@ultime/checks@0.2.0':
+    resolution: {integrity: sha512-R3xPgd4AsHDrHUtCyzYNVgLg0ImdxpL5GSh5TpaY6x+Y+cX6tsbHQaX48fhPF5pHMOGAvgUjg008wxahEOjjNg==}
+    engines: {node: '>=22.18'}
+    hasBin: true
+
+  '@ultime/cli@0.1.4':
+    resolution: {integrity: sha512-hp2RVOghrsBod6nxkrYjh188jxGrQXtm/dXwGnqLv++IH4ww/8yjG6rgfXSwAovIv1P5XVINTKL2fUnlbNUMuQ==}
     engines: {node: '>=22.18'}
 
-  '@ultime/studio@0.2.0':
-    resolution: {integrity: sha512-emm3SXsQI0UZjKlTEzlQ7FTQUECZv03mh0DTYAB7uLbDsQIRQdUwNRLgbZVDa8SU16LevG9o1dvHJaWahUf5Gw==}
+  '@ultime/studio@0.2.1':
+    resolution: {integrity: sha512-obXAqR5WGBHgUFN4i9ITsy3HmjvFsPy07vfGgDnJ/m+zA7QsFX3jkQLesJDg9E3q9qsDywQojywO8B/hHmeiXQ==}
     engines: {node: '>=22.18'}
 
   '@vitest/browser-preview@5.1.0':
@@ -1958,9 +1966,11 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@ultime/cli@0.1.0': {}
+  '@ultime/checks@0.2.0': {}
 
-  '@ultime/studio@0.2.0': {}
+  '@ultime/cli@0.1.4': {}
+
+  '@ultime/studio@0.2.1': {}
 
   '@vitest/browser-preview@5.1.0(@voidzero-dev/vite-plus-core@1.5.1(@arethetypeswrong/core@0.18.5)(@types/node@22.20.5)(esbuild@0.28.2)(publint@0.3.25)(tsx@4.23.15)(typescript@5.9.3)(unplugin-unused@0.6.0))(vitest@5.1.0)':
     dependencies:

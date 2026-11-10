@@ -1,10 +1,11 @@
 # Changelog
 
-## 0.8.1 - 2026-11-10
+## 0.8.1 - 2026-11-11
 
 - 构建改用 `vp pack`，为全部公开出口生成 `dist/*.d.ts`。
 - `exports.types` 指向 `dist/*.d.ts`，包体不再包含 `src/`；安装后类型解析不依赖源码。
-- 无运行时 API 变化。
+- 配置器 `preview()` 生成失败时返回 `core/preview` 诊断，不再静默返回空 CSS。
+- DTCG 快照的 `$description` 加「生成物 · 勿手改」标记。
 
 ## 0.8.0 - 2026-11-10
 

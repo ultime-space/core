@@ -82,7 +82,7 @@ function mapNode(node: Node): unknown {
 export function treeToDtcg(result: CoreResult) {
   return {
     $description:
-      'Ultime core · DTCG 导出。颜色模式值为 { light, dark } 两个 token；CSS 的无后缀开关是适配器行为，不在 DTCG 里复制。',
+      '生成物 · 勿手改 —— 由 packages/core/scripts/build.ts 从 seed 派生。Ultime core · DTCG 导出。颜色模式值为 { light, dark } 两个 token；CSS 的无后缀开关是适配器行为，不在 DTCG 里复制。',
     $extensions: {
       'com.ultime.core': {
         schemaVersion: SCHEMA_VERSION,
