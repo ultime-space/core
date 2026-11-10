@@ -41,28 +41,30 @@ export default defineConfig({
     include: ['tests/**/*.test.ts'],
     testTimeout: 20_000,
   },
-  build: {
+  pack: {
+    entry: {
+      index: at('src/index.ts'),
+      seed: at('src/seed.ts'),
+      exporters: at('src/exporters/index.ts'),
+      tools: at('src/tools/index.ts'),
+      studio: at('src/studio/index.ts'),
+      cli: at('src/cli/index.ts'),
+    },
+    format: 'esm',
+    platform: 'node',
     target: 'node22',
+    dts: true,
     minify: false,
-    emptyOutDir: true,
-    lib: {
-      entry: {
-        index: at('src/index.ts'),
-        seed: at('src/seed.ts'),
-        exporters: at('src/exporters/index.ts'),
-        tools: at('src/tools/index.ts'),
-        studio: at('src/studio/index.ts'),
-        cli: at('src/cli/index.ts'),
-      },
-      formats: ['es'],
+    sourcemap: false,
+    clean: true,
+    publint: true,
+    attw: {
+      level: 'error',
+      entrypoints: ['.', './exporters', './studio', './tools', './seed'],
     },
-    rollupOptions: {
-      /* 运行时保持单例：消费方也装 @ultime/studio / @ultime/cli，不能把副本打进 dist */
-      external: ['@ultime/studio', '@ultime/cli', /^node:/],
-      output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: 'chunks/[name]-[hash].js',
-      },
-    },
+    unused: true,
+    outExtensions: () => ({ js: '.js', dts: '.d.ts' }),
+    /* 运行时保持单例：消费方也装 @ultime/studio / @ultime/cli，不能把副本打进 dist */
+    deps: { neverBundle: ['@ultime/studio', '@ultime/cli'] },
   },
 })

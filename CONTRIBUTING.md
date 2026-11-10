@@ -27,6 +27,8 @@
 - **冗余**：同一事实只有一份正文；新增说明先改真源，其他位置只留指针。
 - **缺漏**：新增能力是否有入口、示例与验证命令。
 - **漂移**：`package.json` / README / `CHANGELOG` / VERSION（及适用的 AI 文档）版本是否一致。
+- **包体**：`npm pack --dry-run` 不含 `tests` / `scripts` / `rules` / 包根 `AGENTS.md` / 构建配置 / lockfile；`exports` 与类型入口一致。
+- **基线**：`engines.node >= 22.18`、`build.target: node22` 未偏离；开发端脚本与依赖不进入发布包。
 
 机械检查交给 CI；人审看架构、边界、语义与取舍。
 
@@ -35,7 +37,8 @@
 ```bash
 pnpm check
 pnpm test
-pnpm typecheck
+pnpm build          # 含 publint / attw / unused
+pnpm size           # 体积只报告，不设门禁
 npm pack --dry-run
 ```
 

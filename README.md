@@ -8,6 +8,8 @@
 `@ultime/core` 把少量可编辑的设计输入（seed）算成一棵 DTCG 形态的 token 树，再翻译成 CSS / JSON / DTCG。
 它不含组件、class、路由或配置界面，也不承载品牌：同一套机制可以生成不同风格。
 
+> **导读**：先上手看[安装](#安装) → [快速开始](#快速开始)；查接口看[出口](#出口) / [CLI](#cli)；改内核先读 [`DESIGN.md`](./DESIGN.md)。
+
 ## 这是什么 / 不是什么
 
 | 是 | 不是 |
@@ -28,7 +30,7 @@ pnpm add @ultime/core
 Node.js >= 22.18。内核的 `.` / `./exporters` / `./tools` / `./seed` 出口是编译后的 JS，零第三方依赖；
 `./studio` 出口（配置器）依赖 `@ultime/studio`，`ultime` bin 依赖 `@ultime/cli`；不用配置器 / CLI 时不会进入你的产物。
 
-所有出口 **ESM-only**：用 `import` / `import()` 消费，不提供 `require` 入口。
+所有出口 **ESM-only**：用 `import` / `import()` 消费，不提供 `require` 入口；类型来自 `dist/*.d.ts`，包体不含 `src/`。
 
 ## 快速开始
 
@@ -218,7 +220,7 @@ ultime schema --json    # seed 字段 / 出口 / 语义表
 
 core 只产完整 token 集；选择、裁剪与自定义派生归配置器，不写进 `ultime.config.json`。
 
-仓库内开发也可用 `pnpm ultime`（等价于 `tsx src/cli/index.ts`）。
+仓库内开发也可用 `pnpm ultime`（等价于 `vpx src/cli/index.ts`）。
 
 ---
 
@@ -296,11 +298,10 @@ packages/core/
 ```bash
 pnpm install
 pnpm build          # 产物 + dist 库出口（含 bin）
-pnpm ultime         # 开发态 CLI（tsx src/cli/index.ts）
+pnpm ultime         # 开发态 CLI（vpx src/cli/index.ts）
 pnpm build:tokens   # 只生成 token / manifest
 pnpm test           # Vitest 回归
-pnpm check          # 格式 / lint / 守卫 / 产物同源
-pnpm typecheck
+pnpm check          # 格式 / lint / 类型 / 守卫 / 产物同源
 ```
 
 指定项目 seed：

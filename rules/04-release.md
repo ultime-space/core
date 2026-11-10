@@ -26,7 +26,8 @@
 
 - [ ] `pnpm check` 与 `pnpm test` 全绿
 - [ ] `pnpm build` 后 `git diff` 产物符合预期
-- [ ] `npm pack --dry-run` 内容正确（`dist` 在、测试与临时文件不在）
+- [ ] `npm pack --dry-run` 内容正确（`dist` 在、测试与临时文件与 `src` 不在）
+- [ ] `exports.types` 指向 `dist/*.d.ts`，安装后类型解析不依赖源码
 - [ ] `package.json` 版本、tag、`CHANGELOG.md` 三者一致
 - [ ] README「版本与兼容」已更新（契约变更时）
 - [ ] AI 文档同步：`rules/` / `llms.txt` / `SKILLS.md` / `AGENTS.md` 的版本戳与能力表已更新

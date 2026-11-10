@@ -9,9 +9,8 @@
 ## 命令
 
 ```bash
-pnpm check       # 格式 / lint / 守卫 / 产物同源
+pnpm check       # 格式 / lint / 类型 / 守卫 / 产物同源
 pnpm test        # Vitest：内核 / 工具层 / studio 定义
-pnpm typecheck   # tsc --noEmit
 ```
 
 `pnpm check` 必须全绿；没跑或没跑通，交付时说明是哪一条、为什么。

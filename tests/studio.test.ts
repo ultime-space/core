@@ -191,4 +191,10 @@ describe('studio · core 配置器', () => {
     const diagnostics = (await themeStudio.validate?.(config, { mode: 'edit' })) ?? []
     expect(diagnostics.some((item) => item.level === 'error')).toBe(true)
   })
+
+  it('预览生成失败时返回诊断，不静默丢错', () => {
+    const preview = themeStudio.preview?.(null as unknown as ThemeStudioConfig)
+    expect(preview?.css).toBe('')
+    expect(preview?.diagnostics?.[0]?.code).toBe('core/preview')
+  })
 })
