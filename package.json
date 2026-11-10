@@ -1,6 +1,6 @@
 {
   "name": "@ultime/core",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Ultime · core：平台无关的设计系统内核（seed → 树 → 快照）；Web 的 CSS 只是它的一个出口",
   "keywords": [
     "color-system",
@@ -27,7 +27,6 @@
   "files": [
     "bin",
     "dist",
-    "src",
     "tokens.css",
     "tokens.json",
     "tokens.dtcg.json",
@@ -47,23 +46,23 @@
   ],
   "exports": {
     ".": {
-      "types": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
     "./exporters": {
-      "types": "./src/exporters/index.ts",
+      "types": "./dist/exporters.d.ts",
       "import": "./dist/exporters.js"
     },
     "./studio": {
-      "types": "./src/studio/index.ts",
+      "types": "./dist/studio.d.ts",
       "import": "./dist/studio.js"
     },
     "./tools": {
-      "types": "./src/tools/index.ts",
+      "types": "./dist/tools.d.ts",
       "import": "./dist/tools.js"
     },
     "./seed": {
-      "types": "./src/seed.ts",
+      "types": "./dist/seed.d.ts",
       "import": "./dist/seed.js"
     },
     "./package.json": "./package.json",
@@ -77,14 +76,14 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsx scripts/build.ts && vp build",
-    "build:tokens": "tsx scripts/build.ts",
-    "build:tokens:check": "tsx scripts/build.ts --check",
-    "build:lib": "vp build",
-    "ultime": "tsx src/cli/index.ts",
-    "check": "vp check && tsx scripts/check-model.ts && tsx scripts/build.ts --check",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "vpx scripts/build.ts && vp pack",
+    "build:tokens": "vpx scripts/build.ts",
+    "build:tokens:check": "vpx scripts/build.ts --check",
+    "build:lib": "vp pack",
+    "ultime": "vpx src/cli/index.ts",
+    "check": "vp check && vpx scripts/check-model.ts && vpx scripts/build.ts --check",
     "test": "vp test",
+    "size": "size-limit --json",
     "prepublishOnly": "pnpm check && pnpm test && pnpm build",
     "prepare": "vp config --no-agent"
   },
@@ -93,11 +92,37 @@
     "@ultime/studio": "^0.2.0"
   },
   "devDependencies": {
+    "@arethetypeswrong/core": "^0.18.5",
+    "@size-limit/preset-small-lib": "^14.3.0",
     "@types/node": "^22.20.5",
-    "tsx": "^4.23.15",
+    "publint": "^0.3.25",
+    "size-limit": "^14.3.0",
     "typescript": "^5.9.3",
+    "unplugin-unused": "^0.6.0",
     "vite-plus": "1.5.1"
   },
+  "size-limit": [
+    {
+      "name": "@ultime/core",
+      "path": "dist/index.js"
+    },
+    {
+      "name": "@ultime/core/exporters",
+      "path": "dist/exporters.js"
+    },
+    {
+      "name": "@ultime/core/studio",
+      "path": "dist/studio.js"
+    },
+    {
+      "name": "@ultime/core/tools",
+      "path": "dist/tools.js"
+    },
+    {
+      "name": "@ultime/core/seed",
+      "path": "dist/seed.js"
+    }
+  ],
   "engines": {
     "node": ">=22.18"
   },

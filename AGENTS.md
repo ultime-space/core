@@ -46,9 +46,8 @@
 ## 验证
 
 ```bash
-pnpm check        # 格式 / lint / 守卫 / 产物同源
+pnpm check        # 格式 / lint / 类型 / 守卫 / 产物同源
 pnpm test
-pnpm typecheck
 ```
 
 - 改了 seed / model：再跑 `pnpm build:tokens`，看产物 diff；

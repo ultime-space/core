@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1 - 2026-11-10
+
+- 构建改用 `vp pack`，为全部公开出口生成 `dist/*.d.ts`。
+- `exports.types` 指向 `dist/*.d.ts`，包体不再包含 `src/`；安装后类型解析不依赖源码。
+- 无运行时 API 变化。
+
 ## 0.8.0 - 2026-11-10
 
 - **Breaking**：`./tools` 出口移除 `require` 条件，全包统一 ESM-only；不再承诺 `require('@ultime/core/tools')` 这条 CJS 路径。

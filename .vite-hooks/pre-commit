@@ -18,15 +18,15 @@ if ! command -v node >/dev/null 2>&1; then
 fi
 
 VP="$ROOT/node_modules/.bin/vp"
-TSX="$ROOT/node_modules/.bin/tsx"
+VPX="$ROOT/node_modules/.bin/vpx"
 
 echo "── pre-commit：Vite+ staged（fmt / lint）─────────────────────────────"
 "$VP" staged || exit 1
 
 echo "── pre-commit：生成物同步 ───────────────────────────────────────────"
-"$TSX" "$ROOT/scripts/build.ts" --check || exit 1
+"$VPX" "$ROOT/scripts/build.ts" --check || exit 1
 
 echo "── pre-commit：模型层守卫 ───────────────────────────────────────────"
-"$TSX" "$ROOT/scripts/check-model.ts" || exit 1
+"$VPX" "$ROOT/scripts/check-model.ts" || exit 1
 
 echo "✓ 产物与源一致"
