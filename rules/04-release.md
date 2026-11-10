@@ -1,7 +1,7 @@
 # 04 · 版本与发布
 
 > 定位：core 的三类版本、发布顺序与发布前检查。
-> 适用版本：0.7.x
+> 适用版本：0.8.x
 > 关系：测试见 [`03-testing`](./03-testing.md)；发布由仓库 owner 按本清单执行。
 
 ---
@@ -20,7 +20,7 @@
 
 ## 发布顺序
 
-`@ultime/cli` → `@ultime/studio` → `@ultime/core`。被依赖者先发；workspace 内用 `workspace:^`。
+`@ultime/cli` → `@ultime/studio` → `@ultime/core`。被依赖者先发；依赖写已发布版本范围（如 `^0.1.2`），不写 `workspace:*`。
 
 ## 发布前检查
 
@@ -29,10 +29,11 @@
 - [ ] `npm pack --dry-run` 内容正确（`dist` 在、测试与临时文件不在）
 - [ ] `package.json` 版本、tag、`CHANGELOG.md` 三者一致
 - [ ] README「版本与兼容」已更新（契约变更时）
-- [ ] AI 文档同步：`rules/` / `llms.txt` / `skills.md` / `agent.md` / `AGENTS.md` 的版本戳与能力表已更新
+- [ ] AI 文档同步：`rules/` / `llms.txt` / `SKILLS.md` / `AGENTS.md` 的版本戳与能力表已更新
+- [ ] 包内配套设施：`npm pack --dry-run` 含 `llms.txt` / `SKILLS.md`，且与 `exports` 对齐
 - [ ] 根仓 `pnpm ai-docs:check` 通过
 
 ## 反例
 
 - 只升 `package.json`，忘了 `engineVersion`：manifest 记录的派生版本与代码不符。
-- 发版后才补 `skills.md`：安装到的包与 AI 读到的能力表不是同一版本。
+- 发版后才补 `SKILLS.md`：安装到的包与 AI 读到的能力表不是同一版本。

@@ -1,6 +1,6 @@
 {
   "name": "@ultime/core",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Ultime · core：平台无关的设计系统内核（seed → 树 → 快照）；Web 的 CSS 只是它的一个出口",
   "keywords": [
     "color-system",
@@ -35,14 +35,11 @@
     "theme.example.json",
     "README.md",
     "DESIGN.md",
+    "llms.txt",
+    "SKILLS.md",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
-    "SECURITY.md",
-    "AGENTS.md",
-    "rules",
-    "llms.txt",
-    "skills.md",
-    "agent.md"
+    "SECURITY.md"
   ],
   "type": "module",
   "sideEffects": [
@@ -63,8 +60,7 @@
     },
     "./tools": {
       "types": "./src/tools/index.ts",
-      "import": "./dist/tools.js",
-      "require": "./dist/tools.js"
+      "import": "./dist/tools.js"
     },
     "./seed": {
       "types": "./src/seed.ts",
@@ -90,17 +86,17 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vp test",
     "prepublishOnly": "pnpm check && pnpm test && pnpm build",
-    "prepare": "node -e \"if (require('fs').existsSync('.git')) require('child_process').execSync('vp hooks enable --hooks-dir .githooks', { stdio: 'inherit' })\""
+    "prepare": "vp config --no-agent"
   },
   "dependencies": {
     "@ultime/cli": "^0.1.0",
-    "@ultime/studio": "^0.1.0"
+    "@ultime/studio": "^0.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
-    "vite-plus": "1.4.0"
+    "vite-plus": "1.5.1"
   },
   "engines": {
     "node": ">=22.18"

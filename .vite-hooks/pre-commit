@@ -6,7 +6,7 @@
 #   · build.ts --check 在内存重算产物并与工作区逐字节比对；
 #   · 检出不同步时改源后重跑 `pnpm build:tokens`，不要手改产物。
 # 环境不具备（没有 node）时放行并提示，不算不合格。
-# 手动安装：pnpm exec vp hooks enable --hooks-dir .githooks
+# 手动安装：pnpm exec vp hooks enable
 # ============================================================================
 set -e
 ROOT="$(git rev-parse --show-toplevel)"
