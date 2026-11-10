@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.8.0 - 2026-11-10
+
+- **Breaking**：`./tools` 出口移除 `require` 条件，全包统一 ESM-only；不再承诺 `require('@ultime/core/tools')` 这条 CJS 路径。
+- 配置器只为 core 原版配置（`THEME_DEFAULTS`，无 selection / derivation）缓存一份派生，进程内只算一次；用户自定义配置每次独立派生。`inspect` 返回的 manifest / counts / diagnostics 是副本，调用方改动不会污染基线。
+- 配置器字段区分**合法域**与**建议区间**：`min` / `max` 越界给 `error` 并阻断导出（API 侧防乱传），新增 `suggested` 越界只给 `warn`；core 字段按安全边界重新分配（alpha 0–1、档数 ≥ 1 等为合法域，常用取值落在建议区间）。
+- 合同补齐结构非空校验：`radius` / `duration` / `loop` / `delay` 档数为 0 时判失败并阻断导出。
+- 合同诊断不再整体截断：`error` 永不截断，非 error 合同诊断最多展示 12 条，超出追加 `core/contract.truncated` 摘要，避免阻断判定被截掉。
+- 收紧 npm 包内容：`AGENTS.md`（含可写 / 只读与操作约束）/ `rules/` 留仓；`llms.txt` / `SKILLS.md` 作为消费侧 AI 入口随包发布，并与 `exports` 对齐。
+- `README` 补 AI 入口与 ESM-only 说明；`DESIGN.md` 的玻璃条目改为只描述归属，不带实现状态。
+- `engineVersion` 保持 0.7.0（派生结果未变）。
+
 ## 0.7.0 - 2026-11-09
 
 - 新增 `@ultime/core/studio` 无头选择 API：`selectBuild` / `selectTree`，按类别与档位从完整树导出定制 tokens。

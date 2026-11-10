@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vite-plus/test'
-import { deserializeConfig, exportConfig, serializeConfig } from '@ultime/studio'
+import { deserializeConfig, exportConfig, serializeConfig, validateConfig } from '@ultime/studio'
 
 import { exportThemeArtifacts, themeStudio } from '../src/studio'
 import { THEME_DEFAULTS } from '../src/studio/defaults'
@@ -69,7 +69,7 @@ describe('studio · core 配置器', () => {
     expect(inspected?.counts?.total).toBeGreaterThan(0)
   })
 
-  it('改选择复用同一份 ProjectBuild', () => {
+  it('改选择各自派生，产物引用不跨调用复用', () => {
     const color: ThemeStudioConfig = { ...THEME_DEFAULTS, selection: { categories: ['color'] } }
     const motion: ThemeStudioConfig = {
       ...THEME_DEFAULTS,
@@ -79,7 +79,60 @@ describe('studio · core 配置器', () => {
     const first = themeStudio.inspect?.(color) as { manifest?: unknown } | undefined
     const second = themeStudio.inspect?.(motion) as { manifest?: unknown } | undefined
 
-    expect(first?.manifest).toBe(second?.manifest)
+    expect(first?.manifest).toEqual(second?.manifest)
+    expect(first?.manifest).not.toBe(second?.manifest)
+  })
+
+  it('基线派生共享，返回值被改动也不污染下一次', () => {
+    const first = themeStudio.inspect?.(THEME_DEFAULTS) as
+      | { manifest?: Record<string, unknown>; diagnostics?: unknown[] }
+      | undefined
+    if (!first?.manifest) throw new Error('inspect 未返回 manifest')
+    first.manifest.seedHash = 'tampered'
+    first.diagnostics?.push({ level: 'error', code: 'tampered', message: 'tampered' })
+
+    const second = themeStudio.inspect?.(THEME_DEFAULTS) as
+      | { manifest?: { seedHash?: string }; diagnostics?: unknown[] }
+      | undefined
+    expect(second?.manifest?.seedHash).not.toBe('tampered')
+    expect(second?.diagnostics).toEqual(first.diagnostics?.slice(0, -1))
+  })
+
+  it('档数为 0 时合同报 error，导出被阻断', async () => {
+    const config: ThemeStudioConfig = {
+      ...THEME_DEFAULTS,
+      tokens: {
+        ...THEME_DEFAULTS.tokens,
+        seed: {
+          ...THEME_DEFAULTS.tokens.seed,
+          skeleton: { ...THEME_DEFAULTS.tokens.seed.skeleton!, radius: { base: 4, levels: 0 } },
+        },
+      },
+    }
+
+    const diagnostics = (await themeStudio.validate?.(config, { mode: 'export' })) ?? []
+    expect(diagnostics.some((item) => item.level === 'error' && item.code === 'core/contract.radius-derive')).toBe(true)
+  })
+
+  it('合法域越界报 error，建议区间只提示', async () => {
+    const withSeed = (patch: (seed: NonNullable<ThemeStudioConfig['tokens']['seed']>) => void) => {
+      const draft = JSON.parse(JSON.stringify(THEME_DEFAULTS)) as ThemeStudioConfig
+      patch(draft.tokens.seed!)
+      return draft
+    }
+
+    const alpha = withSeed((seed) => {
+      seed.light = { ...seed.light, ambientAlpha: 2 }
+    })
+    const alphaDiagnostics = await validateConfig(themeStudio, alpha)
+    expect(alphaDiagnostics.some((item) => item.code === 'field/range' && item.level === 'error')).toBe(true)
+
+    const radius = withSeed((seed) => {
+      seed.skeleton = { ...seed.skeleton, radius: { ...seed.skeleton?.radius, base: 80 } }
+    })
+    const radiusDiagnostics = await validateConfig(themeStudio, radius)
+    expect(radiusDiagnostics.some((item) => item.code === 'field/suggested' && item.level === 'warn')).toBe(true)
+    expect(radiusDiagnostics.some((item) => item.code === 'field/range')).toBe(false)
   })
 
   it('非法选择配置在校验时报 error', async () => {

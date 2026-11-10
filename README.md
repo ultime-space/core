@@ -28,6 +28,8 @@ pnpm add @ultime/core
 Node.js >= 22.18。内核的 `.` / `./exporters` / `./tools` / `./seed` 出口是编译后的 JS，零第三方依赖；
 `./studio` 出口（配置器）依赖 `@ultime/studio`，`ultime` bin 依赖 `@ultime/cli`；不用配置器 / CLI 时不会进入你的产物。
 
+所有出口 **ESM-only**：用 `import` / `import()` 消费，不提供 `require` 入口。
+
 ## 快速开始
 
 ```js
@@ -315,7 +317,7 @@ pnpm build:tokens -- --seed path/to/theme.json
 
 - 机器入口是 `kernel.json` 与 `ultime schema --json`；不要让 agent 从 Markdown 里抄数值。
 - 完整设计规范（取值理由、对比度与配对判据）不随包分发：安装 [`@ultime/designcraft`](https://www.npmjs.com/package/@ultime/designcraft) skill（`npx skills add ultime-space/skills --skill designcraft`）阅读。
-- 在本仓库内工作的约定见 [AGENTS.md](./AGENTS.md)。
+- 包内 AI 入口是 [`llms.txt`](./llms.txt)（路由）与 [`SKILLS.md`](./SKILLS.md)（能力表）；`AGENTS.md` / `rules/` 只在仓库内维护。
 
 ---
 

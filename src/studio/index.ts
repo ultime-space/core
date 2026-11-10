@@ -2,14 +2,17 @@
  * index.ts — core 级配置器定义（`@ultime/core/studio`）
  * ---------------------------------------------------------------------------
  * 无头：字段 / 默认值 / 预设 / 校验 / 预览 / 导出 / 选择 / 派生。
- * 同一配置版本的 validate / inspect / preview / export 共享一份 ProjectBuild；
- * 改 seed 产生新配置版本，重新派生 —— 这是配置器的职责，不是重复计算。
+ * core 原版配置（`THEME_DEFAULTS`，无 selection / derivation）的派生随版本固定，
+ * 进程内只算一次，validate / inspect / preview / export 共用；用户自定义配置每次独立派生。
+ * 供共享的基线构建在读取时复制（manifest / diagnostics / counts），调用方改动不会污染后续结果。
  */
 
 import { defineConfigurator, type ConfiguratorDefinition, type Diagnostic, type Preset } from '@ultime/studio'
+import { stableStringify } from '../seed'
 import { planProject, type ProjectBuild } from '../tools'
 import { ENGINE_VERSION } from '../version'
 import { THEME_DEFAULTS } from './defaults'
+import { toStudioDiagnostics } from './diagnostics'
 import { THEME_FIELDS, THEME_GROUPS } from './fields'
 import { selectBuild } from './selection'
 import type { ThemeStudioConfig } from './types'
@@ -27,13 +30,21 @@ export {
 } from './selection'
 export { deriveTree, type DerivationConfig, type DerivedTree } from './derivation'
 
-let cached: { key: string; build: ProjectBuild } | undefined
+const BASELINE_TOKENS = stableStringify(THEME_DEFAULTS.tokens)
+let baselineBuild: ProjectBuild | undefined
 
-/** seed / 出口变化才重新派生；selection / derivation 只消费已有构建。 */
+/** core 原版的派生只算一次；其余配置每次独立派生，不持有跨调用状态。 */
 function buildFor(config: ThemeStudioConfig): ProjectBuild {
-  const key = JSON.stringify(config.tokens)
-  if (cached?.key === key) return cached.build
-  const build = planProject({
+  const isBaseline = config.selection === undefined && config.derivation === undefined
+  if (isBaseline && stableStringify(config.tokens) === BASELINE_TOKENS) {
+    baselineBuild ??= derive(config)
+    return baselineBuild
+  }
+  return derive(config)
+}
+
+function derive(config: ThemeStudioConfig): ProjectBuild {
+  return planProject({
     tokens: {
       seed: config.tokens.seed,
       platforms: config.tokens.platforms,
@@ -41,8 +52,6 @@ function buildFor(config: ThemeStudioConfig): ProjectBuild {
       semantics: config.tokens.semantics,
     },
   })
-  cached = { key, build }
-  return build
 }
 
 interface ThemeResult {
@@ -107,15 +116,6 @@ const PRESETS: Preset<ThemeStudioConfig>[] = [
   },
 ]
 
-function toStudioDiagnostic(diagnostic: ProjectBuild['diagnostics'][number]): Diagnostic {
-  return {
-    level: diagnostic.level,
-    code: `core/${diagnostic.code}`,
-    message: diagnostic.message,
-    path: diagnostic.path ?? '/tokens/seed',
-  }
-}
-
 const SCENARIOS = [
   { id: 'light', label: '浅色' },
   { id: 'dark', label: '深色' },
@@ -149,10 +149,7 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
     try {
       const { build, selected } = resultFor(config)
       const source = selected?.diagnostics ?? build.diagnostics
-      const contract = source.filter((item) => item.code.startsWith('contract.'))
-      const other = source.filter((item) => !item.code.startsWith('contract.'))
-      diagnostics.push(...other.map(toStudioDiagnostic))
-      diagnostics.push(...contract.slice(0, 12).map(toStudioDiagnostic))
+      diagnostics.push(...toStudioDiagnostics(source))
     } catch (error) {
       diagnostics.push({
         level: 'error',
@@ -169,12 +166,14 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
       return { artifacts: [], diagnostics: [] }
     }
     const { build, selected } = resultFor(config)
+    const source = selected?.diagnostics ?? build.diagnostics
     return {
-      counts: selected?.counts ?? build.core.counts,
+      counts: structuredClone(selected?.counts ?? build.core.counts),
       contracts: { total: build.core.contracts.total, failed: build.core.contracts.failed },
-      manifest: build.manifest,
+      /* 基线构建是共享的：manifest / diagnostics 复制后再给出，调用方改动不会污染后续结果 */
+      manifest: structuredClone(build.manifest),
       artifacts: (selected?.artifacts ?? build.artifacts).map(({ path, bytes }) => ({ path, bytes })),
-      diagnostics: selected?.diagnostics ?? build.diagnostics,
+      diagnostics: source.map((item) => ({ ...item })),
       ...(selected ? { custom: true, selection: config.selection ?? {}, derivation: config.derivation ?? {} } : {}),
     }
   },

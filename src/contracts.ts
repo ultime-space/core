@@ -183,7 +183,9 @@ export function auditContracts({ seed, tree, skeleton, color, light, motion }: C
   )
   const radius = skeleton.primitives.radius
   const radiusOk =
-    radius.length === seed.skeleton.radius.levels && radius.every((v, i) => nearly(v, i * seed.skeleton.radius.base))
+    radius.length > 0 &&
+    radius.length === seed.skeleton.radius.levels &&
+    radius.every((v, i) => nearly(v, i * seed.skeleton.radius.base))
   rows.push(
     row('radius-derive', 'radius = (n−1) × base', radius.join(' / '), `${seed.skeleton.radius.levels} 档`, radiusOk),
   )
@@ -226,7 +228,7 @@ export function auditContracts({ seed, tree, skeleton, color, light, motion }: C
       'duration = unit × n',
       duration.join(' / '),
       `unit ${seed.motion.duration.unit} × n`,
-      duration.every((v, i) => v === seed.motion.duration.unit * (i + 1)) && monotonic(duration),
+      duration.every((v, i) => v === seed.motion.duration.unit * (i + 1)) && duration.length > 0 && monotonic(duration),
     ),
   )
   rows.push(
@@ -244,7 +246,8 @@ export function auditContracts({ seed, tree, skeleton, color, light, motion }: C
       'loop = base × ratio^(n−1)',
       motion.loop.join(' / '),
       `${seed.motion.loop.base} × ${seed.motion.loop.ratio}^(n−1)`,
-      motion.loop.every((v, i) => nearly(v, seed.motion.loop.base * seed.motion.loop.ratio ** i)),
+      motion.loop.length > 0 &&
+        motion.loop.every((v, i) => nearly(v, seed.motion.loop.base * seed.motion.loop.ratio ** i)),
     ),
   )
   rows.push(
@@ -253,7 +256,8 @@ export function auditContracts({ seed, tree, skeleton, color, light, motion }: C
       'delay = base × ratio^(n−1)',
       motion.delay.join(' / '),
       `${seed.motion.delay.base} × ${seed.motion.delay.ratio}^(n−1)`,
-      motion.delay.every((v, i) => nearly(v, seed.motion.delay.base * seed.motion.delay.ratio ** i)),
+      motion.delay.length > 0 &&
+        motion.delay.every((v, i) => nearly(v, seed.motion.delay.base * seed.motion.delay.ratio ** i)),
     ),
   )
   const easing = motion.easing
