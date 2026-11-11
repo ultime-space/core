@@ -1,6 +1,6 @@
 {
   "name": "@ultime/core",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Ultime · core：平台无关的设计系统内核（seed → 树 → 快照）；Web 的 CSS 只是它的一个出口",
   "keywords": [
     "color-system",
