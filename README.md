@@ -289,6 +289,7 @@ packages/core/
 ## 版本与兼容
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
+- 0.9.1 发布产物默认压缩；API、树与合同不变。
 - 0.9.0 新增 `planGradient`（根出口与 `./studio`）：树、合同与产物不变，`engineVersion` 不变。
 - 0.7.0 新增 `@ultime/core/studio` 选择 API；树、合同与派生值不变，快照只有 `engineVersion` 变化。
 - 0.5.0 是契约刷新：`rim` → `highlight.ambient`，`bevel.highlight/shade` → `highlight.key` / `shade.key`；seed 的 `lightTint` / `ambientTint` / `rimAlpha` / `bevel` 改为 `lightColor` / `ambientColor` / `ambientAlpha` / `key`。不提供迁移器。

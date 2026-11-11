@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.1 - 2026-11-11
+
+- 发布产物默认压缩：`dist/*.js` 开启 `minify`，去掉格式与注释；`dist/*.d.ts` 保持可读，`sourcemap` 仍不随包发布。
+- `README` 同步产物说明；API、树与合同不变。
+
 ## 0.9.0 - 2026-11-11
 
 - 新增 `planGradient`，可从 `@ultime/core` 与 `@ultime/core/studio` 调用：给两端色，返回插值空间建议、是否需要中间色标、阶梯纹风险与对比度采样点；经验阈值集中在 `GRADIENT_RULES`，可用 `rules` 整体覆盖。
