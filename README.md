@@ -289,6 +289,7 @@ packages/core/
 ## 版本与兼容
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
+- 依赖基线：`@ultime/studio` / `@ultime/cli` 发版后，core 下次发版前更新 lockfile 到最新已发布版本并重建测试；已发布版本不追改。
 - 0.9.1 发布产物默认压缩；API、树与合同不变。
 - 0.9.0 新增 `planGradient`（根出口与 `./studio`）：树、合同与产物不变，`engineVersion` 不变。
 - 0.7.0 新增 `@ultime/core/studio` 选择 API；树、合同与派生值不变，快照只有 `engineVersion` 变化。

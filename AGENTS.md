@@ -31,6 +31,7 @@
 ## 红线
 
 - **功能变更同批更新**：测试、README、`CHANGELOG.md` 与 AI 文档；没有功能性更新时只改文档并写明。
+- **依赖基线**：`@ultime/studio` / `@ultime/cli` 发布后，下次发版前先更新 lockfile 到最新已发布版本，重建并跑 `pnpm check` / `pnpm test`；不只改声明、不带旧 lock 发版。
 - **生成物不手改**：`tokens.css` / `tokens.json` / `tokens.dtcg.json` / `kernel.json` 由 `pnpm build:tokens` 生成；
   改 seed 或 `src/model/**` 后重跑，不直接编辑文件。
 - **方向单向**：`src/model/**` 不得 import `build` / `exporters` / `tools` / `studio`；四个类别之间也不得互相 import。
@@ -52,6 +53,7 @@ pnpm test
 
 - 改了 seed / model：再跑 `pnpm build:tokens`，看产物 diff；
 - 改了导出面：同步 `README.md`、`SKILLS.md` 与版本戳；
+- 依赖包发版后：`pnpm update @ultime/studio @ultime/cli`，用 `pnpm list @ultime/studio @ultime/cli --depth 0` 确认基线，再重建检查；
 - 没跑或没跑通时，必须说明是哪一条、为什么。
 
 ## 提交
