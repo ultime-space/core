@@ -29,6 +29,13 @@ export {
   type SelectionStep,
 } from './selection'
 export { deriveTree, type DerivationConfig, type DerivedTree } from './derivation'
+export {
+  GRADIENT_RULES,
+  planGradient,
+  type GradientInput,
+  type GradientPlan,
+  type GradientRules,
+} from '../model/color/gradient'
 
 const BASELINE_TOKENS = stableStringify(THEME_DEFAULTS.tokens)
 let baselineBuild: ProjectBuild | undefined

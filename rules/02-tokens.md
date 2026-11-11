@@ -1,7 +1,7 @@
 # 02 · Token 与生成物
 
 > 定位：seed、树、快照与合同的变更流程。
-> 适用版本：0.8.x
+> 适用版本：0.9.x
 > 关系：目录与边界见 [`01-architecture`](./01-architecture.md)；数值出处见 [`DESIGN.md`](../DESIGN.md)。
 
 ---

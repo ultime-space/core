@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0 - 2026-11-11
+
+- 新增 `planGradient`，可从 `@ultime/core` 与 `@ultime/core/studio` 调用：给两端色，返回插值空间建议、是否需要中间色标、阶梯纹风险与对比度采样点；经验阈值集中在 `GRADIENT_RULES`，可用 `rules` 整体覆盖。
+- 它是计算能力：不产 token、不拼 CSS，不改动现有树与快照，`ENGINE_VERSION` 不变。
+- `README` 与 `SKILLS.md` 增加渐变规划入口与能力说明。
+
 ## 0.8.1 - 2026-11-11
 
 - 构建改用 `vp pack`，为全部公开出口生成 `dist/*.d.ts`。
