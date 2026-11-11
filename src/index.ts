@@ -9,6 +9,13 @@
 export * from './seed'
 export * from './tree'
 export * from './build'
+export {
+  GRADIENT_RULES,
+  planGradient,
+  type GradientInput,
+  type GradientPlan,
+  type GradientRules,
+} from './model/color/gradient'
 export type { LightColors, LightDepth, LightForm, LightSolveInput, LightSolveResult } from './model/light'
 export * from './contracts'
 export * from './exporters'

@@ -177,11 +177,13 @@ color: var(--color-tone-primary-solid-foreground);
 
 | 入口 | 提供 |
 |---|---|
-| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / 树工具 / 合同 / 版本 |
+| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg`；只读树 |
 | `@ultime/core/tools` | `planProject` / `exportTokens` / `exportArtifacts` / 配置校验 / 语义表模板 |
-| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree` |
+| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree`；渐变判断：`planGradient` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 |
+
+`planGradient(from, to, { length, bitDepth })` 只做判断：建议插值空间、是否需要中间色标、阶梯纹风险、对比度采样点；经验阈值集中在 `GRADIENT_RULES`，可整体覆盖。它不产 token、不拼 CSS。
 
 产物编排（选出口、定目录、排序）走工具层，不写盘：
 
@@ -286,6 +288,7 @@ packages/core/
 ## 版本与兼容
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
+- 0.9.0 新增 `planGradient`（根出口与 `./studio`）：树、合同与产物不变，`engineVersion` 不变。
 - 0.7.0 新增 `@ultime/core/studio` 选择 API；树、合同与派生值不变，快照只有 `engineVersion` 变化。
 - 0.5.0 是契约刷新：`rim` → `highlight.ambient`，`bevel.highlight/shade` → `highlight.key` / `shade.key`；seed 的 `lightTint` / `ambientTint` / `rimAlpha` / `bevel` 改为 `lightColor` / `ambientColor` / `ambientAlpha` / `key`。不提供迁移器。
 - 下游优先读 `kernel.json` 与公开出口，不依赖 `src/` 内部结构。

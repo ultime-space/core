@@ -1,8 +1,8 @@
 # @ultime/core · 可调用能力
 
 > 定位：AI 可调用的入口、产物与错误语义。字段清单以 `ultime schema --json` 为准，本文件不手抄。
-> 适用版本：0.8.x
-> 同步基线：0.8.x（手写；导出面或 schema 变化时同批更新）
+> 适用版本：0.9.x
+> 同步基线：0.9.x（手写；导出面或 schema 变化时同批更新）
 
 ---
 
@@ -10,16 +10,24 @@
 
 | 入口 | 提供 | 形态 |
 |---|---|---|
-| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
+| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg` | 只读树 |
 | `@ultime/core/tools` | `planProject` / `exportTokens` / `exportArtifacts` / 配置校验 / 语义表模板 | 无文件 IO |
-| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree` | 依赖 `@ultime/studio` |
+| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree`；渐变判断：`planGradient` | 依赖 `@ultime/studio` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 | 纯函数 |
 
 ## 构建计划
 
 `planProject(config, seed)` 是唯一构建事实：一次派生，返回 `core` / `manifest` / `artifacts` / `diagnostics`。
 CLI、studio、`scripts/build.ts` 与 `inspect` 都消费它；不要再自己拼产物清单或重复 `buildCore`。
+
+## 渐变规划
+
+`planGradient({ from, to, length?, bitDepth?, rules? })` 给两端色，返回判断而不是样式：建议插值空间（`srgb` / `oklch`）、是否需要中间色标、阶梯纹风险（`low` / `medium` / `high`）、对比度采样方式（端点或整段），以及可直接展示的 `notes`。
+
+- 判据：色相距离决定中段是否穿过低彩度中心；端点色差与过渡长度决定台阶可见度。
+- 阈值是经验起点，集中在 `GRADIENT_RULES`；用 `rules` 整体覆盖，不要在各处散落数字。
+- 不产 token、不拼 CSS；具体渐变声明由消费侧按返回建议拼装。
 
 ## 选择与派生（配置器）
 
