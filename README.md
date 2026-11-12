@@ -28,7 +28,7 @@ pnpm add @ultime/core
 ```
 
 Node.js >= 22.18。内核的 `.` / `./exporters` / `./tools` / `./seed` 出口是编译后的 JS，零第三方依赖；
-`./studio` 出口（配置器）依赖 `@ultime/studio`，`ultime` bin 依赖 `@ultime/cli`；不用配置器 / CLI 时不会进入你的产物。
+`./studio` 出口（配置器）依赖 `@ultime/studio`，`ultime-core` bin 依赖 `@ultime/cli`；不用配置器 / CLI 时不会进入你的产物。
 
 所有出口 **ESM-only**：用 `import` / `import()` 消费，不提供 `require` 入口；类型来自 `dist/*.d.ts`，包体不含 `src/`。
 
@@ -57,55 +57,54 @@ import { solveLight } from '@ultime/core'
 solveLight({ form: 'concave', depth: 3, mode: 'dark' })
 ```
 
-`solveLight` 只收形态 / 深度 / 模式，不收尺寸、圆角或组件名；`flat` / `concave` 在构建期取，不写入静态快照。
+`solveLight` 只收形态 / 深度 / 模式，不收尺寸、圆角或组件名；`flat` / `convex` / `concave` 在构建期取，不写入静态快照。
 
-## 构建计划
+## 统一出口
 
-同一次构建只派生一次。CLI、studio 与脚本都消费 `planProject` 返回的同一份事实：
+同一次导出只派生一次。CLI、studio 与脚本都走 `resolveThemeConfig` / `exportTheme`：
 
 ```js
-import { planProject } from '@ultime/core/tools'
+import { exportTheme, resolveThemeConfig } from '@ultime/core/tools'
 
-const build = planProject({ tokens: { output: 'styles' } }, seed)
+const { config, diagnostics } = resolveThemeConfig({ tokens: { output: 'styles' } }, { seed })
+const { build, artifacts } = exportTheme(config)
+
 build.core         // CoreResult
 build.manifest     // kernel.json 的内容
 build.artifacts    // 产物清单（path / content / bytes）
 build.diagnostics  // error / warn / info
 ```
 
-`exportArtifacts` 是兼容入口，内部同样走 `planProject`；不要再自己拼产物清单。
+`planProject` 是内部引擎执行器；需要更低层控制时可直接调用，但不要另拼产物清单。
 
 ### 选择与定制产物
 
-选择是配置器的配置，不是 core 的构建输入。`@ultime/core/studio` 提供无头选择 / 派生 API：
-从 `ProjectBuild.core.tree` 里按类别与档位过滤、按参数化引擎函数派生，导出定制 tokens；`buildCore` 的完整树不变。
+选择与派生是**导出配置**，可选；默认导出与定制导出走同一条路径。`@ultime/core/tools` 提供统一管线：
 
 ```js
-import { planProject } from '@ultime/core/tools'
-import { selectBuild, selectTree, deriveTree } from '@ultime/core/studio'
+import { exportTheme, resolveThemeConfig } from '@ultime/core/tools'
 
-const build = planProject({ tokens: { output: 'styles' } })
-const selected = selectBuild(
-  build,
-  { categories: ['skeleton', 'color'], steps: { space: [1, 2, 4, 6], radius: [1, 3, 5] } },
-  { light: { form: 'flat' } },
-)
+const { config, diagnostics } = resolveThemeConfig({
+  tokens: { output: 'styles' },
+  selection: { categories: ['skeleton', 'color'], steps: { space: [1, 2, 4, 6], radius: [1, 3, 5] } },
+  derivation: { light: { form: 'flat' } },
+})
+const result = exportTheme(config)
 
-selected.tree         // 过滤 / 派生后的树
-selected.counts       // 按类别重算
-selected.artifacts    // tokens.css / tokens.json / tokens.dtcg.json（不含 kernel.json）
-selected.diagnostics  // 未知类别 / 档位、缺失档位、空选择、semantics 提示
-
-selectTree(build.core.tree, { categories: ['motion'], steps: { motionDuration: [1, 3] } })
-deriveTree(build, { light: { form: 'concave' } })
+result.build         // ProjectBuild：core / manifest / artifacts / diagnostics
+result.artifacts     // 定制产物：tokens.css / tokens.json / tokens.dtcg.json（不含 kernel.json）
+result.diagnostics   // 未知类别 / 档位、缺失档位、空选择、semantics 提示
+result.selected      // 配置了 selection / derivation 时才存在
 ```
+
+需要更细的控制时，`selectBuild` / `selectTree` / `deriveTree` 仍可从 `@ultime/core/tools`（或 `/studio` re-export）调用。
 
 - 类别：`skeleton` / `color` / `light` / `motion`；省略 = 全部，空数组 = 不启用。
 - 档位：`space` / `size` / `radius` / `fontSize` / `lineHeight` / `letterSpacing` / `shadow` / `occlusion` / `motionDuration` / `motionDelay` / `motionLoop`；省略 = 该组全量，空数组 = 去掉该组数字档位。
 - 非档位 token（`shadow.color` / `font` / `motion.easing` 等）跟随所属类别保留。
-- 自定义派生只调用 core 引擎函数：目前支持 `light.form` 的 `flat` / `concave`，按 `solveLight` 重算 `highlight` / `shade`，不写回 seed，也不支持用户 recipe。
-- `kernel.json` 描述完整内核，不属于选择产物；`semantics.json` 也不在选择里生成。
-- 配置器把 `selection` / `derivation` 放在 `ThemeStudioConfig` 根上，可序列化保存；CLI 只读 `tokens` 区，选择 / 派生另存 studio 配置，不写进 `ultime.config.json`。
+- 自定义派生只调用 core 引擎函数：目前支持 `light.form` 的 `flat` / `convex` / `concave`，按 `solveLight` 重算 `highlight` / `shade`，不写回 seed，也不支持用户 recipe。
+- `kernel.json` 描述完整内核，不属于定制产物；`semantics.json` 也不在定制导出里生成。
+- `selection` / `derivation` 可选地写在配置根上，CLI 与 studio 都能读；省略 = 全量 / 静态默认。
 
 ---
 
@@ -179,8 +178,8 @@ color: var(--color-tone-primary-solid-foreground);
 |---|---|
 | `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg`；只读树 |
-| `@ultime/core/tools` | `planProject` / `exportTokens` / `exportArtifacts` / 配置校验 / 语义表模板 |
-| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree`；渐变判断：`planGradient` |
+| `@ultime/core/tools` | 统一管线 `resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值；配置校验；语义表模板 |
+| `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验映射 / 预览 / 导出；选择 / 派生 API 由 tools 提供并 re-export；渐变判断：`planGradient` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 |
 
 `planGradient(from, to, { length, bitDepth })` 只做判断：建议插值空间、是否需要中间色标、阶梯纹风险、对比度采样点；经验阈值集中在 `GRADIENT_RULES`，可整体覆盖。它不产 token、不拼 CSS。

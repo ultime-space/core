@@ -29,13 +29,13 @@ CLI、库 API 与 `core/studio` 都走这条路径；`planProject` 只作为引�
 - 阈值是经验起点，集中在 `GRADIENT_RULES`；用 `rules` 整体覆盖，不要在各处散落数字。
 - 不产 token、不拼 CSS；具体渐变声明由消费侧按返回建议拼装。
 
-## 选择与派生（配置器）
+## 选择与派生
 
 `selectBuild(build, selection, derivation)` 在已有 `ProjectBuild` 上过滤类别 / 档位并应用参数化派生，产出定制 tokens；不重新派生，产物不含 `kernel.json`。
 `selectTree(tree, selection)` 是纯过滤入口；`deriveTree(build, derivation)` 是纯派生入口。
 
 - 类别：`skeleton` / `color` / `light` / `motion`；档位枚举与用法见 [`README`](./README.md) §选择与定制产物。
-- 派生只调用 core 引擎函数：目前支持 `light.form`（`flat` / `concave`），按 `solveLight` 重算 `highlight` / `shade`，不支持用户 recipe。
+- 派生只调用 core 引擎函数：目前支持 `light.form`（`flat` / `convex` / `concave`），按 `solveLight` 重算 `highlight` / `shade`，不支持用户 recipe。
 - 未知类别 / 档位、缺失档位、空选择 → `error` 诊断；配置了 `semantics` → `warn`，选择导出不生成 `semantics.json`。
 - 配置器把 `selection` / `derivation` 放在配置根上，可序列化保存；CLI、库 API 与 studio 都能读。
 
