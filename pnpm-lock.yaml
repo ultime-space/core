@@ -167,11 +167,11 @@ importers:
   .:
     dependencies:
       '@ultime/cli':
-        specifier: ^0.1.4
-        version: 0.1.4
+        specifier: ^0.2.0
+        version: 0.2.0
       '@ultime/studio':
-        specifier: ^0.2.1
-        version: 0.2.1
+        specifier: ^0.3.0
+        version: 0.3.0
     devDependencies:
       '@arethetypeswrong/core':
         specifier: ^0.18.5
@@ -183,8 +183,8 @@ importers:
         specifier: ^22.20.5
         version: 22.20.5
       '@ultime/checks':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.3.0
+        version: 0.3.0
       publint:
         specifier: ^0.3.25
         version: 0.3.25
@@ -860,17 +860,17 @@ packages:
   '@types/node@22.20.5':
     resolution: {integrity: sha512-U2+DNr+wSjpsTS/wZGYHq7GcwfuSmKiKvoPvK22zwTlRhU91yOniN4qRR5KhIjvif7ysw/dz/hKmfDH0Ris4aA==}
 
-  '@ultime/checks@0.2.0':
-    resolution: {integrity: sha512-R3xPgd4AsHDrHUtCyzYNVgLg0ImdxpL5GSh5TpaY6x+Y+cX6tsbHQaX48fhPF5pHMOGAvgUjg008wxahEOjjNg==}
+  '@ultime/checks@0.3.0':
+    resolution: {integrity: sha512-0arXp70xHWA6iba9YaCctOku7hN8bMhNOH2EMHOS+z6rYdGb2tctGM9DUdAqJNH1JT49RFrXXKki7/l68SuVyA==}
     engines: {node: '>=22.18'}
     hasBin: true
 
-  '@ultime/cli@0.1.4':
-    resolution: {integrity: sha512-hp2RVOghrsBod6nxkrYjh188jxGrQXtm/dXwGnqLv++IH4ww/8yjG6rgfXSwAovIv1P5XVINTKL2fUnlbNUMuQ==}
+  '@ultime/cli@0.2.0':
+    resolution: {integrity: sha512-SorxV5HHaG8xGHjUIXCuatpmzy6Bss4rMQzrc9e055znRr5g0r0Q52hhu+kOj5ej8Gq7cRVXC4YICdeyNXjs9g==}
     engines: {node: '>=22.18'}
 
-  '@ultime/studio@0.2.1':
-    resolution: {integrity: sha512-obXAqR5WGBHgUFN4i9ITsy3HmjvFsPy07vfGgDnJ/m+zA7QsFX3jkQLesJDg9E3q9qsDywQojywO8B/hHmeiXQ==}
+  '@ultime/studio@0.3.0':
+    resolution: {integrity: sha512-SyPbafY2jCpiugPsNlaPjA6SxEgTTxI8zBr4KM8XneE7L39Ji0xsprj4M0iYA9saECOTFw1FRvC8hnmyeLGA1w==}
     engines: {node: '>=22.18'}
 
   '@vitest/browser-preview@5.1.0':
@@ -1966,11 +1966,11 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@ultime/checks@0.2.0': {}
+  '@ultime/checks@0.3.0': {}
 
-  '@ultime/cli@0.1.4': {}
+  '@ultime/cli@0.2.0': {}
 
-  '@ultime/studio@0.2.1': {}
+  '@ultime/studio@0.3.0': {}
 
   '@vitest/browser-preview@5.1.0(@voidzero-dev/vite-plus-core@1.5.1(@arethetypeswrong/core@0.18.5)(@types/node@22.20.5)(esbuild@0.28.2)(publint@0.3.25)(tsx@4.23.15)(typescript@5.9.3)(unplugin-unused@0.6.0))(vitest@5.1.0)':
     dependencies:
