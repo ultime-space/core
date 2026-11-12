@@ -2,8 +2,7 @@ import { describe, expect, it } from 'vite-plus/test'
 import { deserializeConfig, exportConfig, serializeConfig, validateConfig } from '@ultime/studio'
 
 import { exportThemeArtifacts, themeStudio } from '../src/studio'
-import { THEME_DEFAULTS } from '../src/studio/defaults'
-import type { SelectionConfig } from '../src/studio/selection'
+import { THEME_DEFAULTS, type SelectionConfig } from '../src/tools'
 import type { ThemeStudioConfig } from '../src/studio/types'
 
 describe('studio · core 配置器', () => {

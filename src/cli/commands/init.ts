@@ -18,6 +18,6 @@ export function runInit(ctx: CliContext, configPath: string, force: boolean): nu
   }
   writeConfig(configPath, STARTER)
   ctx.out(`✓ 已写入 ${configPath}`)
-  ctx.out('  下一步：ultime build（seed 省略时用 core 的 theme.example.json）')
+  ctx.out('  下一步：ultime-core build（seed 省略时用 core 默认 seed）')
   return 0
 }

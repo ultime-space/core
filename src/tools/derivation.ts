@@ -7,7 +7,7 @@
 
 import type { LightForm } from '../model/light'
 import { mode, type Group, type ModeValue, type ShadowLayerValue, type Token } from '../tree'
-import type { BuildDiagnostic, ProjectBuild } from '../tools/project'
+import type { BuildDiagnostic, ProjectBuild } from './project'
 
 export interface DerivationConfig {
   light?: {

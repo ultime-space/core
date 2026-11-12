@@ -9,8 +9,8 @@
 import type { CoreResult } from '../build'
 import { countByCategory } from '../contracts'
 import { getNode, isToken, type Group } from '../tree'
-import type { BuildDiagnostic, PlannedArtifact, ProjectBuild } from '../tools/project'
-import { emitTokens } from '../tools/tokens'
+import type { BuildDiagnostic, PlannedArtifact, ProjectBuild } from './project'
+import { emitTokens } from './tokens'
 import { deriveTree, type DerivationConfig } from './derivation'
 
 export type SelectionCategory = 'skeleton' | 'color' | 'light' | 'motion'
