@@ -33,8 +33,7 @@ const USAGE = `ultime-core <command> [options]
   --force                 仅 init：覆盖已存在的配置
   -v, --version           打印版本
   -h, --help              显示帮助（配合命令可看单条用法）
-
-ultime 是过渡别名，后续版本移除。`
+`
 
 const COMMAND_HELP: Record<string, string> = {
   init: 'ultime-core init [--force] [--config <path>]',

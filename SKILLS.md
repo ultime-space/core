@@ -49,8 +49,6 @@ CLI、库 API 与 `core/studio` 都走这条路径；`planProject` 只作为引�
 | `ultime-core inspect` | 可选 `--json` | 产物 / 平台 / 类别 / 合同 / 颜色 / 诊断 | 0 / 1 |
 | `ultime-core schema` | 可选 `--json` | seed 字段 / 出口 / 语义表 | 0 / 1 |
 
-`ultime` 是过渡别名，后续版本移除。
-
 通用选项：`--config <path>`、`--cwd <dir>`、`-h / --help`。
 
 ## 配置形状
