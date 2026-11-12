@@ -11,8 +11,8 @@
 ## 机器入口
 
 - 快照与合同：`kernel.json`
-- 字段 / 出口 / 语义表：`ultime schema --json`
-- 产物同源：`ultime build --check`
+- 字段 / 出口 / 语义表：`ultime-core schema --json`
+- 产物同源：`ultime-core build --check`
 
 ## 边界
 

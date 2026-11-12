@@ -21,9 +21,13 @@ export interface TokensConfig {
 export interface UltimeConfig {
   $schema?: string
   tokens?: TokensConfig
+  /** 可选：选择要启用的类别 / 档位；形状由 selection 归一化校验 */
+  selection?: Record<string, unknown>
+  /** 可选：参数化引擎函数的派生参数；形状由 derivation 归一化校验 */
+  derivation?: Record<string, unknown>
 }
 
-const TOP_KEYS = new Set(['$schema', 'tokens'])
+const TOP_KEYS = new Set(['$schema', 'tokens', 'selection', 'derivation'])
 const TOKEN_KEYS = new Set(['seed', 'platforms', 'output', 'semantics'])
 const PLATFORMS: ReadonlySet<string> = new Set(['css', 'json', 'dtcg'])
 
@@ -36,7 +40,14 @@ export function validateConfig(config: UltimeConfig): string[] {
   if (!isObject(config)) return ['配置必须是一个对象']
 
   for (const key of Object.keys(config)) {
-    if (!TOP_KEYS.has(key)) issues.push(`未知顶层字段：${key}（可用：tokens）`)
+    if (!TOP_KEYS.has(key)) issues.push(`未知顶层字段：${key}（可用：tokens / selection / derivation）`)
+  }
+
+  if (config.selection !== undefined && !isObject(config.selection)) {
+    issues.push('selection 必须是对象')
+  }
+  if (config.derivation !== undefined && !isObject(config.derivation)) {
+    issues.push('derivation 必须是对象')
   }
 
   if (config.tokens === undefined) return issues

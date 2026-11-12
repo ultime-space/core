@@ -207,20 +207,20 @@ treeToCss(result, { include: ['color', 'motion'] })
 
 ## CLI
 
-`ultime` 由本包提供（`bin/ultime.js`）；参数 / help / 退出码设施来自 `@ultime/cli`，命令与规则都在 core。
+`ultime-core` 由本包提供（`bin/ultime.js`）；参数 / help / 退出码设施来自 `@ultime/cli`，命令与规则都在 core。`ultime` 是过渡别名。
 
 ```bash
-ultime init             # 写一份 ultime.config.json
-ultime build            # 读配置 + seed → tokens.* / kernel.json
-ultime build --check    # 只比对，不写盘
-ultime inspect          # 只读检查：产物 / 平台 / 类别 / 合同 / 颜色 / 诊断
-ultime schema --json    # seed 字段 / 出口 / 语义表
+ultime-core init             # 写一份 ultime.config.json
+ultime-core build            # 读配置 + seed → tokens.* / kernel.json
+ultime-core build --check    # 只比对，不写盘
+ultime-core inspect          # 只读检查：产物 / 平台 / 类别 / 合同 / 颜色 / 诊断
+ultime-core schema --json    # seed 字段 / 出口 / 语义表
 ```
 
-配置模型为 `tokens.seed / platforms / output / semantics`。
+配置模型为 `tokens.seed / platforms / output / semantics`，可选 `selection` / `derivation`。
 `semantics` 是可选产物：只有配置了才生成 `semantics.json`，它不进树，也不进 `kernel.json`。
 
-core 只产完整 token 集；选择、裁剪与自定义派生归配置器，不写进 `ultime.config.json`。
+CLI、库 API 与 `core/studio` 都走 `tools/pipeline`：默认配置与自定义配置同一条出口。
 
 仓库内开发也可用 `pnpm ultime`（等价于 `vpx src/cli/index.ts`）。
 
@@ -246,7 +246,7 @@ core 只产完整 token 集；选择、裁剪与自定义派生归配置器，�
 
 ```text
 packages/core/
-├── bin/ultime.js               CLI 薄入口（指向 dist/cli.js）
+├── bin/ultime.js               CLI 薄入口（ultime-core / ultime 指向 dist/cli.js）
 ├── src/
 │   ├── cli/                    命令：init / build / inspect / schema + 配置读写
 │   ├── seed.ts                seed 类型 / 默认值 / 深合并 / JSONC / 指纹
@@ -260,8 +260,8 @@ packages/core/
 │   │   ├── light.ts           shadow / occlusion / highlight / shade
 │   │   └── motion.ts          duration / loop / delay / easing
 │   ├── exporters/             CSS / JSON / DTCG（只读树）
-│   ├── studio/                配置器定义：字段 / 默认值 / 预设 / 校验 / 预览 / 导出 / 选择模型
-│   └── tools/                 构建计划 / 产物编排 / 项目配置 / 语义表模板
+│   ├── studio/                配置器定义：字段 / 预设 / 校验映射 / 预览 / 导出编排
+│   └── tools/                 统一管线 / 构建计划 / 选择与派生 / 项目配置 / 语义表模板
 ├── scripts/
 │   ├── build.ts               唯一构建入口（`--check` 只校验）
 │   └── check-model.ts         内核守卫（零依赖 / 方向 / 类别隔离 / 无载体语法）
@@ -322,7 +322,7 @@ pnpm build:tokens -- --seed path/to/theme.json
 
 ## 给 AI 与其他工具
 
-- 机器入口是 `kernel.json` 与 `ultime schema --json`；不要让 agent 从 Markdown 里抄数值。
+- 机器入口是 `kernel.json` 与 `ultime-core schema --json`；不要让 agent 从 Markdown 里抄数值。
 - 完整设计规范（取值理由、对比度与配对判据）不随包分发：安装 [`@ultime/designcraft`](https://www.npmjs.com/package/@ultime/designcraft) skill（`npx skills add ultime-space/skills --skill designcraft`）阅读。
 - 包内 AI 入口是 [`llms.txt`](./llms.txt)（路由）与 [`SKILLS.md`](./SKILLS.md)（能力表）；`AGENTS.md` / `rules/` 只在仓库内维护。
 

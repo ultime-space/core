@@ -1,34 +1,40 @@
 /**
  * index.ts — core 级配置器定义（`@ultime/core/studio`）
  * ---------------------------------------------------------------------------
- * 无头：字段 / 默认值 / 预设 / 校验 / 预览 / 导出 / 选择 / 派生。
- * core 原版配置（`THEME_DEFAULTS`，无 selection / derivation）的派生随版本固定，
- * 进程内只算一次，validate / inspect / preview / export 共用；用户自定义配置每次独立派生。
- * 供共享的基线构建在读取时复制（manifest / diagnostics / counts），调用方改动不会污染后续结果。
+ * 只保留领域定义：字段 / 默认值 / 预设 / 校验映射 / 预览 / 导出编排。
+ * 配置解析与导出走 `tools/pipeline`；CLI 与库 API 都调同一条路径，
+ * 本文件不另存默认值、校验或产物组装。
  */
 
 import { defineConfigurator, type ConfiguratorDefinition, type Diagnostic, type Preset } from '@ultime/studio'
-import { stableStringify } from '../seed'
-import { planProject, type ProjectBuild } from '../tools'
+import { THEME_DEFAULTS, exportTheme, type ThemeConfig } from '../tools'
 import { ENGINE_VERSION } from '../version'
-import { THEME_DEFAULTS } from './defaults'
 import { toStudioDiagnostics } from './diagnostics'
 import { THEME_FIELDS, THEME_GROUPS } from './fields'
-import { selectBuild } from './selection'
-import type { ThemeStudioConfig } from './types'
 
 export type { ThemeStudioConfig } from './types'
-export { DEFAULT_OUTPUT, DEFAULT_PLATFORMS, EXAMPLE_SEED, THEME_DEFAULTS } from './defaults'
-export { THEME_FIELDS, THEME_GROUPS } from './fields'
+export type {
+  DerivationConfig,
+  DerivedTree,
+  SelectedBuild,
+  SelectionCategory,
+  SelectionConfig,
+  SelectionStep,
+  ThemeConfig,
+} from '../tools'
 export {
+  DEFAULT_OUTPUT,
+  DEFAULT_PLATFORMS,
+  EXAMPLE_SEED,
+  THEME_DEFAULTS,
+  deriveTree,
+  exportTheme,
+  exportThemeArtifacts,
+  resolveThemeConfig,
   selectBuild,
   selectTree,
-  type SelectedBuild,
-  type SelectionCategory,
-  type SelectionConfig,
-  type SelectionStep,
-} from './selection'
-export { deriveTree, type DerivationConfig, type DerivedTree } from './derivation'
+} from '../tools'
+export { THEME_FIELDS, THEME_GROUPS } from './fields'
 export {
   GRADIENT_RULES,
   planGradient,
@@ -37,55 +43,13 @@ export {
   type GradientRules,
 } from '../model/color/gradient'
 
-const BASELINE_TOKENS = stableStringify(THEME_DEFAULTS.tokens)
-let baselineBuild: ProjectBuild | undefined
-
-/** core 原版的派生只算一次；其余配置每次独立派生，不持有跨调用状态。 */
-function buildFor(config: ThemeStudioConfig): ProjectBuild {
-  const isBaseline = config.selection === undefined && config.derivation === undefined
-  if (isBaseline && stableStringify(config.tokens) === BASELINE_TOKENS) {
-    baselineBuild ??= derive(config)
-    return baselineBuild
-  }
-  return derive(config)
-}
-
-function derive(config: ThemeStudioConfig): ProjectBuild {
-  return planProject({
-    tokens: {
-      seed: config.tokens.seed,
-      platforms: config.tokens.platforms,
-      output: config.tokens.output,
-      semantics: config.tokens.semantics,
-    },
-  })
-}
-
-interface ThemeResult {
-  build: ProjectBuild
-  /** 配置了 selection / derivation 时走定制导出；否则保持全量产物（含 kernel）。 */
-  selected?: ReturnType<typeof selectBuild>
-}
-
-function resultFor(config: ThemeStudioConfig): ThemeResult {
-  const build = buildFor(config)
-  if (config.selection === undefined && config.derivation === undefined) return { build }
-  return { build, selected: selectBuild(build, config.selection ?? {}, config.derivation ?? {}) }
-}
-
-/** 产物清单：与 CLI 共用 `ProjectBuild.artifacts`；定制导出不含 `kernel.json`。 */
-export function exportThemeArtifacts(config: ThemeStudioConfig) {
-  const { build, selected } = resultFor(config)
-  return (selected?.artifacts ?? build.artifacts).map(({ path, content }) => ({ path, content }))
-}
-
-function variant(mutate: (draft: ThemeStudioConfig) => void): ThemeStudioConfig {
-  const draft = JSON.parse(JSON.stringify(THEME_DEFAULTS)) as ThemeStudioConfig
+function variant(mutate: (draft: ThemeConfig) => void): ThemeConfig {
+  const draft = JSON.parse(JSON.stringify(THEME_DEFAULTS)) as ThemeConfig
   mutate(draft)
   return draft
 }
 
-const PRESETS: Preset<ThemeStudioConfig>[] = [
+const PRESETS: Preset<ThemeConfig>[] = [
   {
     id: 'brand-blue',
     label: '品牌蓝',
@@ -128,7 +92,7 @@ const SCENARIOS = [
   { id: 'dark', label: '深色' },
 ]
 
-export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConfigurator({
+export const themeStudio: ConfiguratorDefinition<ThemeConfig> = defineConfigurator({
   id: 'core.theme',
   title: '设计系统 · core',
   version: ENGINE_VERSION,
@@ -154,9 +118,7 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
     if (diagnostics.length) return diagnostics
 
     try {
-      const { build, selected } = resultFor(config)
-      const source = selected?.diagnostics ?? build.diagnostics
-      diagnostics.push(...toStudioDiagnostics(source))
+      diagnostics.push(...toStudioDiagnostics(exportTheme(config).diagnostics))
     } catch (error) {
       diagnostics.push({
         level: 'error',
@@ -172,23 +134,24 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
     if (!config.tokens.platforms.length || !config.tokens.output.trim()) {
       return { artifacts: [], diagnostics: [] }
     }
-    const { build, selected } = resultFor(config)
-    const source = selected?.diagnostics ?? build.diagnostics
+    const result = exportTheme(config)
     return {
-      counts: structuredClone(selected?.counts ?? build.core.counts),
-      contracts: { total: build.core.contracts.total, failed: build.core.contracts.failed },
+      counts: structuredClone(result.selected?.counts ?? result.build.core.counts),
+      contracts: { total: result.build.core.contracts.total, failed: result.build.core.contracts.failed },
       /* 基线构建是共享的：manifest / diagnostics 复制后再给出，调用方改动不会污染后续结果 */
-      manifest: structuredClone(build.manifest),
-      artifacts: (selected?.artifacts ?? build.artifacts).map(({ path, bytes }) => ({ path, bytes })),
-      diagnostics: source.map((item) => ({ ...item })),
-      ...(selected ? { custom: true, selection: config.selection ?? {}, derivation: config.derivation ?? {} } : {}),
+      manifest: structuredClone(result.build.manifest),
+      artifacts: result.artifacts.map(({ path, bytes }) => ({ path, bytes })),
+      diagnostics: result.diagnostics.map((item) => ({ ...item })),
+      ...(result.selected
+        ? { custom: true, selection: config.selection ?? {}, derivation: config.derivation ?? {} }
+        : {}),
     }
   },
   preview(config) {
     try {
       if (!config.tokens.platforms.length || !config.tokens.output.trim()) return { css: '', scenarios: SCENARIOS }
-      const css = exportThemeArtifacts(config)
-        .filter((file) => file.path.endsWith('.css'))
+      const css = exportTheme(config)
+        .artifacts.filter((file) => file.path.endsWith('.css'))
         .map((file) => file.content)
         .join('\n')
       return { css, scenarios: SCENARIOS }
@@ -207,6 +170,6 @@ export const themeStudio: ConfiguratorDefinition<ThemeStudioConfig> = defineConf
     }
   },
   export(config) {
-    return { files: exportThemeArtifacts(config) }
+    return { files: exportTheme(config).artifacts.map(({ path, content }) => ({ path, content })) }
   },
 })

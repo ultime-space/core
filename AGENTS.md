@@ -10,10 +10,11 @@
 3. [`rules/README.md`](./rules/README.md) — 本包开发规范。
 4. [`llms.txt`](./llms.txt) — AI 索引；能力表见 [`SKILLS.md`](./SKILLS.md)。
 5. [`src/build.ts`](./src/build.ts) — seed → 树 → 合同 → manifest 的唯一装配点。
-6. [`src/tools/project.ts`](./src/tools/project.ts) — `planProject`：一次派生 → artifacts / manifest / diagnostics。
-7. [`src/studio/selection.ts`](./src/studio/selection.ts) — 配置器选择模型：类别 / 档位过滤与定制产物。
-8. [`src/studio/derivation.ts`](./src/studio/derivation.ts) — 配置器自定义派生：只调参数化引擎函数。
-9. [`scripts/check-model.ts`](./scripts/check-model.ts) — 结构与依赖方向守卫。
+6. [`src/tools/pipeline.ts`](./src/tools/pipeline.ts) — 统一出口：`resolveThemeConfig` / `exportTheme`；CLI 与 studio 都走它。
+7. [`src/tools/project.ts`](./src/tools/project.ts) — `planProject`：一次派生 → artifacts / manifest / diagnostics（引擎执行器）。
+8. [`src/tools/selection.ts`](./src/tools/selection.ts) — 选择模型：类别 / 档位过滤与定制产物。
+9. [`src/tools/derivation.ts`](./src/tools/derivation.ts) — 自定义派生：只调参数化引擎函数。
+10. [`scripts/check-model.ts`](./scripts/check-model.ts) — 结构与依赖方向守卫。
 
 ## 可写 / 只读
 
@@ -36,13 +37,14 @@
   改 seed 或 `src/model/**` 后重跑，不直接编辑文件。
 - **方向单向**：`src/model/**` 不得 import `build` / `exporters` / `tools` / `studio`；四个类别之间也不得互相 import。
 - **语义与策略不进 core**：角色、语义表、布局、断点、目标尺寸、交互反馈归上层。
-- **选择只在配置器**：选项 / 档位过滤归 `src/studio/selection.ts`；`buildCore` 永远产完整树，不写回 core 配置。
-- **派生只调引擎函数**：自定义派生归 `src/studio/derivation.ts`，只包装 `solveLight` 等已有函数；不支持用户 recipe / 沙箱。
+- **统一出口**：CLI、`core/studio` 与库 API 都调 `src/tools/pipeline.ts`；不直接调 `planProject`、不另拼产物清单。
+- **选择在 pipeline**：选项 / 档位过滤归 `src/tools/selection.ts`；`buildCore` 永远产完整树，不写回 core 配置。
+- **派生只调引擎函数**：自定义派生归 `src/tools/derivation.ts`，只包装 `solveLight` 等已有函数；不支持用户 recipe / 沙箱。
 - **派生优先**：能由 seed 参数算出的值不写第二份名单；同一事实只保留一份。
 - **不带载体语法**：模型只产出值、量纲与 `$type`；`px` / `rem` / `var()` / `color-mix` 只出现在出口。
 - **不引第三方运行时依赖**：`@ultime/studio` 仅在 `src/studio/**` 使用。
 - **不放宽守卫**：不为让检查通过而改守卫或跳过；守卫缺口按缺陷登记。
-- **文档不抄数值**：数值从 `ultime schema --json` 或 `kernel.json` 查，不从 Markdown 抄。
+- **文档不抄数值**：数值从 `ultime-core schema --json` 或 `kernel.json` 查，不从 Markdown 抄。
 
 ## 验证
 

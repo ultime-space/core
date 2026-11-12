@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.10.0 - 待发布
+
+### Added
+
+- `@ultime/core/tools` 新增统一出口：`resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；CLI、库 API 与 `core/studio` 都走同一条路径。
+- `UltimeConfig` 支持可选 `selection` / `derivation`，CLI 可直接读取，不再只限配置器。
+- 新增 parity 测试：同一份配置在 CLI / 库 API / `core/studio` 下产物逐字节一致；`theme.example.json` 解析后与默认 seed 等价。
+
+### Changed
+
+- `selection` / `derivation` / 默认值从 `core/studio` 下沉到 `tools`；`@ultime/core/studio` 继续 re-export，公开名字不变。
+- CLI 的 bin 改为 `ultime-core`，`ultime` 保留为过渡别名。
+- CLI 默认 seed 统一用代码默认值，不再单独读 `theme.example.json`。
+
 ## 0.9.1 - 2026-11-11
 
 - 发布产物默认压缩：`dist/*.js` 开启 `minify`，去掉格式与注释；`dist/*.d.ts` 保持可读，`sourcemap` 仍不随包发布。

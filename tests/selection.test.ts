@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vite-plus/test'
 
 import { planProject, type UltimeConfig } from '../src/tools'
-import { selectBuild, selectTree, type SelectionConfig } from '../src/studio/selection'
+import { selectBuild, selectTree, type SelectionConfig } from '../src/tools/selection'
 import type { Group } from '../src/tree'
 
 const project = (tokens: UltimeConfig['tokens'] = {}) => planProject({ tokens: { output: 'styles', ...tokens } })

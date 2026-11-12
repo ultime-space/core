@@ -3,13 +3,11 @@ import os from 'node:os'
 import path from 'node:path'
 import { afterEach, describe, expect, it } from 'vite-plus/test'
 import { parseArgs, type CliContext } from '@ultime/cli'
-import type { SeedInput } from '../src/seed.ts'
 import { runBuild } from '../src/cli/commands/build.ts'
 import { runInit } from '../src/cli/commands/init.ts'
 import { runSchema } from '../src/cli/commands/schema.ts'
 
 const temps: string[] = []
-const defaultSeed = (): SeedInput => ({ color: { primaryHue: 250 } })
 
 function tempDir(): string {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ultime-core-cli-'))
@@ -65,22 +63,22 @@ describe('core cli · build', () => {
     const configPath = writeConfig(dir, { tokens: { output: 'styles' } })
     let { ctx, out, err } = collector(dir)
 
-    expect(runBuild(ctx, { defaultSeed }, { configPath, check: false })).toBe(0)
+    expect(runBuild(ctx, { configPath, check: false })).toBe(0)
     const dirPath = path.join(dir, 'styles')
     expect(fs.readdirSync(dirPath).sort()).toEqual(['kernel.json', 'tokens.css', 'tokens.dtcg.json', 'tokens.json'])
     expect(out.join('\n')).toContain('个产物')
 
     ;({ ctx, out, err } = collector(dir))
-    expect(runBuild(ctx, { defaultSeed }, { configPath, check: true })).toBe(0)
+    expect(runBuild(ctx, { configPath, check: true })).toBe(0)
 
     fs.writeFileSync(path.join(dirPath, 'tokens.css'), 'hand edited\n')
     ;({ ctx, out, err } = collector(dir))
-    expect(runBuild(ctx, { defaultSeed }, { configPath, check: true })).toBe(1)
+    expect(runBuild(ctx, { configPath, check: true })).toBe(1)
     expect(err.join('\n')).toContain('产物过期')
 
     ;({ ctx, out, err } = collector(dir))
-    expect(runBuild(ctx, { defaultSeed }, { configPath, check: false })).toBe(0)
-    expect(runBuild(ctx, { defaultSeed }, { configPath, check: true })).toBe(0)
+    expect(runBuild(ctx, { configPath, check: false })).toBe(0)
+    expect(runBuild(ctx, { configPath, check: true })).toBe(0)
   })
 })
 
