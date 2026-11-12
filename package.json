@@ -22,7 +22,6 @@
     "url": "git+https://github.com/ultime-space/core.git"
   },
   "bin": {
-    "ultime": "./bin/ultime.js",
     "ultime-core": "./bin/ultime.js"
   },
   "files": [

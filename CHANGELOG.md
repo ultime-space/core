@@ -11,7 +11,7 @@
 ### Changed
 
 - `selection` / `derivation` / 默认值从 `core/studio` 下沉到 `tools`；`@ultime/core/studio` 继续 re-export，公开名字不变。
-- CLI 的 bin 改为 `ultime-core`，`ultime` 保留为过渡别名。
+- CLI 的 bin 改为 `ultime-core`；旧 `ultime` bin 移除（破坏性变更，0.x minor）。
 - CLI 默认 seed 统一用代码默认值，不再单独读 `theme.example.json`。
 
 ## 0.9.1 - 2026-11-11

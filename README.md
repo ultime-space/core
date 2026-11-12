@@ -206,7 +206,7 @@ treeToCss(result, { include: ['color', 'motion'] })
 
 ## CLI
 
-`ultime-core` 由本包提供（`bin/ultime.js`）；参数 / help / 退出码设施来自 `@ultime/cli`，命令与规则都在 core。`ultime` 是过渡别名。
+`ultime-core` 由本包提供（`bin/ultime.js`）；参数 / help / 退出码设施来自 `@ultime/cli`，命令与规则都在 core。
 
 ```bash
 ultime-core init             # 写一份 ultime.config.json
@@ -245,7 +245,7 @@ CLI、库 API 与 `core/studio` 都走 `tools/pipeline`：默认配置与自定�
 
 ```text
 packages/core/
-├── bin/ultime.js               CLI 薄入口（ultime-core / ultime 指向 dist/cli.js）
+├── bin/ultime.js               CLI 薄入口（ultime-core → dist/cli.js）
 ├── src/
 │   ├── cli/                    命令：init / build / inspect / schema + 配置读写
 │   ├── seed.ts                seed 类型 / 默认值 / 深合并 / JSONC / 指纹
