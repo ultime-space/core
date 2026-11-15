@@ -1,7 +1,7 @@
 # 01 · 架构与边界
 
 > 定位：core 的职责、依赖方向与目录分工。
-> 适用版本：0.10.x
+> 适用版本：0.11.x
 > 关系：规则索引见 [`README`](./README.md)；为什么这样分层见 [`DESIGN.md`](../DESIGN.md)。
 
 ---
@@ -40,7 +40,7 @@ seed / model → build → exporters
 | `src/model/**` | 四个类别的派生纯函数 |
 | `src/exporters/**` | 只读树，翻译成 CSS / JSON / DTCG |
 | `src/tools/**` | 构建计划、产物编排、项目配置、语义表模板 |
-| `src/cli/**` | `ultime` 命令与配置读写；通用设施来自 `@ultime/cli` |
+| `src/cli/**` | `ultime-core` 命令面与配置读写；通用设施来自 `@ultime/cli` |
 | `src/studio/**` | 配置器字段 / 预设 / 校验 / 预览 / 导出定义；选择（类别 / 档位过滤）与参数化派生 |
 
 ## 新增内容五问

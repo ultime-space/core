@@ -1,7 +1,7 @@
 # AGENTS.md — @ultime/core
 
 > 给在本仓库工作的 AI 与协作者：入口、可写 / 只读、红线与验收。
-> 适用版本：0.10.x
+> 适用版本：0.11.x
 
 ## 先读
 
@@ -32,6 +32,7 @@
 ## 红线
 
 - **功能变更同批更新**：测试、README、`CHANGELOG.md` 与 AI 文档；没有功能性更新时只改文档并写明。
+- **开发方式**：测试先行；阶段完成先 review 代码与文档；文档简洁、机制优先。
 - **依赖基线**：`@ultime/studio` / `@ultime/cli` 发布后，下次发版前先更新 lockfile 到最新已发布版本，重建并跑 `pnpm check` / `pnpm test`；不只改声明、不带旧 lock 发版。
 - **生成物不手改**：`tokens.css` / `tokens.json` / `tokens.dtcg.json` / `kernel.json` 由 `pnpm build:tokens` 生成；
   改 seed 或 `src/model/**` 后重跑，不直接编辑文件。

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.0 - 2026-11-15
+
+### Changed
+
+- 升级 `@ultime/cli` 到 `^0.3.0`；`ultime-core` 入口改为 `await runCli(...)`，命令面拆到 `src/cli/spec.ts`。
+- CLI 声明命令级 flag：`--check` / `--force` 不再吞后面的 positional；未知参数、布尔参数带值与带值参数缺值报用法错误，退出码 2。
+- 库 API、token 树、合同与产物不变。
+
 ## 0.10.0 - 2026-11-12
 
 ### Added

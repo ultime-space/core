@@ -219,6 +219,8 @@ ultime-core schema --json    # seed 字段 / 出口 / 语义表
 配置模型为 `tokens.seed / platforms / output / semantics`，可选 `selection` / `derivation`。
 `semantics` 是可选产物：只有配置了才生成 `semantics.json`，它不进树，也不进 `kernel.json`。
 
+参数由 `@ultime/cli` 的命令级 schema 校验：未知参数、布尔参数带值与带值参数缺值会以用法错误退出（2）。
+
 CLI、库 API 与 `core/studio` 都走 `tools/pipeline`：默认配置与自定义配置同一条出口。
 
 仓库内开发也可用 `pnpm ultime`（等价于 `vpx src/cli/index.ts`）。
@@ -289,6 +291,7 @@ packages/core/
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
 - 依赖基线：`@ultime/studio` / `@ultime/cli` 发版后，core 下次发版前更新 lockfile 到最新已发布版本并重建测试；已发布版本不追改。
+- 0.11.0 升级 `@ultime/cli ^0.3.0`：CLI 入口改为异步，参数按命令级 flag 校验，未知参数退出 2；库 API、树与产物不变。
 - 0.9.1 发布产物默认压缩；API、树与合同不变。
 - 0.9.0 新增 `planGradient`（根出口与 `./studio`）：树、合同与产物不变，`engineVersion` 不变。
 - 0.7.0 新增 `@ultime/core/studio` 选择 API；树、合同与派生值不变，快照只有 `engineVersion` 变化。
