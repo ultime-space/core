@@ -2,7 +2,8 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { afterEach, describe, expect, it } from 'vite-plus/test'
-import { parseArgs, type CliContext } from '@ultime/cli'
+import { parseArgs, runCli, type CliContext } from '@ultime/cli'
+import { createCoreSpec } from '../src/cli/spec.ts'
 import { runBuild } from '../src/cli/commands/build.ts'
 import { runInit } from '../src/cli/commands/init.ts'
 import { runSchema } from '../src/cli/commands/schema.ts'
@@ -34,9 +35,42 @@ afterEach(() => {
 
 describe('core cli · 参数', () => {
   it('解析命令、flag 与 key=value', () => {
-    const args = parseArgs(['build', '--check', '--config=foo.json', '--cwd', 'dir'])
+    const spec = createCoreSpec('1.2.3')
+    const args = parseArgs(['build', '--check', '--config=foo.json', '--cwd', 'dir'], {
+      flags: spec.commands.build?.flags,
+    })
     expect(args.command).toBe('build')
     expect(args.flags).toEqual({ check: true, config: 'foo.json', cwd: 'dir' })
+  })
+
+  it('布尔 flag 不吞后面的 positional', () => {
+    const spec = createCoreSpec('1.2.3')
+    const args = parseArgs(['init', '--force', 'dir'], { flags: spec.commands.init?.flags })
+    expect(args.flags).toEqual({ force: true })
+    expect(args.positional).toEqual(['dir'])
+  })
+})
+
+describe('core cli · 入口', () => {
+  it('版本与单命令帮助不执行命令', async () => {
+    const { ctx, out } = collector(process.cwd())
+    const spec = createCoreSpec('1.2.3')
+    expect(await runCli(spec, ['--version'], ctx)).toBe(0)
+    expect(await runCli(spec, ['build', '--help'], ctx)).toBe(0)
+    expect(out).toEqual(['1.2.3', 'ultime-core build [--check] [--config <path>] [--cwd <dir>]'])
+  })
+
+  it('未知参数报用法错误', async () => {
+    const { ctx, err } = collector(process.cwd())
+    expect(await runCli(createCoreSpec('1.2.3'), ['build', '--chek'], ctx)).toBe(2)
+    expect(err.join('\n')).toContain('未知参数：--chek')
+    expect(err.join('\n')).toContain('--check')
+  })
+
+  it('分发给 schema 命令并输出 JSON', async () => {
+    const { ctx, out } = collector(process.cwd())
+    expect(await runCli(createCoreSpec('1.2.3'), ['schema', '--json'], ctx)).toBe(0)
+    expect(JSON.parse(out.join('\n'))).toHaveProperty('seed')
   })
 })
 

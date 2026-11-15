@@ -1,8 +1,8 @@
 # @ultime/core · 可调用能力
 
 > 定位：AI 可调用的入口、产物与错误语义。字段清单以 `ultime-core schema --json` 为准，本文件不手抄。
-> 适用版本：0.10.x
-> 同步基线：0.10.x（手写；导出面或 schema 变化时同批更新）
+> 适用版本：0.11.x
+> 同步基线：0.11.x（手写；导出面或 schema 变化时同批更新）
 
 ---
 
@@ -50,6 +50,8 @@ CLI、库 API 与 `core/studio` 都走这条路径；`planProject` 只作为引�
 | `ultime-core schema` | 可选 `--json` | seed 字段 / 出口 / 语义表 | 0 / 1 |
 
 通用选项：`--config <path>`、`--cwd <dir>`、`-h / --help`。
+
+参数由命令级 schema 校验：未知参数、布尔参数带值与带值参数缺值退出 2；命令执行失败退出 1。
 
 ## 配置形状
 

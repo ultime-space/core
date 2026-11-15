@@ -2,8 +2,8 @@ packages: ['.']
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
-  - '@ultime/cli@0.1.0 || 0.1.4'
-  - '@ultime/studio@0.1.0 || 0.2.0 || 0.2.1'
+  - '@ultime/cli@0.1.0 || 0.1.4 || 0.2.0 || 0.3.0'
+  - '@ultime/studio@0.1.0 || 0.2.0 || 0.2.1 || 0.3.0'
   - '@voidzero-dev/vite-plus-core@1.6.0'
   - '@voidzero-dev/vite-plus-darwin-arm64@1.6.0'
   - '@voidzero-dev/vite-plus-darwin-x64@1.6.0'
@@ -14,8 +14,4 @@ minimumReleaseAgeExclude:
   - '@voidzero-dev/vite-plus-win32-arm64-msvc@1.6.0'
   - '@voidzero-dev/vite-plus-win32-x64-msvc@1.6.0'
   - vite-plus@1.6.0
-  - '@ultime/checks@0.1.1'
-  - '@ultime/checks@0.2.0'
-  - '@ultime/checks@0.3.0'
-  - '@ultime/cli@0.2.0'
-  - '@ultime/studio@0.3.0'
+  - '@ultime/checks@0.1.1 || 0.2.0 || 0.3.0'

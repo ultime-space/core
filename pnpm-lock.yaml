@@ -167,8 +167,8 @@ importers:
   .:
     dependencies:
       '@ultime/cli':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.3.0
+        version: 0.3.0
       '@ultime/studio':
         specifier: ^0.3.0
         version: 0.3.0
@@ -868,8 +868,8 @@ packages:
     engines: {node: '>=22.18'}
     hasBin: true
 
-  '@ultime/cli@0.2.0':
-    resolution: {integrity: sha512-SorxV5HHaG8xGHjUIXCuatpmzy6Bss4rMQzrc9e055znRr5g0r0Q52hhu+kOj5ej8Gq7cRVXC4YICdeyNXjs9g==}
+  '@ultime/cli@0.3.0':
+    resolution: {integrity: sha512-Krq30oSOj608Wqx+BeKnic24Lcqt4kM6uHX0EGIVFBCmyBsQ5IMnUhXmiah1O1WNeOus2QDFdSlKzzefwfOajA==}
     engines: {node: '>=22.18'}
 
   '@ultime/studio@0.3.0':
@@ -1973,7 +1973,7 @@ snapshots:
 
   '@ultime/checks@0.3.0': {}
 
-  '@ultime/cli@0.2.0': {}
+  '@ultime/cli@0.3.0': {}
 
   '@ultime/studio@0.3.0': {}
 
