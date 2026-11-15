@@ -5,8 +5,9 @@ import { afterEach, describe, expect, it } from 'vite-plus/test'
 import { exportConfig } from '@ultime/studio'
 
 import { runBuild } from '../src/cli/commands/build.ts'
+import { buildCore, buildManifest } from '../src/build.ts'
 import { DEFAULT_SEED, readJsonc, resolveSeed, stableStringify, type SeedInput } from '../src/seed.ts'
-import { exportTheme, resolveThemeConfig, THEME_DEFAULTS } from '../src/tools'
+import { emitTokens, exportTheme, resolveThemeConfig, THEME_DEFAULTS } from '../src/tools'
 import { themeStudio } from '../src/studio'
 import type { CliContext } from '@ultime/cli'
 
@@ -33,6 +34,17 @@ describe('pipeline · 默认值单一来源', () => {
   it('theme.example.json 解析后与默认 seed 等价', () => {
     const example = readJsonc(fs.readFileSync(path.join(process.cwd(), 'theme.example.json'), 'utf8')) as SeedInput
     expect(stableStringify(resolveSeed(example))).toBe(stableStringify(resolveSeed(DEFAULT_SEED)))
+  })
+
+  it('只生成请求的平台，并复用传入的 manifest', () => {
+    const core = buildCore({})
+    const manifest = { ...buildManifest(core), sentinel: true } as ReturnType<typeof buildManifest>
+    const files = emitTokens(core, { platforms: ['css'], manifest })
+    const names = files.map((file) => path.basename(file.path))
+
+    expect(names).toEqual(['tokens.css', 'kernel.json'])
+    const kernel = files.find((file) => file.path.endsWith('kernel.json'))!
+    expect(JSON.parse(kernel.content)).toEqual(JSON.parse(JSON.stringify(manifest)))
   })
 
   it('省略配置时合并出与 THEME_DEFAULTS 相同的配置', () => {

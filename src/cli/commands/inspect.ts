@@ -44,6 +44,7 @@ export function runInspect(ctx: CliContext, options: InspectOptions): number {
 
   const build = result.build
   const counts = result.selected?.counts ?? build.core.counts
+  const errors = result.diagnostics.filter((diagnostic) => diagnostic.level === 'error')
 
   if (options.json) {
     ctx.out(
@@ -61,7 +62,7 @@ export function runInspect(ctx: CliContext, options: InspectOptions): number {
         2,
       ),
     )
-    return 0
+    return errors.length ? 1 : 0
   }
 
   const totalBytes = result.artifacts.reduce((sum, file) => sum + file.bytes, 0)
@@ -90,5 +91,5 @@ export function runInspect(ctx: CliContext, options: InspectOptions): number {
     const mark = diagnostic.level === 'error' ? '✗' : diagnostic.level === 'warn' ? '△' : '·'
     ctx.out(`    ${mark} ${diagnostic.message}`)
   }
-  return 0
+  return errors.length ? 1 : 0
 }

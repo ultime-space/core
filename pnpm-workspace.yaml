@@ -2,8 +2,8 @@ packages: ['.']
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
-  - '@ultime/cli@0.1.0 || 0.1.4 || 0.2.0 || 0.3.0'
-  - '@ultime/studio@0.1.0 || 0.2.0 || 0.2.1 || 0.3.0'
+  - '@ultime/cli@0.1.0 || 0.1.4 || 0.2.0 || 0.3.0 || 0.3.1'
+  - '@ultime/studio@0.1.0 || 0.2.0 || 0.2.1 || 0.3.0 || 0.3.1'
   - '@voidzero-dev/vite-plus-core@1.6.0'
   - '@voidzero-dev/vite-plus-darwin-arm64@1.6.0'
   - '@voidzero-dev/vite-plus-darwin-x64@1.6.0'

@@ -291,6 +291,7 @@ packages/core/
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
 - 依赖基线：`@ultime/studio` / `@ultime/cli` 发版后，core 下次发版前更新 lockfile 到最新已发布版本并重建测试；已发布版本不追改。
+- 0.11.1：`readSeedFile` 校验对象形状；`inspect` 有 error 诊断时返回 1；`emitTokens` 按平台生成并复用 manifest。
 - 0.11.0 升级 `@ultime/cli ^0.3.0`：CLI 入口改为异步，参数按命令级 flag 校验，未知参数退出 2；库 API、树与产物不变。
 - 0.9.1 发布产物默认压缩；API、树与合同不变。
 - 0.9.0 新增 `planGradient`（根出口与 `./studio`）：树、合同与产物不变，`engineVersion` 不变。

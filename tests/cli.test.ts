@@ -4,8 +4,10 @@ import path from 'node:path'
 import { afterEach, describe, expect, it } from 'vite-plus/test'
 import { parseArgs, runCli, type CliContext } from '@ultime/cli'
 import { createCoreSpec } from '../src/cli/spec.ts'
+import { readSeedFile } from '../src/cli/config-file.ts'
 import { runBuild } from '../src/cli/commands/build.ts'
 import { runInit } from '../src/cli/commands/init.ts'
+import { runInspect } from '../src/cli/commands/inspect.ts'
 import { runSchema } from '../src/cli/commands/schema.ts'
 
 const temps: string[] = []
@@ -88,6 +90,40 @@ describe('core cli · init', () => {
     expect(runInit(ctx, file, false)).toBe(1)
     expect(err.join('\n')).toContain('配置已存在')
     expect(runInit(ctx, file, true)).toBe(0)
+  })
+})
+
+describe('core cli · seed 文件', () => {
+  it('非对象 seed 直接报错', () => {
+    const dir = tempDir()
+    const file = path.join(dir, 'seed.json')
+    for (const content of ['[]', 'null', '"text"', '1']) {
+      fs.writeFileSync(file, content)
+      expect(() => readSeedFile(file)).toThrow('seed 文件必须是对象')
+    }
+    fs.writeFileSync(file, '{"color":{}}')
+    expect(readSeedFile(file)).toEqual({ color: {} })
+  })
+})
+
+describe('core cli · inspect', () => {
+  it('构建诊断有 error 时返回 1', () => {
+    const dir = tempDir()
+    const configPath = writeConfig(dir, { tokens: {}, selection: { categories: ['nope'] } })
+    const { ctx, out } = collector(dir)
+
+    expect(runInspect(ctx, { configPath, json: false })).toBe(1)
+    expect(out.join('\n')).toContain('未知选择类别')
+  })
+
+  it('--json 下仍输出诊断并返回 1', () => {
+    const dir = tempDir()
+    const configPath = writeConfig(dir, { tokens: {}, selection: { categories: ['nope'] } })
+    const { ctx, out } = collector(dir)
+
+    expect(runInspect(ctx, { configPath, json: true })).toBe(1)
+    const payload = JSON.parse(out.join('\n')) as { diagnostics: Array<{ code: string }> }
+    expect(payload.diagnostics.some((item) => item.code === 'selection.category.unknown')).toBe(true)
   })
 })
 
