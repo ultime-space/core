@@ -1,6 +1,6 @@
 {
   "name": "@ultime/core",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "description": "Ultime · core：平台无关的设计系统内核（seed → 树 → 快照）；Web 的 CSS 只是它的一个出口",
   "keywords": [
     "color-system",
@@ -90,7 +90,7 @@
     "prepare": "vp config --no-agent"
   },
   "dependencies": {
-    "@ultime/cli": "^0.3.1",
+    "@ultime/cli": "^0.4.0",
     "@ultime/studio": "^0.3.1"
   },
   "devDependencies": {

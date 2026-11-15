@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.2 - 2026-11-15
+
+### Changed
+
+- `build` / `inspect` 共用 `src/cli/load.ts` 的配置加载：配置缺失、seed 非法与解析诊断以同一组消息返回 1，不再各自处理。
+- `@ultime/core/tools` 的 `emitTokens` 补进 README / SKILLS：接收已构建的 `CoreResult`，用于高级 / 增量出口。
+- 依赖基线更新到已发布的 `@ultime/cli` 0.4.0。
+
 ## 0.11.1 - 2026-11-15
 
 ### Fixed

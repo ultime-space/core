@@ -178,7 +178,7 @@ color: var(--color-tone-primary-solid-foreground);
 |---|---|
 | `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg`；只读树 |
-| `@ultime/core/tools` | 统一管线 `resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值；配置校验；语义表模板 |
+| `@ultime/core/tools` | 统一管线 `resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；产物出口 `exportTokens` / `emitTokens`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值；配置校验；语义表模板 |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验映射 / 预览 / 导出；选择 / 派生 API 由 tools 提供并 re-export；渐变判断：`planGradient` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 |
 
@@ -195,6 +195,8 @@ const files = exportTokens({
   output: 'src/styles/tokens',
 })
 ```
+
+已有 `CoreResult` 时用 `emitTokens`：它不重新派生、不做选择或诊断，只按平台编排产物；传 `includeManifest: false` 可跳过 `kernel.json`，用于配置器的定制导出。
 
 按类别裁剪 CSS：
 
