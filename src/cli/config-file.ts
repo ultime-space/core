@@ -32,10 +32,14 @@ export function writeConfig(file: string, config: UltimeConfig): void {
   fs.writeFileSync(file, `${JSON.stringify(config, null, 2)}\n`)
 }
 
-/** 读 seed 文件：JSONC，返回对象。 */
+/** 读 seed 文件：JSONC，必须是对象。 */
 export function readSeedFile(file: string): SeedInput {
   if (!fs.existsSync(file)) throw new Error(`找不到 seed 文件：${file}`)
-  return readJsonc(fs.readFileSync(file, 'utf8')) as SeedInput
+  const parsed = readJsonc(fs.readFileSync(file, 'utf8'))
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error(`seed 文件必须是对象：${file}`)
+  }
+  return parsed as SeedInput
 }
 
 /** 路径统一相对「配置文件所在目录」。 */

@@ -78,7 +78,8 @@ export function planProject(input: UltimeConfig, seed?: SeedInput): ProjectBuild
   }
 
   const core = buildCore(inputSeed)
-  const artifacts = emitTokens(core, { platforms: config.platforms, output: config.output })
+  const manifest = buildManifest(core)
+  const artifacts = emitTokens(core, { platforms: config.platforms, output: config.output, manifest })
   const diagnostics = contractDiagnostics(core)
 
   if (config.semantics) {
@@ -108,7 +109,7 @@ export function planProject(input: UltimeConfig, seed?: SeedInput): ProjectBuild
   return {
     config,
     core,
-    manifest: buildManifest(core),
+    manifest,
     artifacts: artifacts.map((file) => ({ ...file, bytes: bytes(file.content) })),
     diagnostics,
   }

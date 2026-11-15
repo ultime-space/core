@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.11.1 - 2026-11-15
+
+### Fixed
+
+- `readSeedFile` 拒绝数组 / null / 非对象，避免误导性的下游错误。
+- `ultime-core inspect` 在构建诊断含 error 时返回 1，与 `build` 和 CLI 契约一致。
+
+### Changed
+
+- `emitTokens` 只为启用的平台生成产物，并复用已计算的 manifest，避免多余序列化。
+
 ## 0.11.0 - 2026-11-15
 
 ### Changed
