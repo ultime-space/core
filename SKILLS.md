@@ -12,7 +12,7 @@
 |---|---|---|
 | `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg` | 只读树 |
-| `@ultime/core/tools` | 统一管线：`resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值 `THEME_DEFAULTS`；配置校验 / 语义表模板 | 无文件 IO |
+| `@ultime/core/tools` | 统一管线：`resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；产物出口 `exportTokens` / `emitTokens`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值 `THEME_DEFAULTS`；配置校验 / 语义表模板 | 无文件 IO |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree`；渐变判断：`planGradient` | 依赖 `@ultime/studio` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 | 纯函数 |
 
@@ -20,6 +20,7 @@
 
 `resolveThemeConfig(input)` 合并默认值并返回 `{ config, diagnostics }`；`exportTheme(config)` 一次派生，返回 `{ build, selected?, artifacts, diagnostics }`。
 CLI、库 API 与 `core/studio` 都走这条路径；`planProject` 只作为引擎执行器，调用方不再直接调它。默认配置与自定义配置没有分支。
+`exportTokens` 从 seed 直接编排产物；`emitTokens(result, options)` 接收已构建的 `CoreResult`，不重新派生或诊断，`includeManifest: false` 时不生成 `kernel.json`。
 
 ## 渐变规划
 

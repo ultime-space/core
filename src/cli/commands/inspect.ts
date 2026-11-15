@@ -7,8 +7,8 @@
 
 import path from 'node:path'
 import type { CliContext } from '@ultime/cli'
-import { exportTheme, resolveThemeConfig } from '../../tools/index.ts'
-import { readConfig, readSeedFile, resolveFromConfig } from '../config-file.ts'
+import { exportTheme } from '../../tools/index.ts'
+import { loadResolvedConfig } from '../load.ts'
 
 export interface InspectOptions {
   configPath: string
@@ -18,25 +18,15 @@ export interface InspectOptions {
 const kb = (bytes: number) => `${(bytes / 1024).toFixed(2)} KB`
 
 export function runInspect(ctx: CliContext, options: InspectOptions): number {
-  const config = readConfig(options.configPath)
-  if (!config.tokens) {
-    ctx.err('✗ 配置里没有 tokens 区')
-    return 1
-  }
-
-  const raw = config.tokens.seed
-  const seed = typeof raw === 'string' ? readSeedFile(resolveFromConfig(options.configPath, raw)) : undefined
-
-  const resolved = resolveThemeConfig(config, seed === undefined ? {} : { seed })
-  const issues = resolved.diagnostics.filter((diagnostic) => diagnostic.level === 'error')
-  if (issues.length) {
-    for (const issue of issues) ctx.err(`✗ 配置：${issue.message}`)
+  const loaded = loadResolvedConfig(options.configPath)
+  if (!loaded.ok) {
+    for (const message of loaded.errors) ctx.err(`✗ ${message}`)
     return 1
   }
 
   let result
   try {
-    result = exportTheme(resolved.config)
+    result = exportTheme(loaded.config)
   } catch (error) {
     ctx.err(`✗ ${(error as Error).message}`)
     return 1

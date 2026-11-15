@@ -152,6 +152,39 @@ describe('core cli · build', () => {
   })
 })
 
+describe('core cli · 配置加载', () => {
+  const commands = [
+    ['build', (ctx: CliContext, configPath: string) => runBuild(ctx, { configPath, check: false })],
+    ['inspect', (ctx: CliContext, configPath: string) => runInspect(ctx, { configPath, json: false })],
+  ] as const
+
+  for (const [name, run] of commands) {
+    it(`${name} 在配置缺失、缺 tokens、seed 非法与诊断 error 时都返回 1`, () => {
+      const dir = tempDir()
+      const missing = path.join(dir, 'ultime.config.json')
+      let { ctx, err } = collector(dir)
+      expect(run(ctx, missing)).toBe(1)
+      expect(err.join('\n')).toContain('找不到配置')
+
+      const empty = writeConfig(dir, {})
+      ;({ ctx, err } = collector(dir))
+      expect(run(ctx, empty)).toBe(1)
+      expect(err.join('\n')).toContain('没有 tokens 区')
+
+      fs.writeFileSync(path.join(dir, 'seed.json'), '[]')
+      const badSeed = writeConfig(dir, { tokens: { seed: 'seed.json' } })
+      ;({ ctx, err } = collector(dir))
+      expect(run(ctx, badSeed)).toBe(1)
+      expect(err.join('\n')).toContain('seed 文件必须是对象')
+
+      const badConfig = writeConfig(dir, { tokens: {}, selection: { categories: ['nope'] } })
+      const report = collector(dir)
+      expect(run(report.ctx, badConfig)).toBe(1)
+      expect([...report.out, ...report.err].join('\n')).toContain('未知选择类别')
+    })
+  }
+})
+
 describe('core cli · schema', () => {
   it('输出种子字段、出口与语义表', () => {
     const { ctx, out } = collector(process.cwd())
