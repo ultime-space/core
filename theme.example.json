@@ -53,9 +53,8 @@
   },
 
   "light": {
-    // 官方全局预设：0° / 45° / 315°；仰角只影响影长
-    "azimuthAngle": 0,
-    "altitudeAngle": 60,
+    // 全局光源角度：0° 正上，顺时针；一个角度烘焙整套光影
+    "angle": 0,
     "blurBase": 8,
     "blurRatio": 2,
     "inkUnit": 4,

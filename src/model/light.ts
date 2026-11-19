@@ -62,9 +62,9 @@ const LEVELS = [1, 2, 3, 4] as const
 type Edge = 'top' | 'right' | 'bottom' | 'left'
 const EDGES: Edge[] = ['top', 'right', 'bottom', 'left']
 
-/** 方位角 0° = 正上，顺时针；返回四条边的余弦权重。 */
-function edgeWeights(azimuthAngle: number): Record<Edge, number> {
-  const rad = (azimuthAngle * Math.PI) / 180
+/** 角度 0° = 正上，顺时针；返回四条边的余弦权重。 */
+function edgeWeights(angle: number): Record<Edge, number> {
+  const rad = (angle * Math.PI) / 180
   return {
     top: Math.cos(rad),
     right: Math.sin(rad),
@@ -88,13 +88,11 @@ function edgeOffset(edge: Edge): { x: number; y: number } {
 }
 
 function directionVector(offset: number, seed: LightSeed) {
-  const azimuth = (seed.azimuthAngle * Math.PI) / 180
-  const altitude = Math.min(89, Math.max(1, seed.altitudeAngle))
-  /* 默认 60° 时系数为 1；仰角越低影越长。 */
-  const factor = Math.tan((60 * Math.PI) / 180) / Math.tan((altitude * Math.PI) / 180)
+  const angle = (seed.angle * Math.PI) / 180
+  /* 用户只给一个平面角度；仰角固定 60°，不再作为 seed 输入。 */
   return {
-    x: -offset * Math.sin(azimuth) * factor,
-    y: offset * Math.cos(azimuth) * factor,
+    x: -offset * Math.sin(angle),
+    y: offset * Math.cos(angle),
   }
 }
 
@@ -155,7 +153,7 @@ export function deriveLight(
   /** 四边内嵌线：凸起时受光边亮、背光边暗；凹陷反过来；平面为空。 */
   const keyLayers = (side: 'light' | 'dark', form: LightForm, kind: 'highlight' | 'shade'): ShadowLayerValue[] => {
     if (form === 'flat') return []
-    const weights = edgeWeights(seed.azimuthAngle)
+    const weights = edgeWeights(seed.angle)
     const base = seed.key[side][kind]
     const fill = kind === 'highlight' ? colors.key : ink.hex
     const layersOut: ShadowLayerValue[] = []

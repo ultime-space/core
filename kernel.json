@@ -115,8 +115,7 @@
       }
     },
     "light": {
-      "azimuthAngle": 0,
-      "altitudeAngle": 60,
+      "angle": 0,
       "blurBase": 8,
       "blurRatio": 2,
       "inkUnit": 4,
@@ -154,7 +153,7 @@
       }
     }
   },
-  "seedHash": "fnv1a-a85ae522",
+  "seedHash": "fnv1a-2c100a45",
   "motion": {
     "easingSource": "family",
     "easing": {

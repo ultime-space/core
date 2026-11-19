@@ -10,7 +10,7 @@
 
 | 入口 | 提供 | 形态 |
 |---|---|---|
-| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
+| `@ultime/core` | `buildCore` / `buildManifest` / `bakeLight` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 | 编译 JS，零第三方依赖 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg` | 只读树 |
 | `@ultime/core/tools` | 统一管线：`resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；产物出口 `exportTokens` / `emitTokens`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值 `THEME_DEFAULTS`；配置校验 / 语义表模板 | 无文件 IO |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree`；渐变判断：`planGradient` | 依赖 `@ultime/studio` |
