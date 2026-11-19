@@ -55,7 +55,7 @@ export const DEFAULT_SEMANTICS: SemanticsTable = {
   surface: {
     canvas: 'color.surface.canvas',
     card: 'color.surface.raised',
-    overlay: 'color.surface.overlay',
+    overlay: 'color.surface.float',
   },
   ink: {
     primary: 'color.ink.primary',

@@ -88,9 +88,9 @@
   --color-surface-raised-light: rgb(255 255 255 / 0.528);
   --color-surface-raised-dark: rgb(255 255 255 / 0.04);
   --color-surface-raised: var(--color-surface-raised-light);
-  --color-surface-overlay-light: rgb(255 255 255 / 0.728);
-  --color-surface-overlay-dark: rgb(255 255 255 / 0.054);
-  --color-surface-overlay: var(--color-surface-overlay-light);
+  --color-surface-float-light: rgb(255 255 255 / 0.728);
+  --color-surface-float-dark: rgb(255 255 255 / 0.054);
+  --color-surface-float: var(--color-surface-float-light);
   --color-surface-inset-light: rgb(0 0 0 / 0.034);
   --color-surface-inset-dark: rgb(0 0 0 / 0.292);
   --color-surface-inset: var(--color-surface-inset-light);
@@ -712,7 +712,7 @@
   color-scheme: dark;
   --color-surface-canvas: var(--color-surface-canvas-dark);
   --color-surface-raised: var(--color-surface-raised-dark);
-  --color-surface-overlay: var(--color-surface-overlay-dark);
+  --color-surface-float: var(--color-surface-float-dark);
   --color-surface-inset: var(--color-surface-inset-dark);
   --color-surface-block-weak: var(--color-surface-block-weak-dark);
   --color-surface-block-base: var(--color-surface-block-base-dark);

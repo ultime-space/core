@@ -382,7 +382,7 @@ export interface ColorReportRow {
 export interface SurfaceValues {
   canvas: ModeValue<ColorValue>
   raised: ModeValue<ColorValue>
-  overlay: ModeValue<ColorValue>
+  float: ModeValue<ColorValue>
   inset: ModeValue<ColorValue>
   block: {
     weak: ModeValue<ColorValue>
@@ -594,9 +594,9 @@ export function deriveColor(seed: ColorSeed, ambientColor: string | null = null)
       alphaLight.card = solveCoverage(tintLight, canvasLight, target.card)
       alphaDark.card = solveCoverage(tintDark, canvasDark, target.card)
     }
-    if (target.overlay != null) {
-      alphaLight.overlay = solveCoverage(tintLight, canvasLight, target.overlay)
-      alphaDark.overlay = solveCoverage(tintDark, canvasDark, target.overlay)
+    if (target.float != null) {
+      alphaLight.float = solveCoverage(tintLight, canvasLight, target.float)
+      alphaDark.float = solveCoverage(tintDark, canvasDark, target.float)
     }
     if (target.sunken != null) {
       alphaLight.sunken = solveCoverage('#000000', canvasLight, target.sunken)
@@ -615,7 +615,7 @@ export function deriveColor(seed: ColorSeed, ambientColor: string | null = null)
   const surface: SurfaceValues = {
     canvas: mode(color(canvasLight), color(canvasDark)),
     raised: mode(rgbaValue(tintLight, alphaLight.card), rgbaValue(tintDark, alphaDark.card)),
-    overlay: mode(rgbaValue(tintLight, alphaLight.overlay), rgbaValue(tintDark, alphaDark.overlay)),
+    float: mode(rgbaValue(tintLight, alphaLight.float), rgbaValue(tintDark, alphaDark.float)),
     inset: mode(rgbaValue('#000000', alphaLight.sunken), rgbaValue('#000000', alphaDark.sunken)),
     block: {
       weak: mode(
@@ -639,13 +639,13 @@ export function deriveColor(seed: ColorSeed, ambientColor: string | null = null)
     light: [
       canvasLight,
       controlBgLight,
-      composite(tintLight, alphaLight.overlay, canvasLight),
+      composite(tintLight, alphaLight.float, canvasLight),
       composite('#000000', alphaLight.sunken, canvasLight),
     ],
     dark: [
       canvasDark,
       controlBgDark,
-      composite(tintDark, alphaDark.overlay, canvasDark),
+      composite(tintDark, alphaDark.float, canvasDark),
       composite('#000000', alphaDark.sunken, canvasDark),
     ],
   }
@@ -760,13 +760,13 @@ export function deriveColor(seed: ColorSeed, ambientColor: string | null = null)
         composite(mode === 'light' ? tintLight : tintDark, (mode === 'light' ? alphaLight : alphaDark).card, canvas),
       ],
       [
-        'surface.overlay',
-        composite(mode === 'light' ? tintLight : tintDark, (mode === 'light' ? alphaLight : alphaDark).overlay, canvas),
+        'surface.float',
+        composite(mode === 'light' ? tintLight : tintDark, (mode === 'light' ? alphaLight : alphaDark).float, canvas),
       ],
       ['surface.inset', composite('#000000', (mode === 'light' ? alphaLight : alphaDark).sunken, canvas)],
     ]
     for (const [name, hex] of surfaces) {
-      const target = name.endsWith('raised') ? TONE_TARGETS.soft : name.endsWith('overlay') ? 1.14 : 1.07
+      const target = name.endsWith('raised') ? TONE_TARGETS.soft : name.endsWith('float') ? 1.14 : 1.07
       push({
         id: 'surface-target',
         token: name,

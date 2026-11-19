@@ -5,6 +5,8 @@
 ### Breaking
 
 - 光影 seed 收敛为单角度 `light.angle`；`azimuthAngle` / `altitudeAngle` 移除并在构建时明确报错；内核只存角度与烘焙结果。
+- 表面原料 `surface.overlay` 改名为 `surface.float`；语义角色 `overlay` 保留并映射到 `color.surface.float`。
+- seed 的 `faceContrast.overlay` / `alpha.*.overlay` 改为 `float`；旧键在 1.0 报错。
 - `theme.example.json`、studio 字段与文档同步到单角度输入。
 
 ### Added

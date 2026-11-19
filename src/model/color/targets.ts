@@ -8,7 +8,7 @@
 export const LINE_TARGETS = { 1: 1.16, 2: 1.45, 3: 3.0 } as const
 
 /** 面阶：面对画布的对比度目标。 */
-export const SURFACE_TARGETS = { card: 1.1, overlay: 1.14, sunken: 1.07 } as const
+export const SURFACE_TARGETS = { card: 1.1, float: 1.14, sunken: 1.07 } as const
 
 /** 状态叠墨：在声明底上至少拉动多少。 */
 export const STATE_TARGETS = { hover: 1.08, pressed: 1.12, disabled: 1.03 } as const
