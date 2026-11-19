@@ -23,8 +23,8 @@ describe('core 1.0 · manifest tiers', () => {
     expect(manifest.tiers.surface).not.toContain('surface.overlay')
   })
 
-  it('manifest 版本随 1.0 结构升级', () => {
+  it('manifest 只保留 schemaVersion，不再有 engineVersion', () => {
     expect(manifest.schemaVersion).toBe('7.0.0')
-    expect(manifest.engineVersion).toBe('1.0.0')
+    expect(manifest).not.toHaveProperty('engineVersion')
   })
 })

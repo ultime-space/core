@@ -103,6 +103,6 @@
 
 ## 演进与兼容
 
-- 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现版本。
+- 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。
 - 同一轴上改值是深化（随时可做，但必须由 seed 推导）；改轴 / 命名 / 角色是正式变更（升 `schemaVersion`，一次同步）。
 - 下游优先消费 `kernel.json` 与公开出口，不依赖内部目录结构——这保证内核内部重排不破坏消费方。

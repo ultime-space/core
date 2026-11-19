@@ -7,7 +7,7 @@
  */
 
 import type { CoreResult } from '../build'
-import { ENGINE_VERSION, SCHEMA_VERSION } from '../version'
+import { SCHEMA_VERSION } from '../version'
 import { seedHash } from '../seed'
 import {
   isModeValue,
@@ -86,7 +86,6 @@ export function treeToDtcg(result: CoreResult) {
     $extensions: {
       'com.ultime.core': {
         schemaVersion: SCHEMA_VERSION,
-        engineVersion: ENGINE_VERSION,
         seedHash: seedHash(result.seed),
         note: '真源是 seed + 引擎；本文件只是可交换快照。',
       },

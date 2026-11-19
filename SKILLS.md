@@ -91,5 +91,5 @@ CLI、库 API 与 `core/studio` 都走这条路径；`planProject` 只作为引�
 ## 反例
 
 - 从 Markdown 抄 seed 字段：字段会随版本变，必须用 `ultime-core schema --json`。
-- 把 `kernel.json` 的时间戳当版本依据：manifest 不含时间戳，版本看 `schemaVersion` / `engineVersion`。
+- 把 `kernel.json` 的时间戳当版本依据：manifest 不含时间戳，结构版本看 `schemaVersion`，实现版本看 core 包版本。
 - 给 core 配置加 `subset`：选择走 `selection`，不要另造裁剪字段。
