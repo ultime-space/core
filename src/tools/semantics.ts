@@ -154,12 +154,41 @@ export function validateSemantics(table: SemanticsTable, tree: Group): string[] 
   return [...new Set(issues)]
 }
 
-/** 语义表产物：JSON（只写路径，默认不发 CSS）。 */
-export function exportSemantics(table: SemanticsTable, options: { output?: string } = {}): OutputFile[] {
+const cssVar = (path: string): string => `--${path.replace(/\./g, '-')}`
+const roleVar = (key: string): string => `--semantics-${key.replace(/\./g, '-')}`
+
+/** 一个语义值转 CSS 引用：原料路径 → 原料变量，@role.slot → 语义变量。 */
+function cssReference(value: string): string {
+  const reference = REFERENCE.exec(value.trim())
+  return reference ? `var(${roleVar(`${reference[1]}.${reference[2]}`)})` : `var(${cssVar(value.trim())})`
+}
+
+function cssValueOf(value: SemanticsValue): string {
+  return Array.isArray(value) ? value.map(cssReference).join(', ') : cssReference(value)
+}
+
+/** 语义表 CSS：只引用原料变量，不写值；角色引用指向其他语义变量。 */
+export function semanticsToCss(table: SemanticsTable): string {
+  const lines = ['/* 语义表：用途名 → 原料变量（只引用，不定义值） */', ':root {']
+  for (const [role, entries] of Object.entries(table).sort(([a], [b]) => a.localeCompare(b))) {
+    for (const [slot, value] of Object.entries(entries).sort(([a], [b]) => a.localeCompare(b))) {
+      lines.push(`  ${roleVar(`${role}.${slot}`)}: ${cssValueOf(value)};`)
+    }
+  }
+  lines.push('}', '')
+  return `${lines.join('\n')}\n`
+}
+
+/** 语义表产物：默认同时写 JSON 与 CSS；CSS 只引用原料变量。 */
+export function exportSemantics(table: SemanticsTable, options: { output?: string; css?: boolean } = {}): OutputFile[] {
   const dir = (options.output ?? 'ultime-tokens').replace(/\/+$/, '')
   const content = {
     $description: '语义表：用途名 → 原料路径（只写路径、不含值；可整表替换或局部覆盖）',
     roles: table,
   }
-  return [{ path: `${dir}/semantics.json`, content: `${JSON.stringify(content, null, 2)}\n` }]
+  const files: OutputFile[] = [{ path: `${dir}/semantics.json`, content: `${JSON.stringify(content, null, 2)}\n` }]
+  if (options.css !== false) {
+    files.push({ path: `${dir}/semantics.css`, content: semanticsToCss(table) })
+  }
+  return files
 }

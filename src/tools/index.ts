@@ -38,6 +38,7 @@ export {
   DEFAULT_SEMANTICS,
   SEMANTICS_TEMPLATES,
   exportSemantics,
+  semanticsToCss,
   resolveSemantics,
   tokenPaths,
   validateSemantics,

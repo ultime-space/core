@@ -12,6 +12,7 @@
 ### Added
 
 - `bakeLight`：单角度烘焙整套光影原料的引擎能力。
+- 语义表默认同时产出 `semantics.css` 与 `semantics.json`；新增 `semanticsToCss`，CSS 只引用原料变量。
 - 单角度光影测试：角度差异、确定性、0 / 360 归一、旧双角度拒绝。
 
 ## 0.11.2 - 2026-11-15

@@ -4,6 +4,7 @@ import { buildCore } from '../src/build'
 import {
   DEFAULT_SEMANTICS,
   exportArtifacts,
+  exportSemantics,
   planProject,
   resolveSemantics,
   validateConfig,
@@ -112,5 +113,19 @@ describe('tools · 语义表', () => {
     const file = files.find((item) => item.path === 'ultime-tokens/semantics.json')
     expect(file).toBeDefined()
     expect(file!.content).toContain('"gap"')
+  })
+
+  it('语义表同时写 semantics.css，变量引用原料', () => {
+    const files = exportArtifacts({ tokens: { semantics: {} } })
+    const css = files.find((item) => item.path === 'ultime-tokens/semantics.css')
+    expect(css).toBeDefined()
+    expect(css!.content).toContain('--semantics-gap-stack: var(--space-4)')
+    expect(css!.content).toContain('--semantics-surface-overlay: var(--color-surface-float)')
+  })
+
+  it('语义表 CSS 的角色引用指向语义变量', () => {
+    const files = exportSemantics({ a: { x: '@b.y' }, b: { y: 'space.2' } })
+    const css = files.find((item) => item.path.endsWith('semantics.css'))
+    expect(css!.content).toContain('--semantics-a-x: var(--semantics-b-y)')
   })
 })
