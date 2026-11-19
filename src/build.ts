@@ -11,7 +11,7 @@ import { deriveMotion, type MotionResult } from './model/motion'
 import { deriveSkeleton, type SkeletonResult } from './model/skeleton'
 import { resolveSeed, seedHash, type CoreSeed, type SeedInput } from './seed'
 import { auditContracts, countByCategory, type ContractReport } from './contracts'
-import { isModeValue, token, type ColorValue, type Group, type ModeValue, type Node } from './tree'
+import { isModeValue, isToken, token, walk, type ColorValue, type Group, type ModeValue, type Node } from './tree'
 import { ENGINE_VERSION, SCHEMA_VERSION } from './version'
 
 export interface CoreResult {
@@ -99,7 +99,38 @@ export function buildCore(input: SeedInput = {}): CoreResult {
   }
 }
 
-/** manifest：可复现记录 + 计数 + 合同摘要；不含时间戳。 */
+/** 允许档位：只列原子路径，不含语义角色、block 子面或组合白名单。 */
+function buildTiers(tree: Group): Record<string, string[]> {
+  const tiers: Record<string, string[]> = {}
+  const add = (category: string, path: string[]) => {
+    ;(tiers[category] ??= []).push(path.join('.'))
+  }
+  walk(tree, (path, node) => {
+    if (!path.length || !isToken(node)) return
+    const [top, second, third] = path
+    if (top === 'space' || top === 'size' || top === 'radius' || top === 'fs' || top === 'lh' || top === 'ls') {
+      add(top, path)
+      return
+    }
+    if ((top === 'shadow' || top === 'occlusion') && second && /^\d+$/.test(second)) {
+      add(top, path)
+      return
+    }
+    if (top === 'motion') {
+      add('motion', path)
+      return
+    }
+    if (top === 'color' && second === 'surface' && third && ['canvas', 'raised', 'inset', 'float'].includes(third)) {
+      add('surface', path)
+    }
+  })
+  for (const list of Object.values(tiers)) {
+    list.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+  }
+  return tiers
+}
+
+/** manifest：可复现记录 + 计数 + 合同摘要 + 允许档位；不含时间戳。 */
 export function buildManifest(result: CoreResult) {
   return {
     name: '@ultime/core',
@@ -117,6 +148,7 @@ export function buildManifest(result: CoreResult) {
       easing: result.motion.easing,
     },
     counts: result.counts,
+    tiers: buildTiers(result.tree),
     contracts: {
       total: result.contracts.total,
       failed: result.contracts.failed,
