@@ -30,8 +30,8 @@
     "surface": {
       "canvasLight": "neutral.100",
       "canvasDark": "neutral.950",
-      // 两端画布到各自极点取同一对比度
-      "canvasSymmetry": 1.2,
+      // 两端各自到极点取比值：浅端更靠白、深端离开黑；平均仍为 1.20
+      "canvasSymmetry": { "light": 1.12, "dark": 1.28 },
       // 面阶目标：面对画布
       "faceContrast": { "card": 1.1, "float": 1.14, "sunken": 1.07 },
       "tintLight": "#FFFFFF",

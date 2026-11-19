@@ -3,7 +3,7 @@
   "$extensions": {
     "com.ultime.core": {
       "schemaVersion": "7.0.0",
-      "seedHash": "fnv1a-a69c94c7",
+      "seedHash": "fnv1a-b8e25605",
       "note": "真源是 seed + 引擎；本文件只是可交换快照。"
     }
   },
@@ -385,12 +385,12 @@
           "$value": {
             "colorSpace": "srgb",
             "components": [
-              0.9216,
-              0.9216,
-              0.9216
+              0.949,
+              0.949,
+              0.949
             ],
             "alpha": 1,
-            "hex": "#EBEBEB"
+            "hex": "#F2F2F2"
           }
         },
         "dark": {
@@ -398,12 +398,12 @@
           "$value": {
             "colorSpace": "srgb",
             "components": [
-              0.102,
-              0.102,
-              0.102
+              0.1255,
+              0.1255,
+              0.1255
             ],
             "alpha": 1,
-            "hex": "#1A1A1A"
+            "hex": "#202020"
           }
         },
         "$description": "模式值：light / dark"
@@ -418,7 +418,7 @@
               1,
               1
             ],
-            "alpha": 0.528,
+            "alpha": 0.81,
             "hex": "#FFFFFF"
           }
         },
@@ -431,7 +431,7 @@
               1,
               1
             ],
-            "alpha": 0.04,
+            "alpha": 0.036,
             "hex": "#FFFFFF"
           }
         },
@@ -447,7 +447,7 @@
               1,
               1
             ],
-            "alpha": 0.728,
+            "alpha": 1,
             "hex": "#FFFFFF"
           }
         },
@@ -460,7 +460,7 @@
               1,
               1
             ],
-            "alpha": 0.054,
+            "alpha": 0.05,
             "hex": "#FFFFFF"
           }
         },
@@ -489,7 +489,7 @@
               0,
               0
             ],
-            "alpha": 0.292,
+            "alpha": 0.206,
             "hex": "#000000"
           }
         },
@@ -596,7 +596,7 @@
               0,
               0
             ],
-            "alpha": 0.7,
+            "alpha": 0.69,
             "hex": "#000000"
           }
         },
@@ -609,7 +609,7 @@
               1,
               1
             ],
-            "alpha": 0.66,
+            "alpha": 0.68,
             "hex": "#FFFFFF"
           }
         },
@@ -625,7 +625,7 @@
               0,
               0
             ],
-            "alpha": 0.65,
+            "alpha": 0.64,
             "hex": "#000000"
           }
         },
@@ -638,7 +638,7 @@
               1,
               1
             ],
-            "alpha": 0.59,
+            "alpha": 0.61,
             "hex": "#FFFFFF"
           }
         },
@@ -667,7 +667,7 @@
               1,
               1
             ],
-            "alpha": 0.52,
+            "alpha": 0.53,
             "hex": "#FFFFFF"
           }
         },
@@ -714,7 +714,7 @@
               0,
               0
             ],
-            "alpha": 0.068,
+            "alpha": 0.072,
             "hex": "#000000"
           }
         },
@@ -727,7 +727,7 @@
               1,
               1
             ],
-            "alpha": 0.058,
+            "alpha": 0.054,
             "hex": "#FFFFFF"
           }
         },
@@ -756,7 +756,7 @@
               1,
               1
             ],
-            "alpha": 0.128,
+            "alpha": 0.122,
             "hex": "#FFFFFF"
           }
         },
@@ -772,7 +772,7 @@
               0,
               0
             ],
-            "alpha": 0.426,
+            "alpha": 0.422,
             "hex": "#000000"
           }
         },
@@ -802,12 +802,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -815,12 +815,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -831,12 +831,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1647,
-                    0.1647,
-                    0.1647
+                    0.1804,
+                    0.1804,
+                    0.1804
                   ],
                   "alpha": 1,
-                  "hex": "#2A2A2A"
+                  "hex": "#2E2E2E"
                 }
               },
               "dark": {
@@ -844,12 +844,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9255,
-                    0.9255,
-                    0.9255
+                    0.9529,
+                    0.9529,
+                    0.9529
                   ],
                   "alpha": 1,
-                  "hex": "#ECECEC"
+                  "hex": "#F3F3F3"
                 }
               },
               "$description": "模式值：light / dark"
@@ -860,12 +860,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -873,12 +873,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -889,12 +889,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1608,
-                    0.1608,
-                    0.1608
+                    0.1725,
+                    0.1725,
+                    0.1725
                   ],
                   "alpha": 1,
-                  "hex": "#292929"
+                  "hex": "#2C2C2C"
                 }
               },
               "dark": {
@@ -902,12 +902,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9294,
-                    0.9294,
-                    0.9294
+                    0.9529,
+                    0.9529,
+                    0.9529
                   ],
                   "alpha": 1,
-                  "hex": "#EDEDED"
+                  "hex": "#F3F3F3"
                 }
               },
               "$description": "模式值：light / dark"
@@ -918,12 +918,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -931,12 +931,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -947,12 +947,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.6314,
-                    0.6314,
-                    0.6314
+                    0.6353,
+                    0.6353,
+                    0.6353
                   ],
                   "alpha": 1,
-                  "hex": "#A1A1A1"
+                  "hex": "#A2A2A2"
                 }
               },
               "dark": {
@@ -960,12 +960,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.5529,
-                    0.5529,
-                    0.5529
+                    0.5686,
+                    0.5686,
+                    0.5686
                   ],
                   "alpha": 1,
-                  "hex": "#8D8D8D"
+                  "hex": "#919191"
                 }
               },
               "$description": "模式值：light / dark"
@@ -976,12 +976,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1608,
-                    0.1608,
-                    0.1608
+                    0.1725,
+                    0.1725,
+                    0.1725
                   ],
                   "alpha": 1,
-                  "hex": "#292929"
+                  "hex": "#2C2C2C"
                 }
               },
               "dark": {
@@ -989,12 +989,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9294,
-                    0.9294,
-                    0.9294
+                    0.9529,
+                    0.9529,
+                    0.9529
                   ],
                   "alpha": 1,
-                  "hex": "#EDEDED"
+                  "hex": "#F3F3F3"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1005,12 +1005,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -1018,12 +1018,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1036,12 +1036,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.7961,
-                    0.7961,
-                    0.7961
+                    0.8,
+                    0.8,
+                    0.8
                   ],
                   "alpha": 1,
-                  "hex": "#CBCBCB"
+                  "hex": "#CCCCCC"
                 }
               },
               "dark": {
@@ -1049,12 +1049,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.2314,
-                    0.2314,
-                    0.2314
+                    0.2392,
+                    0.2392,
+                    0.2392
                   ],
                   "alpha": 1,
-                  "hex": "#3B3B3B"
+                  "hex": "#3D3D3D"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1125,12 +1125,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.7961,
-                    0.7961,
-                    0.7961
+                    0.8,
+                    0.8,
+                    0.8
                   ],
                   "alpha": 1,
-                  "hex": "#CBCBCB"
+                  "hex": "#CCCCCC"
                 }
               },
               "dark": {
@@ -1138,12 +1138,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.2314,
-                    0.2314,
-                    0.2314
+                    0.2392,
+                    0.2392,
+                    0.2392
                   ],
                   "alpha": 1,
-                  "hex": "#3B3B3B"
+                  "hex": "#3D3D3D"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1245,12 +1245,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9333,
-                    0.9333,
-                    0.9333
+                    0.9373,
+                    0.9373,
+                    0.9373
                   ],
                   "alpha": 1,
-                  "hex": "#EEEEEE"
+                  "hex": "#EFEFEF"
                 }
               },
               "dark": {
@@ -1258,12 +1258,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.2588,
-                    0.2588,
-                    0.2588
+                    0.2667,
+                    0.2667,
+                    0.2667
                   ],
                   "alpha": 1,
-                  "hex": "#424242"
+                  "hex": "#444444"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1287,12 +1287,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.3176,
-                    0.3176,
-                    0.3176
+                    0.3255,
+                    0.3255,
+                    0.3255
                   ],
                   "alpha": 1,
-                  "hex": "#515151"
+                  "hex": "#535353"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1303,12 +1303,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9333,
-                    0.9333,
-                    0.9333
+                    0.9373,
+                    0.9373,
+                    0.9373
                   ],
                   "alpha": 1,
-                  "hex": "#EEEEEE"
+                  "hex": "#EFEFEF"
                 }
               },
               "dark": {
@@ -1316,12 +1316,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.2588,
-                    0.2588,
-                    0.2588
+                    0.2667,
+                    0.2667,
+                    0.2667
                   ],
                   "alpha": 1,
-                  "hex": "#424242"
+                  "hex": "#444444"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1345,12 +1345,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.3608,
-                    0.3608,
-                    0.3608
+                    0.3686,
+                    0.3686,
+                    0.3686
                   ],
                   "alpha": 1,
-                  "hex": "#5C5C5C"
+                  "hex": "#5E5E5E"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1361,12 +1361,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9333,
-                    0.9333,
-                    0.9333
+                    0.9373,
+                    0.9373,
+                    0.9373
                   ],
                   "alpha": 1,
-                  "hex": "#EEEEEE"
+                  "hex": "#EFEFEF"
                 }
               },
               "dark": {
@@ -1374,12 +1374,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.2588,
-                    0.2588,
-                    0.2588
+                    0.2667,
+                    0.2667,
+                    0.2667
                   ],
                   "alpha": 1,
-                  "hex": "#424242"
+                  "hex": "#444444"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1390,12 +1390,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.6314,
-                    0.6314,
-                    0.6314
+                    0.6353,
+                    0.6353,
+                    0.6353
                   ],
                   "alpha": 1,
-                  "hex": "#A1A1A1"
+                  "hex": "#A2A2A2"
                 }
               },
               "dark": {
@@ -1403,12 +1403,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1569,
-                    0.1569,
-                    0.1569
+                    0.1608,
+                    0.1608,
+                    0.1608
                   ],
                   "alpha": 1,
-                  "hex": "#282828"
+                  "hex": "#292929"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1432,12 +1432,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.3608,
-                    0.3608,
-                    0.3608
+                    0.3686,
+                    0.3686,
+                    0.3686
                   ],
                   "alpha": 1,
-                  "hex": "#5C5C5C"
+                  "hex": "#5E5E5E"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1461,12 +1461,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.3176,
-                    0.3176,
-                    0.3176
+                    0.3255,
+                    0.3255,
+                    0.3255
                   ],
                   "alpha": 1,
-                  "hex": "#515151"
+                  "hex": "#535353"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1492,12 +1492,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.7176,
-                    0.7176,
-                    0.7176
+                    0.7294,
+                    0.7294,
+                    0.7294
                   ],
                   "alpha": 1,
-                  "hex": "#B7B7B7"
+                  "hex": "#BABABA"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1508,12 +1508,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -1521,12 +1521,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1537,12 +1537,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -1550,12 +1550,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1581,12 +1581,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.2157,
-                    0.2157,
-                    0.2157
+                    0.2235,
+                    0.2235,
+                    0.2235
                   ],
                   "alpha": 1,
-                  "hex": "#373737"
+                  "hex": "#393939"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1597,12 +1597,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.8039,
-                    0.8039,
-                    0.8039
+                    0.8078,
+                    0.8078,
+                    0.8078
                   ],
                   "alpha": 1,
-                  "hex": "#CDCDCD"
+                  "hex": "#CECECE"
                 }
               },
               "dark": {
@@ -1610,12 +1610,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.3333,
-                    0.3333,
-                    0.3333
+                    0.3412,
+                    0.3412,
+                    0.3412
                   ],
                   "alpha": 1,
-                  "hex": "#555555"
+                  "hex": "#575757"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1626,12 +1626,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.6431,
-                    0.6431,
-                    0.6431
+                    0.6471,
+                    0.6471,
+                    0.6471
                   ],
                   "alpha": 1,
-                  "hex": "#A4A4A4"
+                  "hex": "#A5A5A5"
                 }
               },
               "dark": {
@@ -1639,12 +1639,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.4667,
-                    0.4667,
-                    0.4667
+                    0.4745,
+                    0.4745,
+                    0.4745
                   ],
                   "alpha": 1,
-                  "hex": "#777777"
+                  "hex": "#797979"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1672,12 +1672,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.7176,
-                    0.7176,
-                    0.7176
+                    0.7294,
+                    0.7294,
+                    0.7294
                   ],
                   "alpha": 1,
-                  "hex": "#B7B7B7"
+                  "hex": "#BABABA"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1688,12 +1688,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -1701,12 +1701,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1717,12 +1717,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -1730,12 +1730,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1761,12 +1761,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.2157,
-                    0.2157,
-                    0.2157
+                    0.2235,
+                    0.2235,
+                    0.2235
                   ],
                   "alpha": 1,
-                  "hex": "#373737"
+                  "hex": "#393939"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1777,12 +1777,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.8039,
-                    0.8039,
-                    0.8039
+                    0.8078,
+                    0.8078,
+                    0.8078
                   ],
                   "alpha": 1,
-                  "hex": "#CDCDCD"
+                  "hex": "#CECECE"
                 }
               },
               "dark": {
@@ -1790,12 +1790,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.3333,
-                    0.3333,
-                    0.3333
+                    0.3412,
+                    0.3412,
+                    0.3412
                   ],
                   "alpha": 1,
-                  "hex": "#555555"
+                  "hex": "#575757"
                 }
               },
               "$description": "模式值：light / dark"
@@ -1806,12 +1806,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.1765,
-                    0.1765,
-                    0.1765
+                    0.1922,
+                    0.1922,
+                    0.1922
                   ],
                   "alpha": 1,
-                  "hex": "#2D2D2D"
+                  "hex": "#313131"
                 }
               },
               "dark": {
@@ -1819,12 +1819,12 @@
                 "$value": {
                   "colorSpace": "srgb",
                   "components": [
-                    0.9216,
-                    0.9216,
-                    0.9216
+                    0.949,
+                    0.949,
+                    0.949
                   ],
                   "alpha": 1,
-                  "hex": "#EBEBEB"
+                  "hex": "#F2F2F2"
                 }
               },
               "$description": "模式值：light / dark"
@@ -6000,7 +6000,7 @@
               0,
               0
             ],
-            "alpha": 0.04,
+            "alpha": 0.038,
             "hex": "#000000"
           }
         },
@@ -6029,7 +6029,7 @@
               0,
               0
             ],
-            "alpha": 0.056,
+            "alpha": 0.054,
             "hex": "#000000"
           }
         },
@@ -6042,7 +6042,7 @@
               1,
               1
             ],
-            "alpha": 0.044,
+            "alpha": 0.046,
             "hex": "#FFFFFF"
           }
         },
@@ -6083,12 +6083,12 @@
           "$value": {
             "colorSpace": "srgb",
             "components": [
-              0.1765,
-              0.1765,
-              0.1765
+              0.1922,
+              0.1922,
+              0.1922
             ],
             "alpha": 0.08,
-            "hex": "#2D2D2D"
+            "hex": "#313131"
           }
         },
         "dark": {
@@ -6096,12 +6096,12 @@
           "$value": {
             "colorSpace": "srgb",
             "components": [
-              0.9216,
-              0.9216,
-              0.9216
+              0.949,
+              0.949,
+              0.949
             ],
             "alpha": 0.08,
-            "hex": "#EBEBEB"
+            "hex": "#F2F2F2"
           }
         },
         "$description": "模式值：light / dark"
@@ -6112,12 +6112,12 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.051,
-          0.051,
-          0.051
+          0.0706,
+          0.0706,
+          0.0706
         ],
         "alpha": 0.42,
-        "hex": "#0D0D0D"
+        "hex": "#121212"
       }
     }
   },
@@ -6129,12 +6129,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6158,12 +6158,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6192,12 +6192,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6221,12 +6221,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6250,12 +6250,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6284,12 +6284,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6313,12 +6313,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6342,12 +6342,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.08,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6376,12 +6376,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6405,12 +6405,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6434,12 +6434,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.12,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6466,12 +6466,12 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.051,
-          0.051,
-          0.051
+          0.0706,
+          0.0706,
+          0.0706
         ],
         "alpha": 1,
-        "hex": "#0D0D0D"
+        "hex": "#121212"
       }
     }
   },
@@ -6483,12 +6483,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.04,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6517,12 +6517,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.08,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6551,12 +6551,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.12,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6585,12 +6585,12 @@
           "color": {
             "colorSpace": "srgb",
             "components": [
-              0.051,
-              0.051,
-              0.051
+              0.0706,
+              0.0706,
+              0.0706
             ],
             "alpha": 0.16,
-            "hex": "#0D0D0D"
+            "hex": "#121212"
           },
           "offsetX": {
             "value": 0,
@@ -6729,12 +6729,12 @@
             "color": {
               "colorSpace": "srgb",
               "components": [
-                0.051,
-                0.051,
-                0.051
+                0.0706,
+                0.0706,
+                0.0706
               ],
               "alpha": 0.14,
-              "hex": "#0D0D0D"
+              "hex": "#121212"
             },
             "offsetX": {
               "value": 0,
@@ -6763,12 +6763,12 @@
             "color": {
               "colorSpace": "srgb",
               "components": [
-                0.051,
-                0.051,
-                0.051
+                0.0706,
+                0.0706,
+                0.0706
               ],
               "alpha": 0.2,
-              "hex": "#0D0D0D"
+              "hex": "#121212"
             },
             "offsetX": {
               "value": 0,
