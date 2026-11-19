@@ -5,5 +5,5 @@
  * `ENGINE_VERSION`：派生实现版本；同 seed 同 schema 下结果应逐字节稳定。
  */
 
-export const SCHEMA_VERSION = '6.0.0'
-export const ENGINE_VERSION = '0.7.0'
+export const SCHEMA_VERSION = '7.0.0'
+export const ENGINE_VERSION = '1.0.0'

@@ -1,7 +1,7 @@
 {
   "name": "@ultime/core",
-  "schemaVersion": "6.0.0",
-  "engineVersion": "0.7.0",
+  "schemaVersion": "7.0.0",
+  "engineVersion": "1.0.0",
   "unit": {
     "scale": "logical",
     "definition": "1 逻辑像素 = 1 iOS pt = 1 Android dp = 1 CSS px@1x",
@@ -200,6 +200,106 @@
       "shade": 1,
       "motion": 16
     }
+  },
+  "tiers": {
+    "space": [
+      "space.1",
+      "space.2",
+      "space.3",
+      "space.4",
+      "space.5",
+      "space.6",
+      "space.7",
+      "space.8",
+      "space.9",
+      "space.10",
+      "space.11",
+      "space.12",
+      "space.13",
+      "space.14",
+      "space.15",
+      "space.16",
+      "space.17",
+      "space.18"
+    ],
+    "size": [
+      "size.1",
+      "size.2",
+      "size.3",
+      "size.4",
+      "size.5"
+    ],
+    "radius": [
+      "radius.1",
+      "radius.2",
+      "radius.3",
+      "radius.4",
+      "radius.5",
+      "radius.6",
+      "radius.7",
+      "radius.8",
+      "radius.9"
+    ],
+    "fs": [
+      "fs.1",
+      "fs.2",
+      "fs.3",
+      "fs.4",
+      "fs.5",
+      "fs.6",
+      "fs.7",
+      "fs.8",
+      "fs.9"
+    ],
+    "lh": [
+      "lh.1",
+      "lh.2",
+      "lh.3",
+      "lh.4"
+    ],
+    "ls": [
+      "ls.1",
+      "ls.2",
+      "ls.3",
+      "ls.4",
+      "ls.5"
+    ],
+    "surface": [
+      "color.surface.canvas",
+      "color.surface.float",
+      "color.surface.inset",
+      "color.surface.raised"
+    ],
+    "shadow": [
+      "shadow.1",
+      "shadow.2",
+      "shadow.3",
+      "shadow.4"
+    ],
+    "occlusion": [
+      "occlusion.1",
+      "occlusion.2",
+      "occlusion.3",
+      "occlusion.4"
+    ],
+    "motion": [
+      "motion.delay.1",
+      "motion.delay.2",
+      "motion.delay.3",
+      "motion.duration.1",
+      "motion.duration.2",
+      "motion.duration.3",
+      "motion.duration.4",
+      "motion.duration.5",
+      "motion.duration.6",
+      "motion.easing.accelerate",
+      "motion.easing.decelerate",
+      "motion.easing.linear",
+      "motion.easing.standard",
+      "motion.loop.1",
+      "motion.loop.2",
+      "motion.loop.3"
+    ]
   },
   "contracts": {
     "total": 133,
