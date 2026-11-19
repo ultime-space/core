@@ -12,7 +12,7 @@ import { deriveSkeleton, type SkeletonResult } from './model/skeleton'
 import { resolveSeed, seedHash, type CoreSeed, type SeedInput } from './seed'
 import { auditContracts, countByCategory, type ContractReport } from './contracts'
 import { isModeValue, isToken, token, walk, type ColorValue, type Group, type ModeValue, type Node } from './tree'
-import { ENGINE_VERSION, SCHEMA_VERSION } from './version'
+import { SCHEMA_VERSION } from './version'
 
 export interface CoreResult {
   seed: CoreSeed
@@ -135,7 +135,6 @@ export function buildManifest(result: CoreResult) {
   return {
     name: '@ultime/core',
     schemaVersion: SCHEMA_VERSION,
-    engineVersion: ENGINE_VERSION,
     unit: {
       scale: 'logical',
       definition: '1 逻辑像素 = 1 iOS pt = 1 Android dp = 1 CSS px@1x',

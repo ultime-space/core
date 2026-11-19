@@ -14,7 +14,7 @@
 - `bakeLight`：单角度烘焙整套光影原料的引擎能力。
 - 语义表默认同时产出 `semantics.css` 与 `semantics.json`；新增 `semanticsToCss`，CSS 只引用原料变量。
 - `kernel.json` 新增 `tiers`：按类别列出允许的原子档位路径，不导出语义角色或组合白名单。
-- `schemaVersion` 升到 7.0.0、`engineVersion` 升到 1.0.0。
+- `schemaVersion` 升到 7.0.0；移除 `engineVersion`，派生实现由 core 包版本表达。
 - 单角度光影测试：角度差异、确定性、0 / 360 归一、旧双角度拒绝。
 
 ## 0.11.2 - 2026-11-15

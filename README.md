@@ -257,7 +257,7 @@ packages/core/
 │   ├── tree.ts                token / group / 模式值 / 遍历 / 合成
 │   ├── build.ts               seed → 派生 → 一棵树 → 合同 → manifest
 │   ├── contracts.ts           几何 / 动效 / 树结构 / 颜色报告
-│   ├── version.ts             schemaVersion / engineVersion
+│   ├── version.ts             schemaVersion
 │   ├── model/
 │   │   ├── skeleton.ts        space / size / radius / fs / lh / ls / font
 │   │   ├── color/             颜色数学 + 中性灰 + 画布 / 面阶 / 墨 / 线 / 色族矩阵
@@ -292,7 +292,7 @@ packages/core/
 
 ## 版本与兼容
 
-- 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面，`engineVersion` 描述派生实现。
+- 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。
 - 依赖基线：`@ultime/studio` / `@ultime/cli` 发版后，core 下次发版前更新 lockfile 到最新已发布版本并重建测试；已发布版本不追改。
 - 0.11.2：`build` / `inspect` 共用配置加载；依赖基线对齐 `@ultime/cli ^0.4.0`；API、树与产物不变。
 - 0.11.1：`readSeedFile` 校验对象形状；`inspect` 有 error 诊断时返回 1；`emitTokens` 按平台生成并复用 manifest。

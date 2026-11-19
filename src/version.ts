@@ -1,9 +1,8 @@
 /**
- * version.ts — 内核契约与引擎版本
+ * version.ts — 内核契约版本
  * ---------------------------------------------------------------------------
  * `SCHEMA_VERSION`：树 / 契约字段的兼容面；字段增删或语义变化时升主版本。
- * `ENGINE_VERSION`：派生实现版本；同 seed 同 schema 下结果应逐字节稳定。
+ * 派生实现由包版本表达；不再单独维护 engineVersion。
  */
 
 export const SCHEMA_VERSION = '7.0.0'
-export const ENGINE_VERSION = '1.0.0'

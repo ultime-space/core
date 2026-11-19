@@ -45,5 +45,5 @@ npm pack --dry-run
 
 ## 版本
 
-- 包版本按 semver；`schemaVersion` 管树与合同字段兼容面，`engineVersion` 管派生实现。
+- 包版本按 semver；`schemaVersion` 管树与合同字段兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。
 - 0.x 阶段 minor 可含破坏性变更，必须写进 README「版本与兼容」。

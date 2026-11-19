@@ -8,7 +8,7 @@
 
 import { defineConfigurator, type ConfiguratorDefinition, type Diagnostic, type Preset } from '@ultime/studio'
 import { THEME_DEFAULTS, exportTheme, type ThemeConfig } from '../tools'
-import { ENGINE_VERSION } from '../version'
+import { SCHEMA_VERSION } from '../version'
 import { toStudioDiagnostics } from './diagnostics'
 import { THEME_FIELDS, THEME_GROUPS } from './fields'
 
@@ -95,7 +95,7 @@ const SCENARIOS = [
 export const themeStudio: ConfiguratorDefinition<ThemeConfig> = defineConfigurator({
   id: 'core.theme',
   title: '设计系统 · core',
-  version: ENGINE_VERSION,
+  version: SCHEMA_VERSION,
   defaults: THEME_DEFAULTS,
   fields: THEME_FIELDS,
   groups: THEME_GROUPS,
