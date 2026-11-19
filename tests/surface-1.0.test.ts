@@ -8,6 +8,7 @@ describe('core 1.0 · 面层级命名', () => {
     const surface = (buildCore().tree.color as any).surface as any
     expect(surface.float).toBeDefined()
     expect(surface.overlay).toBeUndefined()
+    expect(surface.root).toBeUndefined()
   })
 
   it('语义角色 overlay 映射到 color.surface.float', () => {
