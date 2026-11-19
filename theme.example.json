@@ -33,7 +33,7 @@
       // 两端画布到各自极点取同一对比度
       "canvasSymmetry": 1.2,
       // 面阶目标：面对画布
-      "faceContrast": { "card": 1.1, "overlay": 1.14, "sunken": 1.07 },
+      "faceContrast": { "card": 1.1, "float": 1.14, "sunken": 1.07 },
       "tintLight": "#FFFFFF",
       "tintDark": "#FFFFFF",
       "themeMix": 0,

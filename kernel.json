@@ -63,7 +63,7 @@
         "canvasSymmetry": 1.2,
         "faceContrast": {
           "card": 1.1,
-          "overlay": 1.14,
+          "float": 1.14,
           "sunken": 1.07
         },
         "tintLight": "#FFFFFF",
@@ -72,7 +72,7 @@
         "alpha": {
           "light": {
             "card": 0.62,
-            "overlay": 0.84,
+            "float": 0.84,
             "sunken": 0.06,
             "block": 0.08,
             "blockLight": 0.04,
@@ -80,7 +80,7 @@
           },
           "dark": {
             "card": 0.06,
-            "overlay": 0.1,
+            "float": 0.1,
             "sunken": 0.55,
             "block": 0.35,
             "blockLight": 0.22,
@@ -153,7 +153,7 @@
       }
     }
   },
-  "seedHash": "fnv1a-2c100a45",
+  "seedHash": "fnv1a-a69c94c7",
   "motion": {
     "easingSource": "family",
     "easing": {
@@ -261,7 +261,7 @@
       },
       {
         "id": "surface-target",
-        "token": "surface.overlay",
+        "token": "surface.float",
         "against": "surface.canvas",
         "ratio": 1.14,
         "target": 1.14,
@@ -269,7 +269,7 @@
         "tolerance": 0.03,
         "mode": "light",
         "need": 1.1099999999999999,
-        "pair": "surface.overlay @ surface.canvas",
+        "pair": "surface.float @ surface.canvas",
         "level": "pass"
       },
       {
@@ -351,13 +351,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.primary",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 8.36,
         "target": 7.2,
         "floor": 4.5,
         "mode": "light",
         "need": 4.5,
-        "pair": "ink.primary @ surface.overlay",
+        "pair": "ink.primary @ surface.float",
         "level": "pass"
       },
       {
@@ -399,13 +399,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.secondary",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 6.82,
         "target": 6,
         "floor": 4.5,
         "mode": "light",
         "need": 4.5,
-        "pair": "ink.secondary @ surface.overlay",
+        "pair": "ink.secondary @ surface.float",
         "level": "pass"
       },
       {
@@ -447,13 +447,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.tertiary",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 5.42,
         "target": 5,
         "floor": 4.5,
         "mode": "light",
         "need": 4.5,
-        "pair": "ink.tertiary @ surface.overlay",
+        "pair": "ink.tertiary @ surface.float",
         "level": "pass"
       },
       {
@@ -495,13 +495,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.disabled",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 2.42,
         "target": 2,
         "floor": 2,
         "mode": "light",
         "need": 2,
-        "pair": "ink.disabled @ surface.overlay",
+        "pair": "ink.disabled @ surface.float",
         "level": "pass"
       },
       {
@@ -531,7 +531,7 @@
       },
       {
         "id": "surface-target",
-        "token": "surface.overlay",
+        "token": "surface.float",
         "against": "surface.canvas",
         "ratio": 1.15,
         "target": 1.14,
@@ -539,7 +539,7 @@
         "tolerance": 0.03,
         "mode": "dark",
         "need": 1.1099999999999999,
-        "pair": "surface.overlay @ surface.canvas",
+        "pair": "surface.float @ surface.canvas",
         "level": "pass"
       },
       {
@@ -621,13 +621,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.primary",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 7.38,
         "target": 7.2,
         "floor": 4.5,
         "mode": "dark",
         "need": 4.5,
-        "pair": "ink.primary @ surface.overlay",
+        "pair": "ink.primary @ surface.float",
         "level": "pass"
       },
       {
@@ -669,13 +669,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.secondary",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 6.22,
         "target": 6,
         "floor": 4.5,
         "mode": "dark",
         "need": 4.5,
-        "pair": "ink.secondary @ surface.overlay",
+        "pair": "ink.secondary @ surface.float",
         "level": "pass"
       },
       {
@@ -717,13 +717,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.tertiary",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 5.18,
         "target": 5,
         "floor": 4.5,
         "mode": "dark",
         "need": 4.5,
-        "pair": "ink.tertiary @ surface.overlay",
+        "pair": "ink.tertiary @ surface.float",
         "level": "pass"
       },
       {
@@ -765,13 +765,13 @@
       {
         "id": "ink-contrast",
         "token": "ink.disabled",
-        "against": "surface.overlay",
+        "against": "surface.float",
         "ratio": 3.15,
         "target": 2,
         "floor": 2,
         "mode": "dark",
         "need": 2,
-        "pair": "ink.disabled @ surface.overlay",
+        "pair": "ink.disabled @ surface.float",
         "level": "pass"
       },
       {

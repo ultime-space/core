@@ -42,7 +42,7 @@ export interface SemanticSeed {
 
 export interface SurfaceAlpha {
   card: number
-  overlay: number
+  float: number
   sunken: number
   block: number
   blockLight: number
@@ -56,7 +56,7 @@ export interface SurfaceSeed {
   /** 两端画布到各自极点取同一对比度；null = 关闭 */
   canvasSymmetry: number | { light: number; dark: number } | null
   /** 面层目标：面对画布的对比度；null = 用固定 alpha */
-  faceContrast: { card?: number; overlay?: number; sunken?: number } | null
+  faceContrast: { card?: number; float?: number; sunken?: number } | null
   tintLight: string
   tintDark: string
   themeMix: number
@@ -154,13 +154,13 @@ export const DEFAULT_SEED: CoreSeed = {
       canvasLight: 'neutral.100',
       canvasDark: 'neutral.950',
       canvasSymmetry: 1.2,
-      faceContrast: { card: 1.1, overlay: 1.14, sunken: 1.07 },
+      faceContrast: { card: 1.1, float: 1.14, sunken: 1.07 },
       tintLight: '#FFFFFF',
       tintDark: '#FFFFFF',
       themeMix: 0,
       alpha: {
-        light: { card: 0.62, overlay: 0.84, sunken: 0.06, block: 0.08, blockLight: 0.04, blockStrong: 0.12 },
-        dark: { card: 0.06, overlay: 0.1, sunken: 0.55, block: 0.35, blockLight: 0.22, blockStrong: 0.45 },
+        light: { card: 0.62, float: 0.84, sunken: 0.06, block: 0.08, blockLight: 0.04, blockStrong: 0.12 },
+        dark: { card: 0.06, float: 0.1, sunken: 0.55, block: 0.35, blockLight: 0.22, blockStrong: 0.45 },
       },
       scrimAlpha: 0.42,
     },
@@ -215,6 +215,21 @@ export function resolveSeed(input: SeedInput = {}): CoreSeed {
     for (const key of ['azimuthAngle', 'altitudeAngle']) {
       if (key in rawLight) {
         throw new Error(`light.${key} 已在 1.0 移除；改用 light.angle（0° 正上，顺时针）`)
+      }
+    }
+  }
+  const rawColor = (input as Record<string, unknown>).color as Record<string, unknown> | undefined
+  const rawSurface = rawColor?.surface as Record<string, unknown> | undefined
+  if (rawSurface && typeof rawSurface === 'object') {
+    const rawFace = rawSurface.faceContrast as Record<string, unknown> | undefined
+    if (rawFace && 'overlay' in rawFace) {
+      throw new Error('color.surface.faceContrast.overlay 已在 1.0 改为 float')
+    }
+    const rawAlpha = rawSurface.alpha as Record<string, unknown> | undefined
+    for (const mode of ['light', 'dark']) {
+      const alpha = rawAlpha?.[mode] as Record<string, unknown> | undefined
+      if (alpha && 'overlay' in alpha) {
+        throw new Error(`color.surface.alpha.${mode}.overlay 已在 1.0 改为 float`)
       }
     }
   }
