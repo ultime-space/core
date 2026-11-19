@@ -91,10 +91,8 @@ export interface SkeletonSeed {
 }
 
 export interface LightSeed {
-  /** 光源方位：0° 正上，顺时针 */
-  azimuthAngle: number
-  /** 光源仰角：只影响影长，默认 60° */
-  altitudeAngle: number
+  /** 全局光源角度：0° 正上，顺时针；一个预设值 */
+  angle: number
   blurBase: number
   blurRatio: number
   /** 墨量单位（百分比） */
@@ -176,8 +174,7 @@ export const DEFAULT_SEED: CoreSeed = {
     },
   },
   light: {
-    azimuthAngle: 0,
-    altitudeAngle: 60,
+    angle: 0,
     blurBase: 8,
     blurRatio: 2,
     inkUnit: 4,
@@ -213,7 +210,19 @@ function merge<T>(base: T, patch: unknown): T {
 
 /** 合并后的 seed：唯一入口；构建 / 契约 / 配置器共用。 */
 export function resolveSeed(input: SeedInput = {}): CoreSeed {
+  const rawLight = (input as Record<string, unknown>).light as Record<string, unknown> | undefined
+  if (rawLight && typeof rawLight === 'object') {
+    for (const key of ['azimuthAngle', 'altitudeAngle']) {
+      if (key in rawLight) {
+        throw new Error(`light.${key} 已在 1.0 移除；改用 light.angle（0° 正上，顺时针）`)
+      }
+    }
+  }
   const seed = merge(DEFAULT_SEED, input)
+  if (typeof seed.light.angle !== 'number' || !Number.isFinite(seed.light.angle)) {
+    throw new Error('light.angle 必须是有限数字')
+  }
+  seed.light.angle = ((seed.light.angle % 360) + 360) % 360
   /* 语义色允许写成数字（只给色相）；归一成对象，派生不分支。 */
   seed.color.semantics = Object.fromEntries(
     Object.entries(seed.color.semantics).map(([name, value]) => [

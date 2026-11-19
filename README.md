@@ -49,15 +49,16 @@ const css = treeToCss(result)
 
 换品牌 / 调档只改 seed，然后重跑构建；不要手改快照。
 
-光影用同一份引擎求解；静态快照只表达默认形态 `convex`：
+光影用同一份引擎求解；seed 只给一个全局角度，静态快照只表达默认形态 `convex`：
 
 ```js
-import { solveLight } from '@ultime/core'
+import { bakeLight, solveLight } from '@ultime/core'
 
+bakeLight({ light: { angle: 45 } }) // 一个角度 → 整套光影原料
 solveLight({ form: 'concave', depth: 3, mode: 'dark' })
 ```
 
-`solveLight` 只收形态 / 深度 / 模式，不收尺寸、圆角或组件名；`flat` / `convex` / `concave` 在构建期取，不写入静态快照。
+`bakeLight` 在引擎层烘焙，内核只存角度与结果；`solveLight` 只收形态 / 深度 / 模式，不收尺寸、圆角或组件名；`flat` / `convex` / `concave` 在构建期取，不写入静态快照。
 
 ## 统一出口
 
@@ -176,7 +177,7 @@ color: var(--color-tone-primary-solid-foreground);
 
 | 入口 | 提供 |
 |---|---|
-| `@ultime/core` | `buildCore` / `buildManifest` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 |
+| `@ultime/core` | `buildCore` / `buildManifest` / `bakeLight` / `solveLight` / `planGradient` / 树工具 / 合同 / 版本 |
 | `@ultime/core/exporters` | `treeToCss` / `treeToJson` / `treeToDtcg`；只读树 |
 | `@ultime/core/tools` | 统一管线 `resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；产物出口 `exportTokens` / `emitTokens`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值；配置校验；语义表模板 |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验映射 / 预览 / 导出；选择 / 派生 API 由 tools 提供并 re-export；渐变判断：`planGradient` |

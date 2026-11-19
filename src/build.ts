@@ -48,6 +48,12 @@ function prepareLight(seed: CoreSeed): { color: ColorResult; light: LightResult 
   return { color, light }
 }
 
+/** 光影烘焙入口：一个角度 + 规则 → 整套光影原料；内核只存结果。 */
+export function bakeLight(input: SeedInput = {}): LightResult {
+  const seed = resolveSeed(input)
+  return prepareLight(seed).light
+}
+
 /** 独立求解入口：给上层在构建期按形态 / 深度 / 模式取五槽值。 */
 export function solveLight(input: LightSolveInput = {}, seedInput: SeedInput = {}): LightSolveResult {
   const seed = resolveSeed(seedInput)

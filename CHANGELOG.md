@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 - 未发布
+
+### Breaking
+
+- 光影 seed 收敛为单角度 `light.angle`；`azimuthAngle` / `altitudeAngle` 移除并在构建时明确报错；内核只存角度与烘焙结果。
+- `theme.example.json`、studio 字段与文档同步到单角度输入。
+
+### Added
+
+- `bakeLight`：单角度烘焙整套光影原料的引擎能力。
+- 单角度光影测试：角度差异、确定性、0 / 360 归一、旧双角度拒绝。
+
 ## 0.11.2 - 2026-11-15
 
 ### Changed

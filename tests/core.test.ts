@@ -158,8 +158,8 @@ describe('core · 颜色与光影', () => {
     expect(JSON.stringify(result.seed.light)).not.toMatch(/rimAlpha|lightTint|ambientTint|bevel/)
   })
 
-  it('方向边线按方位角投影：0° / 45° / 315°', () => {
-    const at = (azimuthAngle: number) => buildCore({ light: { azimuthAngle } }).tree.highlight as any
+  it('方向边线按角度投影：0° / 45° / 315°', () => {
+    const at = (angle: number) => buildCore({ light: { angle } }).tree.highlight as any
     const offsets = (token: any) => token.$value.light.map((layer: any) => [layer.offsetX.value, layer.offsetY.value])
     expect(offsets(at(0).key)).toEqual([[0, 1]])
     expect(offsets(at(45).key)).toEqual([
