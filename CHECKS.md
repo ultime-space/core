@@ -2,7 +2,7 @@
 
 > 定位：`@ultime/core/checks` 导出的 `tokensRule`，按 `kernel.json.tiers` 校验字号、表面与阴影消费；规则归 core，运行器是 `@ultime/checks`。
 > 状态：现行（2026-11-19，core 1.0）。
-> 关系：产物与出口见 [README](../README.md)；迁移见 [MIGRATION](../MIGRATION.md)；运行器用法见 [`@ultime/checks`](https://www.npmjs.com/package/@ultime/checks)。
+> 关系：产物与出口见 [README](./README.md)；迁移见 [MIGRATION](./MIGRATION.md)；运行器用法见 [`@ultime/checks`](https://www.npmjs.com/package/@ultime/checks)。
 
 ## 一、用法
 
