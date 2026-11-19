@@ -303,7 +303,7 @@ packages/core/
 ## 版本与兼容
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。
-- 1.0.0（未发布）：破坏性升级；旧 → 新对照与操作清单见 [MIGRATION.md](./MIGRATION.md)。
+- 1.0.0：破坏性升级；旧 → 新对照与操作清单见 [MIGRATION.md](./MIGRATION.md)。
 - 依赖基线：`@ultime/studio` / `@ultime/cli` 发版后，core 下次发版前更新 lockfile 到最新已发布版本并重建测试；已发布版本不追改。
 - 0.11.2：`build` / `inspect` 共用配置加载；依赖基线对齐 `@ultime/cli ^0.4.0`；API、树与产物不变。
 - 0.11.1：`readSeedFile` 校验对象形状；`inspect` 有 error 诊断时返回 1；`emitTokens` 按平台生成并复用 manifest。

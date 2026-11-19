@@ -183,8 +183,8 @@ importers:
         specifier: ^22.20.5
         version: 22.20.5
       '@ultime/checks':
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.5.0
+        version: 0.5.0
       publint:
         specifier: ^0.3.25
         version: 0.3.25
@@ -863,8 +863,8 @@ packages:
   '@types/node@22.20.5':
     resolution: {integrity: sha512-U2+DNr+wSjpsTS/wZGYHq7GcwfuSmKiKvoPvK22zwTlRhU91yOniN4qRR5KhIjvif7ysw/dz/hKmfDH0Ris4aA==}
 
-  '@ultime/checks@0.3.0':
-    resolution: {integrity: sha512-0arXp70xHWA6iba9YaCctOku7hN8bMhNOH2EMHOS+z6rYdGb2tctGM9DUdAqJNH1JT49RFrXXKki7/l68SuVyA==}
+  '@ultime/checks@0.5.0':
+    resolution: {integrity: sha512-61NFZfTf3bpl/ZZYB/taXEVkWojbavAkKBKIyVD4Hxuqf9O5aWtoGVoRPKdzFXohgyT2biatsYtPlhjSBW3EmQ==}
     engines: {node: '>=22.18'}
     hasBin: true
 
@@ -1971,7 +1971,9 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@ultime/checks@0.3.0': {}
+  '@ultime/checks@0.5.0':
+    dependencies:
+      '@ultime/cli': 0.4.0
 
   '@ultime/cli@0.4.0': {}
 
