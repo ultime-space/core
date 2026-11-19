@@ -15,6 +15,8 @@
 | `@ultime/core/tools` | 统一管线：`resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；产物出口 `exportTokens` / `emitTokens`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值 `THEME_DEFAULTS`；配置校验 / 语义表模板 / `exportSemantics` / `semanticsToCss` | 无文件 IO |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验 / 预览 / 导出；选择：`selectBuild` / `selectTree`；派生：`deriveTree`；渐变判断：`planGradient` | 依赖 `@ultime/studio` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 | 纯函数 |
+| `@ultime/core/checks` | `tokensRule`（规则 ID `core/tokens`）：按 `kernel.json.tiers` 校验字号 / 表面 / 阴影消费 | 规则对象；交给 `@ultime/checks` 运行，core 不内置运行器 |
+| `@ultime/core/utils` | 连续曲率 / 几何 / 采样：`squirclePath` / `squirclePathData` / `cornerGeometry` / `samplePath` / `pathLength` / `pathBounds` / `pathToString` | 纯函数；零 IO / DOM / Node；可在构建脚本与浏览器使用 |
 
 ## 统一出口
 

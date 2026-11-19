@@ -14,6 +14,23 @@ export default {
         warn: ['以前|上一版|旧值|下一轮|待补|待实现|未实现|不再用|TODO|FIXME'],
       },
     },
-    { use: 'doc-set', severity: 'error', options: { packages: ['.'] } },
+    {
+      use: 'doc-set',
+      severity: 'error',
+      options: {
+        packages: ['.'],
+        allowRootDocs: [
+          'README.md',
+          'DESIGN.md',
+          'AGENTS.md',
+          'SKILLS.md',
+          'CHANGELOG.md',
+          'CONTRIBUTING.md',
+          'SECURITY.md',
+          'MIGRATION.md',
+          'CHECKS.md',
+        ],
+      },
+    },
   ],
 }

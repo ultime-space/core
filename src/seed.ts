@@ -153,7 +153,7 @@ export const DEFAULT_SEED: CoreSeed = {
     surface: {
       canvasLight: 'neutral.100',
       canvasDark: 'neutral.950',
-      canvasSymmetry: 1.2,
+      canvasSymmetry: { light: 1.12, dark: 1.28 },
       faceContrast: { card: 1.1, float: 1.14, sunken: 1.07 },
       tintLight: '#FFFFFF',
       tintDark: '#FFFFFF',

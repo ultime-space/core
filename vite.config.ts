@@ -48,6 +48,8 @@ export default defineConfig({
       exporters: at('src/exporters/index.ts'),
       tools: at('src/tools/index.ts'),
       studio: at('src/studio/index.ts'),
+      checks: at('src/checks/index.ts'),
+      utils: at('src/utils/index.ts'),
       cli: at('src/cli/index.ts'),
     },
     format: 'esm',
@@ -61,7 +63,7 @@ export default defineConfig({
     publint: true,
     attw: {
       level: 'error',
-      entrypoints: ['.', './exporters', './studio', './tools', './seed'],
+      entrypoints: ['.', './exporters', './studio', './tools', './seed', './checks', './utils'],
     },
     unused: true,
     outExtensions: () => ({ js: '.js', dts: '.d.ts' }),

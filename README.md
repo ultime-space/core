@@ -182,6 +182,16 @@ color: var(--color-tone-primary-solid-foreground);
 | `@ultime/core/tools` | 统一管线 `resolveThemeConfig` / `exportTheme` / `exportThemeArtifacts`；构建计划 `planProject`；产物出口 `exportTokens` / `emitTokens`；选择 / 派生 `selectBuild` / `selectTree` / `deriveTree`；默认值；配置校验；语义表模板 / `exportSemantics` / `semanticsToCss` |
 | `@ultime/core/studio` | 无头配置器定义：字段 / 预设 / 校验映射 / 预览 / 导出；选择 / 派生 API 由 tools 提供并 re-export；渐变判断：`planGradient` |
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 |
+| `@ultime/core/checks` | `tokensRule`（规则 ID `core/tokens`）：按 `kernel.json.tiers` 校验字号 / 表面 / 阴影消费；交给 `@ultime/checks` 运行 |
+| `@ultime/core/utils` | 连续曲率 / 几何 / 采样：`squirclePath` / `squirclePathData` / `cornerGeometry` / `samplePath` / `pathLength` / `pathBounds` / `pathToString`；纯函数，不进内核树 |
+
+> `@ultime/core/checks` 只导出规则对象，不内置运行器；用法见 [CHECKS.md](./CHECKS.md)。
+> `@ultime/core/utils` 只做设计计算；示例：
+>
+> ```js
+> import { squirclePath } from '@ultime/core/utils'
+> const d = squirclePath({ width: 375, height: 812, radius: 52, smoothing: 0.6 })
+> ```
 
 `planGradient(from, to, { length, bitDepth })` 只做判断：建议插值空间、是否需要中间色标、阶梯纹风险、对比度采样点；经验阈值集中在 `GRADIENT_RULES`，可整体覆盖。它不产 token、不拼 CSS。
 
@@ -293,6 +303,7 @@ packages/core/
 ## 版本与兼容
 
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。
+- 1.0.0（未发布）：破坏性升级；旧 → 新对照与操作清单见 [MIGRATION.md](./MIGRATION.md)。
 - 依赖基线：`@ultime/studio` / `@ultime/cli` 发版后，core 下次发版前更新 lockfile 到最新已发布版本并重建测试；已发布版本不追改。
 - 0.11.2：`build` / `inspect` 共用配置加载；依赖基线对齐 `@ultime/cli ^0.4.0`；API、树与产物不变。
 - 0.11.1：`readSeedFile` 校验对象形状；`inspect` 有 error 诊断时返回 1；`emitTokens` 按平台生成并复用 manifest。

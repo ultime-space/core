@@ -34,6 +34,8 @@
     "theme.example.json",
     "README.md",
     "DESIGN.md",
+    "MIGRATION.md",
+    "CHECKS.md",
     "llms.txt",
     "SKILLS.md",
     "CHANGELOG.md",
@@ -64,6 +66,14 @@
     "./seed": {
       "types": "./dist/seed.d.ts",
       "import": "./dist/seed.js"
+    },
+    "./checks": {
+      "types": "./dist/checks.d.ts",
+      "import": "./dist/checks.js"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.js"
     },
     "./package.json": "./package.json",
     "./theme.example.json": "./theme.example.json",

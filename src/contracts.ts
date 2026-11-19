@@ -367,7 +367,8 @@ export function auditContracts({ seed, tree, skeleton, color, light, motion }: C
           `state.${key}（${mode}）在 surface.canvas 上`,
           +ratio.toFixed(3),
           STATE_TARGETS[key],
-          Math.abs(ratio - STATE_TARGETS[key]) <= 0.01,
+          // 状态目标是「至少拉动多少」；8-bit 合成与 alpha 步长会让结果略高于目标，超过不算偏离。
+          ratio >= STATE_TARGETS[key] - 0.01,
         ),
       )
     }

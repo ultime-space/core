@@ -85,6 +85,16 @@ describe('core · 颜色与光影', () => {
     expect(raised.dark.alpha).toBeLessThan(1)
   })
 
+  it('画布两端取有极性的比值：浅端靠白、深端离黑', () => {
+    expect(DEFAULT_SEED.color.surface.canvasSymmetry).toEqual({ light: 1.12, dark: 1.28 })
+    expect(result.color.tree.surface.canvas.light.hex).toBe('#F2F2F2')
+    expect(result.color.tree.surface.canvas.dark.hex).toBe('#202020')
+
+    const surfaces = result.contracts.rows.filter((row) => row.id === 'color/surface-target')
+    expect(surfaces).toHaveLength(6)
+    expect(surfaces.every((row) => row.pass)).toBe(true)
+  })
+
   it('墨分四档，线分三档，状态有四项', () => {
     expect(Object.keys(result.color.tree.ink)).toEqual(['primary', 'secondary', 'tertiary', 'disabled'])
     expect(Object.keys(result.color.tree.line)).toEqual(['1', '2', '3'])

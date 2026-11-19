@@ -8,6 +8,11 @@
 - 表面原料 `surface.overlay` 改名为 `surface.float`；语义角色 `overlay` 保留并映射到 `color.surface.float`。
 - seed 的 `faceContrast.overlay` / `alpha.*.overlay` 改为 `float`；旧键在 1.0 报错。
 - `theme.example.json`、studio 字段与文档同步到单角度输入。
+- 迁移指南见 [`MIGRATION.md`](./MIGRATION.md)；不提供 0.x 桥接版。
+
+### Changed
+
+- 画布默认从对称比 `1.20` 改为有极性的 `1.12 / 1.28`：浅色画布 `#F2F2F2`、深色画布 `#202020`；两端算术平均仍为 `1.20`，浅色浮层封顶为纯白，`state-target` 按「至少目标 − 0.01」判定。配置器拆成浅 / 深两个滑块；旧数字配置需迁移为 `{ light, dark }`。
 
 ### Added
 
@@ -15,6 +20,8 @@
 - 语义表默认同时产出 `semantics.css` 与 `semantics.json`；新增 `semanticsToCss`，CSS 只引用原料变量。
 - `kernel.json` 新增 `tiers`：按类别列出允许的原子档位路径，不导出语义角色或组合白名单。
 - `schemaVersion` 升到 7.0.0；移除 `engineVersion`，派生实现由 core 包版本表达。
+- `@ultime/core/checks` 子路径导出 `tokensRule`（规则 ID `core/tokens`），交给 `@ultime/checks` 0.5.0+ 运行；core 不内置运行器。
+- `@ultime/core/utils` 子路径：连续曲率、几何与采样纯函数（`squirclePath` / `squirclePathData` / `cornerGeometry` / `samplePath` / `pathLength` / `pathBounds` / `pathToString`）；零 IO / DOM / Node。
 - 单角度光影测试：角度差异、确定性、0 / 360 归一、旧双角度拒绝。
 
 ## 0.11.2 - 2026-11-15
