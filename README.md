@@ -248,7 +248,7 @@ CLI、库 API 与 `core/studio` 都走 `tools/pipeline`：默认配置与自定�
 | `tokens.json` | 生成物 | 树形快照，值与 CSS 同源；模式值输出 `{ light, dark }` |
 | `tokens.dtcg.json` | 生成物 | DTCG 2025.10 交换格式；真正嵌套 group，模式值是 `light` / `dark` 两个 token |
 | `kernel.json` | 生成物 | manifest：schema / engine 版本、seed 与指纹、计数、允许档位 `tiers`、合同摘要、颜色报告 |
-| `dist/*.js` | 构建物 | 库出口：`.` / `./exporters` / `./tools` / `./studio` / `./seed` |
+| `dist/*.js` | 构建物 | 库出口：`.` / `./exporters` / `./tools` / `./studio` / `./seed` / `./checks` / `./utils` |
 
 > 产物随仓库入库，用于 diff 与离线消费；**禁止手改**，改 seed 后重跑构建。
 > `pre-commit` 会重算产物并逐字节比对，拦下「新源码带旧产物」的提交。
