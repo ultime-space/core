@@ -1,7 +1,8 @@
 packages: ['.']
 allowBuilds:
   esbuild: true
-# 仅在 minimumReleaseAge 启用时生效；首次方包与构建工具按作用域放行，不逐版本枚举
+# pnpm 默认 minimumReleaseAge 为 1440 分钟且非严格：未放行时会把回退版本自动追加到本清单。
+# 首次方包与构建工具按作用域放行，避免逐版本枚举。
 minimumReleaseAgeExclude:
   - '@ultime/*'
   - '@voidzero-dev/*'
