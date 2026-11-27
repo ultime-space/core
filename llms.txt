@@ -4,7 +4,7 @@
 
 ## 去哪找
 
-- 怎么用：[README.md](./README.md)
+- 怎么用：[README.md](./README.md)（入口）→ [USAGE.md](./USAGE.md)（完整用法）
 - 从 0.11.x 升级：[MIGRATION.md](./MIGRATION.md)
 - 机检规则：[CHECKS.md](./CHECKS.md)
 - 为什么这样设计：[DESIGN.md](./DESIGN.md)

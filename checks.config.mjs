@@ -21,6 +21,7 @@ export default {
         packages: ['.'],
         allowRootDocs: [
           'README.md',
+          'USAGE.md',
           'DESIGN.md',
           'AGENTS.md',
           'SKILLS.md',
