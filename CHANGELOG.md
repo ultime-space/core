@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2 - 2026-11-27
+
+### Changed
+
+- 包内脚本改为 `vp run` 入口，`prepublishOnly` 与循环检查不再硬依赖 pnpm 二进制；开发者可用任意包管理器通过脚本入口调用。
+- `minimumReleaseAgeExclude` 改用作用域通配（`@ultime/*`、`@voidzero-dev/*`、`vite-plus`），避免 pnpm 逐版本追加放行条目。树、产物与运行时不变。
+
 ## 1.0.1 - 2026-11-27
 
 ### Changed
