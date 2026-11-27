@@ -92,12 +92,12 @@
     "build:tokens:check": "vpx scripts/build.ts --check",
     "build:lib": "vp pack",
     "ultime": "vpx src/cli/index.ts",
-    "check": "vp check && vpx scripts/check-model.ts && vpx scripts/build.ts --check && ultime-checks run && pnpm cycles",
+    "check": "vp check && vpx scripts/check-model.ts && vpx scripts/build.ts --check && ultime-checks run && vp run cycles",
     "checks": "ultime-checks run",
     "cycles": "vp lint --import-plugin --deny=import/no-cycle src scripts",
     "test": "vp test",
     "size": "size-limit --json",
-    "prepublishOnly": "pnpm check && pnpm test && pnpm build",
+    "prepublishOnly": "vp run check && vp run test && vp run build",
     "prepare": "vp config --no-agent"
   },
   "dependencies": {
