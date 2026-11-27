@@ -86,6 +86,7 @@ solveLight({ form: 'concave', depth: 3, mode: 'dark' })
 
 ## 版本与兼容
 
+- 1.0.2：包内脚本改用 `vp run` 入口，去掉对 pnpm 二进制的硬依赖；产物与运行时不变。
 - 1.0.1：README 改为入口卡，完整用法下沉到 [USAGE.md](./USAGE.md)；树、产物与运行时不变。
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。
 - 1.0.0：破坏性升级；旧 → 新对照与操作清单见 [MIGRATION.md](./MIGRATION.md)。
