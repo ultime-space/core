@@ -37,7 +37,7 @@ CLI、库 API 与 `core/studio` 都走这条路径；`planProject` 只作为引�
 `selectBuild(build, selection, derivation)` 在已有 `ProjectBuild` 上过滤类别 / 档位并应用参数化派生，产出定制 tokens；不重新派生，产物不含 `kernel.json`。
 `selectTree(tree, selection)` 是纯过滤入口；`deriveTree(build, derivation)` 是纯派生入口。
 
-- 类别：`skeleton` / `color` / `light` / `motion`；档位枚举与用法见 [`README`](./README.md) §选择与定制产物。
+- 类别：`skeleton` / `color` / `light` / `motion`；档位枚举与用法见 [`USAGE`](./USAGE.md) §统一出口 / 选择与定制产物。
 - 派生只调用 core 引擎函数：目前支持 `light.form`（`flat` / `convex` / `concave`），按 `solveLight` 重算 `highlight` / `shade`，不支持用户 recipe。
 - 未知类别 / 档位、缺失档位、空选择 → `error` 诊断；配置了 `semantics` → `warn`，选择导出不生成 `semantics.json`。
 - 配置器把 `selection` / `derivation` 放在配置根上，可序列化保存；CLI、库 API 与 studio 都能读。
