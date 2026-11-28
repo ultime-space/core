@@ -27,7 +27,7 @@ const walkFiles = (dir: string): string[] => {
   return out
 }
 
-const IMPORT = /(?:from|import)\s*\(?\s*['"]([^'"]+)['"]/g
+const IMPORT = /(?:\sfrom\s+|\bimport\s*\(?\s*)['"]([^'"]+)['"]/g
 const stripComments = (code: string): string => code.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^[ \t]*\/\/.*$/gm, '')
 
 const categoryOf = (rel: string): string | null => {

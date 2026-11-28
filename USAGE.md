@@ -75,7 +75,7 @@ buildCore：schema + derive + check
 - **树只有两种节点**：`token`（`$type` / `$value`）与 `group`；组只做分隔，不承载语义。
 - **类别不是包**：`skeleton` / `color` / `light` / `motion` 是同一棵树里的类别，可按类别整块裁剪。
 - **光影五槽**：`highlight.key` / `highlight.ambient` / `shade.key` / `shadow` / `occlusion`；静态 tokens 只表达 `convex`，`flat` / `concave` 走 `solveLight`。
-- **模式是作用域**：颜色与 `highlight.key` / `shade.key` 的值是 `{ light, dark }`；写进 CSS 时变成值位 + 无后缀开关。
+- **模式是作用域**：颜色与 `highlight.key` / `shade.key` 的值是 `{ light, dark }`；写进 CSS 时变成一条 `light-dark(浅, 深)`。
 - **语义不在树里**：`gap.*` / `type.*` / `border.*` 只写路径，归可选的语义表。
 - **实心面前景独立**：每个色族有 `tone.{族}.solid.foreground`；`ink` 只用于中性面，彩色实心面必须用 `foreground`。
 
@@ -105,13 +105,15 @@ background: var(--color-tone-primary-solid-fill-rest);
 color: var(--color-tone-primary-solid-foreground);
 ```
 
-深色由作用域解析：
+颜色模式由 `color-scheme` 解析：缺省跟随系统，显式选择只改语境。
 
 ```html
-<html data-theme="dark">
+<html data-color-mode="dark">
 ```
 
-- 颜色读无后缀开关；`-light` / `-dark` 是值位，只有主题切换本身才直接读。
+- 颜色读无后缀变量；`light-dark(浅, 深)` 按当前 `color-scheme` 解析，组件不写模式选择器。
+- `data-color-mode` 只表达用户意图（`light` / `dark` / 缺省 auto），不重指 token。
+- JS 读自定义属性拿到 `light-dark(...)` 原文；canvas / 图表 / 导出这类需要具体值的场景要自行解析。
 - 长度类是 `rem`，字距是 `em`，光影是 `px`，行高无单位。
 - `prefers-reduced-motion: reduce` 下时长与延迟归零，循环不归零；循环由组件显式停。
 
@@ -128,6 +130,7 @@ color: var(--color-tone-primary-solid-foreground);
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 |
 | `@ultime/core/checks` | `tokensRule`（规则 ID `core/tokens`）：按 `kernel.json.tiers` 校验字号 / 表面 / 阴影消费；交给 `@ultime/checks` 运行 |
 | `@ultime/core/utils` | 连续曲率 / 几何 / 采样：`squirclePath` / `squirclePathData` / `cornerGeometry` / `samplePath` / `pathLength` / `pathBounds` / `pathToString`；纯函数，不进内核树 |
+| `@ultime/core/motion` | 动效契约与纯函数：`MOTION_STATES` / `MOTION_PHASES` / `MOTION_EVENTS` / `phasesFor` / `revealRadius`；零 DOM / IO / Node |
 
 > `@ultime/core/checks` 只导出规则对象，不内置运行器；用法见 [CHECKS.md](./CHECKS.md)。
 > `@ultime/core/utils` 只做设计计算；示例：

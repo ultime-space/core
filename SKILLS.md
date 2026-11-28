@@ -17,6 +17,7 @@
 | `@ultime/core/seed` | seed 类型 / 默认值 / 深合并 / JSONC / 指纹 | 纯函数 |
 | `@ultime/core/checks` | `tokensRule`（规则 ID `core/tokens`）：按 `kernel.json.tiers` 校验字号 / 表面 / 阴影消费 | 规则对象；交给 `@ultime/checks` 运行，core 不内置运行器 |
 | `@ultime/core/utils` | 连续曲率 / 几何 / 采样：`squirclePath` / `squirclePathData` / `cornerGeometry` / `samplePath` / `pathLength` / `pathBounds` / `pathToString` | 纯函数；零 IO / DOM / Node；可在构建脚本与浏览器使用 |
+| `@ultime/core/motion` | 动效契约与纯函数：`MOTION_STATES` / `MOTION_PHASES` / `MOTION_EVENTS` / `phasesFor` / `revealRadius` | 纯函数；零 IO / DOM / Node |
 
 ## 统一出口
 
