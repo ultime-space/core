@@ -129,7 +129,7 @@ export type DeepPartial<T> = T extends (infer U)[] ? U[] : T extends object ? { 
 
 export type SeedInput = DeepPartial<CoreSeed>
 
-const SEMANTIC_HUES = { danger: 0, warning: 30, success: 150, info: 210 }
+const SEMANTIC_HUES = { danger: 0, warning: 30, success: 150 }
 
 export const DEFAULT_SEED: CoreSeed = {
   color: {

@@ -17,8 +17,7 @@
     "semantics": {
       "danger": 0,
       "warning": 30,
-      "success": 150,
-      "info": 210
+      "success": 150
     },
 
     "neutral": {

@@ -44,9 +44,6 @@
         },
         "success": {
           "hue": 150
-        },
-        "info": {
-          "hue": 210
         }
       },
       "neutral": {
@@ -155,7 +152,7 @@
       }
     }
   },
-  "seedHash": "fnv1a-b8e25605",
+  "seedHash": "fnv1a-c9ce5bac",
   "motion": {
     "easingSource": "family",
     "easing": {
@@ -186,7 +183,7 @@
     }
   },
   "counts": {
-    "total": 274,
+    "total": 239,
     "byCategory": {
       "space": 18,
       "size": 5,
@@ -195,7 +192,7 @@
       "lh": 4,
       "ls": 5,
       "font": 2,
-      "color": 194,
+      "color": 159,
       "shadow": 5,
       "occlusion": 4,
       "highlight": 2,
@@ -304,7 +301,7 @@
     ]
   },
   "contracts": {
-    "total": 133,
+    "total": 121,
     "failed": 0,
     "ids": [
       "space-monotonic",
@@ -345,7 +342,7 @@
   },
   "color": {
     "levels": {
-      "pass": 106
+      "pass": 94
     },
     "report": [
       {
@@ -1470,152 +1467,6 @@
         "mode": "dark",
         "need": 3,
         "pair": "tone.success.bare.line.strong @ surface.raised",
-        "level": "pass"
-      },
-      {
-        "id": "tone-text",
-        "token": "tone.info.soft.ink.base",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 6,
-        "target": 6,
-        "floor": 4.5,
-        "mode": "light",
-        "need": 4.5,
-        "pair": "tone.info.soft.ink.base @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-text-weak",
-        "token": "tone.info.soft.ink.weak",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 5,
-        "target": 5,
-        "floor": 4.5,
-        "mode": "light",
-        "need": 4.5,
-        "pair": "tone.info.soft.ink.weak @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-text-strong",
-        "token": "tone.info.soft.ink.strong",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 7.38,
-        "target": 7.2,
-        "floor": 4.5,
-        "mode": "light",
-        "need": 4.5,
-        "pair": "tone.info.soft.ink.strong @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-foreground",
-        "token": "tone.info.solid.foreground",
-        "against": "tone.info.solid.fill.rest",
-        "ratio": 4.54,
-        "target": 4.5,
-        "floor": 4.5,
-        "mode": "light",
-        "need": 4.5,
-        "pair": "tone.info.solid.foreground @ tone.info.solid.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-border",
-        "token": "tone.info.soft.line.base",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 1.39,
-        "target": 1.38,
-        "floor": 1.2999999999999998,
-        "tolerance": 0.08,
-        "mode": "light",
-        "need": 1.2999999999999998,
-        "pair": "tone.info.soft.line.base @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-strong",
-        "token": "tone.info.bare.line.strong",
-        "against": "surface.raised",
-        "ratio": 4.46,
-        "target": 3,
-        "floor": 3,
-        "mode": "light",
-        "need": 3,
-        "pair": "tone.info.bare.line.strong @ surface.raised",
-        "level": "pass"
-      },
-      {
-        "id": "tone-text",
-        "token": "tone.info.soft.ink.base",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 6.02,
-        "target": 6,
-        "floor": 4.5,
-        "mode": "dark",
-        "need": 4.5,
-        "pair": "tone.info.soft.ink.base @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-text-weak",
-        "token": "tone.info.soft.ink.weak",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 5,
-        "target": 5,
-        "floor": 4.5,
-        "mode": "dark",
-        "need": 4.5,
-        "pair": "tone.info.soft.ink.weak @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-text-strong",
-        "token": "tone.info.soft.ink.strong",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 7.31,
-        "target": 7.2,
-        "floor": 4.5,
-        "mode": "dark",
-        "need": 4.5,
-        "pair": "tone.info.soft.ink.strong @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-foreground",
-        "token": "tone.info.solid.foreground",
-        "against": "tone.info.solid.fill.rest",
-        "ratio": 5.25,
-        "target": 4.5,
-        "floor": 4.5,
-        "mode": "dark",
-        "need": 4.5,
-        "pair": "tone.info.solid.foreground @ tone.info.solid.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-border",
-        "token": "tone.info.soft.line.base",
-        "against": "tone.info.soft.fill.rest",
-        "ratio": 1.34,
-        "target": 1.38,
-        "floor": 1.2999999999999998,
-        "tolerance": 0.08,
-        "mode": "dark",
-        "need": 1.2999999999999998,
-        "pair": "tone.info.soft.line.base @ tone.info.soft.fill.rest",
-        "level": "pass"
-      },
-      {
-        "id": "tone-strong",
-        "token": "tone.info.bare.line.strong",
-        "against": "surface.raised",
-        "ratio": 3.69,
-        "target": 3,
-        "floor": 3,
-        "mode": "dark",
-        "need": 3,
-        "pair": "tone.info.bare.line.strong @ surface.raised",
         "level": "pass"
       },
       {
