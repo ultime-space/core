@@ -239,12 +239,18 @@ describe('core · 合同与出口', () => {
     expect(manifest.counts.total).toBeGreaterThan(0)
   })
 
-  it('CSS 出口：值位 + 开关 + reduce 覆盖', () => {
+  it('CSS 出口：light-dark 一条 + color-scheme 开关 + reduce 覆盖', () => {
     const css = treeToCss(result)
-    expect(css).toContain('--color-surface-canvas-light:')
-    expect(css).toContain('--color-surface-canvas-dark:')
-    expect(css).toContain('--color-surface-canvas: var(--color-surface-canvas-light);')
-    expect(css).toContain('[data-theme="dark"]')
+    expect(css).toContain('--color-surface-canvas: light-dark(#F2F2F2, #202020);')
+    expect(css).toContain('color-scheme: light dark;')
+    expect(css).toContain('[data-color-mode="light"]')
+    expect(css).toContain('[data-color-mode="dark"]')
+    expect(css).not.toContain('--color-surface-canvas-light:')
+    expect(css).not.toContain('--color-surface-canvas-dark:')
+    expect(css).not.toContain('[data-theme="dark"]')
+    const lit = treeToCss(buildCore({ light: { angle: 0 } }))
+    expect(lit).toMatch(/--highlight-key:[^\n]*light-dark\(/)
+    expect(lit).toMatch(/--shade-key:[^\n]*light-dark\(/)
     expect(css).toContain('--motion-duration-1: 0.01ms;')
     expect(css).toContain('--motion-delay-1: 0s;')
     expect(css).not.toContain('--dur-')
