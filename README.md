@@ -86,7 +86,7 @@ solveLight({ form: 'concave', depth: 3, mode: 'dark' })
 
 ## 版本与兼容
 
-- 1.1.0：新增 `@ultime/core/motion` 出口（动效契约常量 + 纯函数，零 DOM / IO）；CSS 出口改为 `light-dark(浅, 深)` + `color-scheme`，删除 `-light` / `-dark` 值位与 `data-theme` 重指块，属破坏性产物变化，迁移见 [MIGRATION.md](./MIGRATION.md) 第一节。
+- 2.0.0：破坏性升级。新增 `@ultime/core/motion` 出口（动效契约常量 + 纯函数，零 DOM / IO）；CSS 出口改为 `light-dark(浅, 深)` + `color-scheme`，删除 `-light` / `-dark` 值位与 `data-theme` 重指块；默认 seed 移除 `info` 语义色族，语义色收敛为 danger / warning / success。迁移见 [MIGRATION.md](./MIGRATION.md) 第一节。
 - 1.0.2：包内脚本改用 `vp run` 入口，去掉对 pnpm 二进制的硬依赖；产物与运行时不变。
 - 1.0.1：README 改为入口卡，完整用法下沉到 [USAGE.md](./USAGE.md)；树、产物与运行时不变。
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。

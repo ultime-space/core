@@ -1,7 +1,7 @@
 # 使用说明
 
 > 定位：`@ultime/core` 的完整用法：统一出口、选择与定制、模型、Web 消费、CLI、产物与目录。
-> 适用版本：1.1.x
+> 适用版本：2.0.x
 > 关系：安装与最小示例见 [README](./README.md)；设计取舍见 [`DESIGN.md`](./DESIGN.md)；迁移见 [`MIGRATION.md`](./MIGRATION.md)；机检见 [`CHECKS.md`](./CHECKS.md)。
 
 ## 统一出口
