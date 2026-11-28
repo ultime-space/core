@@ -67,4 +67,19 @@ export interface MotionDeps {
   phaseAttr: string
   motionAttr: string
   limit: number
+  duration: number
+}
+
+/** 打断决策的输入：当前相位、新动作、是否减少动效。 */
+export interface InterruptInput {
+  current: MotionPhase | null
+  next: MotionAction
+  reduced: boolean
+}
+
+/** 打断决策的输出：是否播动画、是否派取消事件、代数是否递增。 */
+export interface InterruptDecision {
+  animate: boolean
+  notifyCancel: boolean
+  bump: boolean
 }

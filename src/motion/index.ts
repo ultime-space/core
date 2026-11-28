@@ -11,7 +11,17 @@ export type {
   MotionDirection,
   MotionDriver,
   MotionEventDetail,
+  InterruptDecision,
+  InterruptInput,
   MotionPhase,
   MotionState,
 } from './contracts'
-export { equivalentVisual, phaseDirection, phasesFor, revealRadius, targetState } from './derive'
+export {
+  equivalentVisual,
+  interruptDecision,
+  isStale,
+  phaseDirection,
+  phasesFor,
+  revealRadius,
+  targetState,
+} from './derive'

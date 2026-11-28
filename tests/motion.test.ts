@@ -4,6 +4,8 @@ import {
   MOTION_PHASES,
   MOTION_STATES,
   equivalentVisual,
+  interruptDecision,
+  isStale,
   phaseDirection,
   phasesFor,
   revealRadius,
@@ -37,5 +39,49 @@ describe('@ultime/core/motion · 纯契约', () => {
   it('揭示半径覆盖视口最远角', () => {
     expect(revealRadius(0, 0, 300, 400)).toBe(500)
     expect(revealRadius(150, 200, 300, 400)).toBe(250)
+  })
+})
+
+describe('@ultime/core/motion · 可打断判定', () => {
+  it('无在途相位时播动画，不派取消', () => {
+    expect(interruptDecision({ current: null, next: 'enter', reduced: false })).toEqual({
+      animate: true,
+      notifyCancel: false,
+      bump: true,
+    })
+  })
+
+  it('同向在途不重复播，也不递增代数', () => {
+    expect(interruptDecision({ current: MOTION_PHASES.ENTER_TO, next: 'enter', reduced: false })).toEqual({
+      animate: false,
+      notifyCancel: false,
+      bump: false,
+    })
+  })
+
+  it('反向在途先取消再接续', () => {
+    expect(interruptDecision({ current: MOTION_PHASES.ENTER_TO, next: 'leave', reduced: false })).toEqual({
+      animate: true,
+      notifyCancel: true,
+      bump: true,
+    })
+  })
+
+  it('减少动效直接落位，不派取消（无在途时）', () => {
+    expect(interruptDecision({ current: null, next: 'leave', reduced: true })).toEqual({
+      animate: false,
+      notifyCancel: false,
+      bump: true,
+    })
+    expect(interruptDecision({ current: MOTION_PHASES.LEAVE_TO, next: 'enter', reduced: true })).toEqual({
+      animate: false,
+      notifyCancel: false,
+      bump: true,
+    })
+  })
+
+  it('代数判定旧轮是否失效', () => {
+    expect(isStale(3, 4)).toBe(true)
+    expect(isStale(4, 4)).toBe(false)
   })
 })
