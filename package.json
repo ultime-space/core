@@ -72,6 +72,10 @@
       "types": "./dist/checks.d.ts",
       "import": "./dist/checks.js"
     },
+    "./motion": {
+      "types": "./dist/motion.d.ts",
+      "import": "./dist/motion.js"
+    },
     "./utils": {
       "types": "./dist/utils.d.ts",
       "import": "./dist/utils.js"
