@@ -183,8 +183,8 @@ importers:
         specifier: ^22.20.5
         version: 22.20.5
       '@ultime/checks':
-        specifier: ^0.6.1
-        version: 0.6.1
+        specifier: ^0.6.2
+        version: 0.6.2
       publint:
         specifier: ^0.3.25
         version: 0.3.25
@@ -885,14 +885,10 @@ packages:
   '@types/node@22.20.5':
     resolution: {integrity: sha512-U2+DNr+wSjpsTS/wZGYHq7GcwfuSmKiKvoPvK22zwTlRhU91yOniN4qRR5KhIjvif7ysw/dz/hKmfDH0Ris4aA==}
 
-  '@ultime/checks@0.6.1':
-    resolution: {integrity: sha512-h/TcPXPLgdAX6HMEu3KTO76YRUcmUS/pNwUdue/yFqZpzs5BtgPfUe5STfB9neqtxUF02O+ikT3aVWzNEbMBYg==}
+  '@ultime/checks@0.6.2':
+    resolution: {integrity: sha512-P2gfBecwjQSnpcDLsYX9MDdsNOL0QMGISDu1UZ3HDngPmxVC7Jj4hJuENToJ9k7vk1OouvDJ5zN79IEfS2QraA==}
     engines: {node: '>=22.18'}
     hasBin: true
-
-  '@ultime/cli@0.5.0':
-    resolution: {integrity: sha512-z+g43tV9jLwwDti6o7U1TUMvcuS/USMVUoihMSCtod0e4crdro3j9bth9+7XR/CAmp76MxAZj9agorAm+B2iHQ==}
-    engines: {node: '>=22.18'}
 
   '@ultime/cli@0.5.1':
     resolution: {integrity: sha512-u/lkc+hUirJDZmC6DqWlOcsR4zTuMVB8SiUuk6nlXq3+rM9uSZpjQp9ciN+lmpxbfH6qfvE1RcOeuQLILwHQzw==}
@@ -2006,11 +2002,9 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@ultime/checks@0.6.1':
+  '@ultime/checks@0.6.2':
     dependencies:
-      '@ultime/cli': 0.5.0
-
-  '@ultime/cli@0.5.0': {}
+      '@ultime/cli': 0.5.1
 
   '@ultime/cli@0.5.1': {}
 

@@ -6,9 +6,9 @@
  *   · ls → em；lh → 无单位；
  *   · shadow / occlusion / highlight / shade / 描边 → px（不 rem 化）。
  *
- * 模式值写成「两个值位 + 一个开关」：
- *   --color-surface-canvas-light / -dark / --color-surface-canvas
- * 深色块只换开关指向，不复制值。
+ * 模式值写成一条 `light-dark(浅, 深)`：
+ *   --color-surface-canvas: light-dark(#F2F2F2, #202020);
+ * 颜色与光影只在颜色分量表达两端；不再输出 -light / -dark 值位与暗色重指块。
  *
  * reduce：duration → 0.01ms、delay → 0s；loop 不归零，由组件显式停。
  */
@@ -76,14 +76,55 @@ function shadowColor(value: ColorValue, inkHex?: string): string {
   return cssColor(value)
 }
 
-function cssShadow(layers: ShadowLayerValue[], inkHex?: string): string {
+function cssShadow(layers: ShadowLayerValue[], inkHex?: string, darkLayers?: ShadowLayerValue[]): string {
   if (!layers.length) return 'none'
   return layers
-    .map((layer) => {
+    .map((layer, index) => {
       const head = `${layer.inset ? 'inset ' : ''}${layer.offsetX.value}px ${layer.offsetY.value}px ${layer.blur.value}px ${layer.spread.value}px`
-      return `${head} ${shadowColor(layer.color, inkHex)}`
+      const light = shadowColor(layer.color, inkHex)
+      const dark = darkLayers?.[index] ? shadowColor(darkLayers[index]!.color, inkHex) : undefined
+      return `${head} ${dark ? lightDark(light, dark) : light}`
     })
     .join(', ')
+}
+
+/** 阴影几何恒定；深浅只在颜色分量成对，结构不同视为设计错误。 */
+function assertSameShadowGeometry(path: string[], light: ShadowValue, dark: ShadowValue): void {
+  const name = `--${path.join('-')}`
+  if (light.length !== dark.length) throw new Error(`${name}: 深浅阴影层数不同`)
+  light.forEach((layer, index) => {
+    const other = dark[index]!
+    const same =
+      layer.inset === other.inset &&
+      layer.offsetX.value === other.offsetX.value &&
+      layer.offsetY.value === other.offsetY.value &&
+      layer.blur.value === other.blur.value &&
+      layer.spread.value === other.spread.value
+    if (!same) throw new Error(`${name}: 深浅阴影几何不同，模式差异只能存在于颜色分量`)
+  })
+}
+
+function lightDark(light: string, dark: string): string {
+  return `light-dark(${light}, ${dark})`
+}
+
+/** 模式值 → 一条 CSS 声明；嵌套的 var() 保持原样，交给浏览器解析。 */
+function cssModeValue(
+  path: string[],
+  token: Token,
+  pair: ModeValue<ColorValue | ShadowValue>,
+  inkHex?: string,
+): string {
+  if (token.$type === 'color') {
+    return lightDark(cssColor(pair.light as ColorValue), cssColor(pair.dark as ColorValue))
+  }
+  if (token.$type === 'shadow') {
+    const light = pair.light as ShadowValue
+    const dark = pair.dark as ShadowValue
+    assertSameShadowGeometry(path, light, dark)
+    return cssShadow(light, inkHex, dark)
+  }
+  throw new Error(`--${path.join('-')}: ${token.$type} 不支持模式值`)
 }
 
 /** 单个 token 值 → CSS 文本。 */
@@ -126,7 +167,7 @@ const SECTION_TITLES: Record<string, string> = {
   lh: '行高',
   ls: '字距',
   font: '字体栈',
-  color: '颜色（模式值：两个值位 + 一个开关）',
+  color: '颜色（模式值：light-dark 一条）',
   shadow: 'Scene 阴影（4 档 · 三槽位）',
   occlusion: '环境光遮蔽（4 档 · 单层）',
   highlight: '高光（key / ambient）',
@@ -145,7 +186,7 @@ function header(): string {
    定位：平台无关的原料快照；语义名（gap.* / type.* / border.*）属于语义表，
         不在本文件。角色与编排归上层，core 不定义用途。
    单位：space / size / radius / fs → rem；ls → em；lh → 无单位；光影 → px。
-   模式：颜色与 highlight.key / shade.key 使用 -light / -dark 值位；无后缀变量是跨模式开关。
+   模式：颜色与 highlight.key / shade.key 写成 light-dark(浅, 深)；无后缀变量就是唯一取值。
    reduce：duration → 0.01ms、delay → 0s；loop 不归零，由组件显式停。
    ============================================================================ */`
 }
@@ -166,7 +207,6 @@ export function treeToCss(result: CoreResult, { include }: CssOptions = {}): str
   const [inkR, inkG, inkB] = parseHex(inkHex)
 
   const rootLines: string[] = []
-  const darkLines: string[] = []
   let current = ''
 
   for (const { path, token } of flat) {
@@ -179,11 +219,7 @@ export function treeToCss(result: CoreResult, { include }: CssOptions = {}): str
     const value = token.$value
     if (isModeValue(value) && (token.$type === 'color' || token.$type === 'shadow')) {
       const pair = value as ModeValue<ColorValue | ShadowValue>
-      const options = { shadowInkHex: inkHex }
-      rootLines.push(`  ${name}-light: ${cssValue(path, { ...token, $value: pair.light } as Token, options)};`)
-      rootLines.push(`  ${name}-dark: ${cssValue(path, { ...token, $value: pair.dark } as Token, options)};`)
-      rootLines.push(`  ${name}: var(${name}-light);`)
-      darkLines.push(`  ${name}: var(${name}-dark);`)
+      rootLines.push(`  ${name}: ${cssModeValue(path, token, pair, inkHex)};`)
     } else {
       rootLines.push(`  ${name}: ${cssValue(path, token, { shadowInkHex: inkHex })};`)
     }
@@ -200,14 +236,17 @@ export function treeToCss(result: CoreResult, { include }: CssOptions = {}): str
   return `${header()}
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
 ${rootLines.join('\n')}
 }
 
-/* 深色：只换开关指向；两端值位都在 :root。 */
-[data-theme="dark"] {
+/* 显式选择只改语境；light-dark() 的取值随 color-scheme 解析。 */
+[data-color-mode="light"] {
+  color-scheme: light;
+}
+
+[data-color-mode="dark"] {
   color-scheme: dark;
-${darkLines.join('\n')}
 }
 
 /* 减少动效：时长与延迟瞬时切换；loop 不归零，循环由组件显式停。 */

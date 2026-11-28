@@ -173,8 +173,8 @@ describe('studio · core 配置器', () => {
     const css = files.find((file) => file.path.endsWith('tokens.css'))!.content
 
     expect(files.some((file) => file.path.endsWith('kernel.json'))).toBe(false)
-    expect(css).toContain('--highlight-key-light: none')
-    expect(css).toContain('--shade-key-light: none')
+    expect(css).toContain('--highlight-key: none')
+    expect(css).toContain('--shade-key: none')
 
     const inspected = themeStudio.inspect?.(config) as
       | { custom?: boolean; diagnostics?: Array<{ code: string }> }

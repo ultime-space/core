@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.1.0 - 2026-11-28
+
+### Breaking
+
+- CSS 出口从 `-light` / `-dark` 值位 + `[data-theme="dark"]` 重指块，改为 `light-dark(浅, 深)` 一条 + `color-scheme` 开关；`data-color-mode` 只表达用户意图，不重指 token。
+- 深色写法改为 `<html data-color-mode="dark">`；auto 不写属性，根 `color-scheme: light dark` 跟随系统。
+- 光影模式值只在颜色分量成对；深浅阴影几何不同会在构建期报错。
+
+### Added
+
+- 新增 `@ultime/core/motion` 出口：契约常量 `MOTION_ATTRS` / `MOTION_STATES` / `MOTION_PHASES` / `MOTION_DIRECTIONS` / `MOTION_EVENTS`，纯函数 `targetState` / `phasesFor` / `phaseDirection` / `equivalentVisual` / `revealRadius` / `interruptDecision` / `isStale`，以及驱动与判定类型。零 DOM / IO / Node，可在构建脚本、Node 与浏览器运行。
+
+### Changed
+
+- JS 读自定义属性得到 `light-dark(...)` 原文；需要具体值的消费方须自行解析。
+- 非 Web 出口按平台能力映射为双值变量；不提供双份声明兜底。
+
 ## 1.0.2 - 2026-11-27
 
 ### Changed

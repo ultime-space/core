@@ -27,7 +27,7 @@
 pnpm add @ultime/core
 ```
 
-Node.js >= 22.18。内核的 `.` / `./exporters` / `./tools` / `./seed` 出口是编译后的 JS，零第三方依赖；
+Node.js >= 22.18。内核的 `.` / `./exporters` / `./tools` / `./seed` / `./motion` 出口是编译后的 JS，零第三方依赖；
 `./studio` 出口（配置器）依赖 `@ultime/studio`，`ultime-core` bin 依赖 `@ultime/cli`；不用配置器 / CLI 时不会进入你的产物。
 
 所有出口 **ESM-only**：用 `import` / `import()` 消费，不提供 `require` 入口；类型来自 `dist/*.d.ts`，包体不含 `src/`。
@@ -67,7 +67,7 @@ solveLight({ form: 'concave', depth: 3, mode: 'dark' })
 | 本页 | 安装、最小可跑、边界与版本 |
 | [USAGE](./USAGE.md) | 完整用法：统一出口、定制、模型、Web 消费、CLI、产物与目录 |
 | [DESIGN](./DESIGN.md) | 为什么这样设计 |
-| [MIGRATION](./MIGRATION.md) | 从 0.11.x 升级到 1.0 |
+| [MIGRATION](./MIGRATION.md) | 跨版本迁移：1.0.x → 1.1、0.11.x → 1.0 |
 | [CHECKS](./CHECKS.md) | 合同与机检 |
 
 ## 边界
@@ -86,6 +86,7 @@ solveLight({ form: 'concave', depth: 3, mode: 'dark' })
 
 ## 版本与兼容
 
+- 1.1.0：新增 `@ultime/core/motion` 出口（动效契约常量 + 纯函数，零 DOM / IO）；CSS 出口改为 `light-dark(浅, 深)` + `color-scheme`，删除 `-light` / `-dark` 值位与 `data-theme` 重指块，属破坏性产物变化，迁移见 [MIGRATION.md](./MIGRATION.md) 第一节。
 - 1.0.2：包内脚本改用 `vp run` 入口，去掉对 pnpm 二进制的硬依赖；产物与运行时不变。
 - 1.0.1：README 改为入口卡，完整用法下沉到 [USAGE.md](./USAGE.md)；树、产物与运行时不变。
 - 包版本按 semver；`kernel.json` 里的 `schemaVersion` 描述树与合同字段的兼容面；派生实现由包版本表达，不再单独维护 `engineVersion`。
