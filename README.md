@@ -30,7 +30,7 @@ pnpm add @ultime/core
 Node.js >= 22.18。内核的 `.` / `./exporters` / `./tools` / `./seed` / `./motion` 出口是编译后的 JS，零第三方依赖；
 `./studio` 出口（配置器）依赖 `@ultime/studio`，`ultime-core` bin 依赖 `@ultime/cli`；不用配置器 / CLI 时不会进入你的产物。
 
-所有出口 **ESM-only**：用 `import` / `import()` 消费，不提供 `require` 入口；类型来自 `dist/*.d.ts`，包体不含 `src/`。
+所有出口 **ESM-only**：用 `import` / `import()` 消费，不提供 `require` 入口（CJS 脚本里写 `await import('@ultime/core')`，`require` 会抛 `ERR_PACKAGE_PATH_NOT_EXPORTED`）；类型来自 `dist/*.d.ts`，包体不含 `src/`。
 
 ## 快速开始
 
