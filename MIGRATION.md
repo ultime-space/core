@@ -1,10 +1,10 @@
 # 迁移指南
 
 > 定位：跨版本的破坏性变更与操作清单，按版本倒序；1.0 起不提供旧版桥接。
-> 适用版本：`@ultime/core` 1.1.x
+> 适用版本：`@ultime/core` 2.0.x
 > 关系：变更摘要见 [CHANGELOG](./CHANGELOG.md)，架构与出口见 [README](./README.md)，机检规则见 [CHECKS](./CHECKS.md)（运行器为 [`@ultime/checks`](https://www.npmjs.com/package/@ultime/checks)）。
 
-## 一、1.0.x → 1.1：深浅模式机制收敛
+## 一、1.0.x → 2.0：深浅模式与语义色收敛
 
 **机制变化**
 
@@ -13,15 +13,17 @@
 - 组件不写模式选择器；局部反色声明 `color-scheme: dark`，内部仍消费同一套 token。
 - JS 读 `--color-*` 得到 `light-dark(...)` 原文；canvas / 图表 / 导出这类需要具体值的场景须自行解析。
 - 非 Web 出口按平台能力映射为双值变量；不支持 `light-dark()` 的目标要么提高基线，要么整个 Web 出口退回值位，不做双份声明兜底。
+- 默认 seed 不再产出 `info` 语义色族：`--color-tone-info-*` 共 34 个 token 与对应的 12 条对比度合同消失，语义色只剩 danger / warning / success 三族。语义色族本身是开放扩展，需要 info 的项目自行声明。
 
 **操作清单**
 
-1. 更新 `@ultime/core` 到 `1.1.x`，重新安装并更新 lockfile。
+1. 更新 `@ultime/core` 到 `2.0.x`，重新安装并更新 lockfile。
 2. 全局搜索 `--color-*-light` / `--color-*-dark`（含 `highlight-key` / `shade-key`）的读取点：改为读无后缀变量。
 3. 全局搜索 `data-theme="dark"`：改为 `data-color-mode="dark"`；需要「跟随系统」时不写属性。
 4. 需要具体色值的脚本（canvas、图表、导出、内联 SVG）：自己解析 `light-dark(浅, 深)`，不假定 `getPropertyValue` 返回颜色。
 5. 局部反色容器（深色卡片 / hero / 设计稿 stage）：声明 `color-scheme`，不要重指 token。
-6. 重跑构建更新 `tokens.css` 等产物；跑下游 `check` / `test`，确认没有残留值位读取。
+6. 处理 info：需要保留就在 seed 的 `color.semantics` 里加回 `"info": 210` 并重建；不需要则清理 `--color-tone-info-*` 的引用点，信息类提示改用 `primary` 或自定义语义族。
+7. 重跑构建更新 `tokens.css` 等产物；跑下游 `check` / `test`，确认没有残留值位读取与 info 引用。
 
 ## 二、0.11.x → 1.0
 

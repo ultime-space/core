@@ -1,11 +1,14 @@
 # Changelog
 
-## 1.1.0 - 2026-11-28
+## 2.0.0 - 2026-11-28
+
+破坏性升级：CSS 出口改为 `light-dark()`，默认 seed 移除 `info` 语义色族。两处都是消费侧可见的断裂，走 major。
 
 ### Breaking
 
 - CSS 出口从 `-light` / `-dark` 值位 + `[data-theme="dark"]` 重指块，改为 `light-dark(浅, 深)` 一条 + `color-scheme` 开关；`data-color-mode` 只表达用户意图，不重指 token。
 - 深色写法改为 `<html data-color-mode="dark">`；auto 不写属性，根 `color-scheme: light dark` 跟随系统。
+- 默认 seed 移除 `info` 语义色族：`color.semantics.info`、34 个 `--color-tone-info-*` token 与 `kernel.json` 中 related 的 12 条对比度合同一并消失；语义色由四族（danger / warning / success / info）收敛为三族。需要保留 info 的项目在 seed 里自行声明 `"info": 210`，语义色族本就开放扩展。
 - 光影模式值只在颜色分量成对；深浅阴影几何不同会在构建期报错。
 
 ### Added
@@ -16,6 +19,7 @@
 
 - JS 读自定义属性得到 `light-dark(...)` 原文；需要具体值的消费方须自行解析。
 - 非 Web 出口按平台能力映射为双值变量；不提供双份声明兜底。
+- 默认产物规模：token 274 → 239 条、对比度合同 133 → 121 条；`kernel.json` 的 `schemaVersion` 仍为 `7.0.0`，结构未变。
 
 ## 1.0.2 - 2026-11-27
 
